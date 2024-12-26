@@ -1,0 +1,24 @@
+---
+name: '👶 Feature request'
+description: 'Request to add new feature'
+labels: ['request:feature']
+title: '[Feature] '
+body:
+  - type: textarea
+    attributes:
+      label: 'Feature:'
+      description: |
+        Please describe the feature you would like to see added.
+        If you have a specific implementation in mind, please describe it.
+      placeholder: 'I would like to see a feature for `stuff`.'
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 'Purpose:'
+      description: 'What does the feature do?  How is it used?  How is it useful?'
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 'More information:'

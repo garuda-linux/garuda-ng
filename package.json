@@ -17,6 +17,7 @@
   "license": "GPL-3.0-or-later",
   "author": "Filip Myslinski",
   "scripts": {
+    "build": "nx run-many --target=build --all",
     "commit": "cz",
     "format": "prettier -w .",
     "lint": "nx run-many --target=lint --all --fix",

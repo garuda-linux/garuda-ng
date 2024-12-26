@@ -1,0 +1,44 @@
+---
+name: '🐛 Report bugs'
+description: 'Report bugs'
+labels: ['bug:misc']
+title: '[Bug] '
+body:
+  - type: textarea
+    attributes:
+      label: 'Description:'
+      description: |
+        Give a brief description of the issue. What's happening?
+      placeholder: 'Feature `stuff` is not working.'
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: 'Version'
+      placeholder: '`1.0.0`'
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 'What happens?'
+      description: |
+        This is the place to describe what's happening.
+        If applicable, include steps to replicate.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 'What is expected to happen?'
+      description: |
+        This is the place to describe what's expected.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 'Logs'
+      description: |
+        If available, include logs, e.g. from the browser console.
+      placeholder: 'No logs available.'
+  - type: textarea
+    attributes:
+      label: 'More information'
