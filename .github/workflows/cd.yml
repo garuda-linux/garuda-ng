@@ -8,7 +8,7 @@ on:
     branches: '[0-9]+.[0-9]+.[0-9]+'
 jobs:
   changelog:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     permissions:
       contents: write
     steps:
@@ -53,15 +53,20 @@ jobs:
           GITHUB_REPO: ${{ github.repository }}
           OUTPUT: CHANGES.md
 
+      - name: Get current tag
+        id: get_tag
+        run: echo "version=$(git describe --abbrev=0 --tags)" >> "$GITHUB_ENV"
+
       - name: Create release
         uses: softprops/action-gh-release@v2
         with:
           body_path: CHANGES.md
           fail_on_unmatched_files: true
+          tag_name: ${{ steps.get_tag.outputs.version }}
           token: ${{ secrets.GITHUB_TOKEN }}
 
   publish:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
     steps:

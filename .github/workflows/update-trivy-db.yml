@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 jobs:
   update-trivy-db:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Setup oras
         uses: oras-project/setup-oras@v1
