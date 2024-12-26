@@ -82,3 +82,12 @@ jobs:
           TRIVY_DISABLE_VEX_NOTICE: true
           TRIVY_SKIP_DB_UPDATE: true
           TRIVY_SKIP_JAVA_DB_UPDATE: true
+
+  check_new_dependencies:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request' }}
+    steps:
+      - name: Check for new dependencies
+        uses: hiwelo/new-dependencies-action@1.0.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
