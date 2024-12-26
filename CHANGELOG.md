@@ -17,6 +17,7 @@
 
 ### 📚 Documentation
 
+- *(changelog.md)* Update - ([0931c0d](https://github.com/FilipTLW/garuda-ng/commit/0931c0dce78203bf8a02a21c8560dfab2e66c49c))
 - *(changelog.md)* Update - ([99906e1](https://github.com/FilipTLW/garuda-ng/commit/99906e1d7435bb4c3485b9d2481e3ed6b28f816f))
 
 ### 🎨 Styling
@@ -27,6 +28,7 @@
 
 - *(config)* Migrate config renovate.json - ([7f86ea1](https://github.com/FilipTLW/garuda-ng/commit/7f86ea167c576b2194b591a5b5a0ca3203c17f82))
 - *(package.json)* Sort via sort-package-json - ([8606cb4](https://github.com/FilipTLW/garuda-ng/commit/8606cb4797d3fdfe060bc53f6de5bf86dc27c626))
+- Attempt fixing pnpm publish - ([c38c57e](https://github.com/FilipTLW/garuda-ng/commit/c38c57ed5193874a3a8423903b8f9db51311964d))
 - Made core publishable - ([3135d2b](https://github.com/FilipTLW/garuda-ng/commit/3135d2b5ef20cfed4c1d28979eb5babe40deca94))
 - Disable nx-managed package updates and apply recommended configs - ([563901e](https://github.com/FilipTLW/garuda-ng/commit/563901e1c78b58b0ba72647b06b70ad4dde32781))
 - Add deploy key for updating README - ([c37b353](https://github.com/FilipTLW/garuda-ng/commit/c37b353bd94b0a1469c62f07f3031477172022e1))
@@ -50,8 +52,8 @@
 
 ## New Contributors ❤️
 
-* @FilipTLW made their first contribution in [#13](https://github.com/FilipTLW/garuda-ng/pull/13)
+* @FilipTLW made their first contribution in [#15](https://github.com/FilipTLW/garuda-ng/pull/15)
 * @dr460nf1r3 made their first contribution
-* @renovate[bot] made their first contribution
 * @temeraire-cx made their first contribution
+* @renovate[bot] made their first contribution
 
