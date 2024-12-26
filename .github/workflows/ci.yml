@@ -1,0 +1,61 @@
+---
+name: 'Run tests'
+on:
+  push:
+    branches: ['*']
+  pull_request:
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v16
+        with:
+          extra-conf: |
+            accept-flake-config = true
+          diagnostic-endpoint: ''
+
+      - name: Nix cache
+        uses: DeterminateSystems/magic-nix-cache-action@main
+
+      - name: Run linters via pre-commit
+        run: nix develop -c pre-commit run --all-files
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Nx stuff
+        uses: nrwl/nx-set-shas@v4
+
+      - name: Run e2e tests (not failing for now)
+        run: pnpm exec nx affected -t test build e2e-ci || true
