@@ -1,0 +1,56 @@
+---
+name: 'Release management'
+on:
+  push:
+    tags: ['*']
+jobs:
+  changelog:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set Git User Info
+        run: |
+          git config user.name 'Temeraire'
+          git config user.email 'actions@chaotic.cx'
+
+      - name: Generate a complete changelog
+        uses: orhun/git-cliff-action@v4
+        with:
+          config: cliff.toml
+          args: -v --no-exec --github-repo ${{ github.repository }}
+        env:
+          OUTPUT: CHANGELOG.md
+
+      - name: Commit changelog
+        run: |
+          git checkout main
+          git config user.name 'Temeraire'
+          git config user.email 'actions@chaotic.cx'
+          git add CHANGELOG.md
+          git commit -m "docs(changelog.md): update"
+          git push "https://${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git" main
+
+      - name: Generate a changelog for the latest release
+        uses: orhun/git-cliff-action@v4
+        with:
+          config: cliff.toml
+          args: -v --no-exec --github-repo ${{ github.repository }} --latest --strip header
+        env:
+          GITHUB_REPO: ${{ github.repository }}
+          OUTPUT: CHANGES.md
+
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          body_path: CHANGES.md
+          fail_on_unmatched_files: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish to NPM
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: pnpm publish
