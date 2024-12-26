@@ -31,6 +31,12 @@
       "groupName": "Nx-managed dependencies",
       "groupSlug": "nx-managed",
       "matchPackageNames": ["@angular/**", "@angular-devkit/**", "@nx/**"]
+    },
+    {
+      "enabled": false,
+      "groupName": "Typescript",
+      "groupSlug": "typescript",
+      "matchPackageNames": ["typescript"]
     }
   ],
   "reviewersFromCodeOwners": true
