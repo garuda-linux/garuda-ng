@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { ShellComponent } from '@garuda/core';
+import { ShellComponent } from '@garudalinux/core';
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -16,6 +16,6 @@ export class AppComponent {
     },
     {
       label: 'test2',
-    }
+    },
   ];
 }
