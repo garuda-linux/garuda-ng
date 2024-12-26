@@ -17,6 +17,7 @@
 
 ### 📚 Documentation
 
+- *(changelog.md)* Update - ([4a53bf3](https://github.com/FilipTLW/garuda-ng/commit/4a53bf3789720606dbcc9036da85b2e992e60d36))
 - *(changelog.md)* Update - ([8aa1869](https://github.com/FilipTLW/garuda-ng/commit/8aa18693312ae20849c9085c65cb0a7e94f2d923))
 - *(changelog.md)* Update - ([0931c0d](https://github.com/FilipTLW/garuda-ng/commit/0931c0dce78203bf8a02a21c8560dfab2e66c49c))
 - *(changelog.md)* Update - ([99906e1](https://github.com/FilipTLW/garuda-ng/commit/99906e1d7435bb4c3485b9d2481e3ed6b28f816f))
@@ -29,6 +30,7 @@
 
 - *(config)* Migrate config renovate.json - ([7f86ea1](https://github.com/FilipTLW/garuda-ng/commit/7f86ea167c576b2194b591a5b5a0ca3203c17f82))
 - *(package.json)* Sort via sort-package-json - ([8606cb4](https://github.com/FilipTLW/garuda-ng/commit/8606cb4797d3fdfe060bc53f6de5bf86dc27c626))
+- Yet another attempt to fix npm publish - ([729313a](https://github.com/FilipTLW/garuda-ng/commit/729313a8af69d9a3f1159d06010b7fef967f26ef))
 - Supply latest tag to create release, update ubuntu runner - ([0a903ac](https://github.com/FilipTLW/garuda-ng/commit/0a903ac00c9b89022b201c0aa9bc54507c1409c9))
 - Another attempt to fix npm publish - ([a58450e](https://github.com/FilipTLW/garuda-ng/commit/a58450ee6dda27a73b2f81fc7369b5330623c9af))
 - Attempt fixing pnpm publish - ([c38c57e](https://github.com/FilipTLW/garuda-ng/commit/c38c57ed5193874a3a8423903b8f9db51311964d))
@@ -55,8 +57,8 @@
 
 ## New Contributors ❤️
 
-* @FilipTLW made their first contribution in [#16](https://github.com/FilipTLW/garuda-ng/pull/16)
-* @dr460nf1r3 made their first contribution
+* @FilipTLW made their first contribution in [#17](https://github.com/FilipTLW/garuda-ng/pull/17)
 * @temeraire-cx made their first contribution
+* @dr460nf1r3 made their first contribution
 * @renovate[bot] made their first contribution
 
