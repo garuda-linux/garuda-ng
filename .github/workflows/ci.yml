@@ -10,7 +10,7 @@ on:
   pull_request:
 jobs:
   lint:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     if: ${{ github.event_name != 'schedule' }}
     steps:
       - name: Checkout
@@ -42,7 +42,7 @@ jobs:
         run: nix develop -c pre-commit run --all-files
 
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     if: ${{ github.event_name != 'schedule' }}
     steps:
       - name: Checkout
@@ -67,7 +67,7 @@ jobs:
         run: pnpm exec nx affected -t test build e2e-ci || true
 
   scan:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@0.28.0
@@ -85,7 +85,7 @@ jobs:
           TRIVY_SKIP_DB_UPDATE: true
           TRIVY_SKIP_JAVA_DB_UPDATE: true
 
-  check_new_dependencies:
+  check_deps:
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'pull_request' }}
     steps:
