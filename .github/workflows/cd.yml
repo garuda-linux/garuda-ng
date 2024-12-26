@@ -9,11 +9,15 @@ on:
 jobs:
   changelog:
     runs-on: ubuntu-22.04
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          persist-credentials: true
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
 
       - name: Set git user info
         run: |
@@ -31,11 +35,14 @@ jobs:
       - name: Commit changelog
         run: |
           git checkout main
-          git config user.name 'Temeraire'
-          git config user.email 'actions@chaotic.cx'
           git add CHANGELOG.md
           git commit -m "docs(changelog.md): update"
-          git push "https://${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git" main
+
+      - name: Push changes
+        uses: ad-m/github-push-action@v0.8.0
+        with:
+          ssh: true
+          branch: ${{ github.ref }}
 
       - name: Generate a changelog for the latest release
         uses: orhun/git-cliff-action@v4
@@ -55,6 +62,8 @@ jobs:
 
   publish:
     runs-on: ubuntu-22.04
+    permissions:
+      contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v4
