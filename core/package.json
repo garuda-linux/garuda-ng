@@ -16,19 +16,11 @@
   },
   "license": "GPL-3.0-or-later",
   "author": "Filip Myslinski",
-  "dependencies": {
-    "@angular/animations": "~19.0.5",
-    "@angular/common": "~19.0.5",
-    "@angular/compiler": "~19.0.5",
+  "peerDependencies": {
     "@angular/core": "~19.0.5",
-    "@angular/forms": "~19.0.5",
-    "@angular/platform-browser": "~19.0.5",
-    "@angular/platform-browser-dynamic": "~19.0.5",
-    "@angular/router": "~19.0.5",
-    "@primeng/themes": "^19.0.2",
     "primeng": "^19.0.2",
-    "rxjs": "~7.8.1",
-    "zone.js": "~0.15.0"
+    "jest-preset-angular": "~14.4.2"
   },
+  "dependencies": {},
   "packageManager": "pnpm@10.0.0-rc.0+sha512.bce495587126f9a37d64150bf80dcf9bd96f0d64cfd450c9b1a7e5bf2cfc81aef3d50178f259855351c872905a240861a55031652c81e8a11665bfa65f6a1dc2"
 }
