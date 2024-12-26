@@ -55,14 +55,14 @@ jobs:
 
       - name: Get current tag
         id: get_tag
-        run: echo "version=$(git describe --abbrev=0 --tags)" >> "$GITHUB_ENV"
+        run: echo "tag_name=$(git describe --abbrev=0 --tags)" >> "$GITHUB_ENV"
 
       - name: Create release
         uses: softprops/action-gh-release@v2
         with:
           body_path: CHANGES.md
           fail_on_unmatched_files: true
-          tag_name: ${{ steps.get_tag.outputs.version }}
+          tag_name: ${{ steps.get_tag.outputs.tag_name }}
           token: ${{ secrets.GITHUB_TOKEN }}
 
   publish:
