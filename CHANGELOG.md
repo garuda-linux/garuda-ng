@@ -8,6 +8,7 @@
 ### 🐛 Bug Fixes
 
 - *(package.json)* Provide pnpm version for corepack - ([5e45c0f](https://github.com/FilipTLW/garuda-ng/commit/5e45c0fbda89f5eb4b3d26c154c62c91263b881a))
+- Set correct environment variable - ([a094e5a](https://github.com/FilipTLW/garuda-ng/commit/a094e5a1af77e134fe2db966c1c9a8f9bc4af5ed))
 - Changed output name - ([e4b769d](https://github.com/FilipTLW/garuda-ng/commit/e4b769d36eac84c84431fd2e5c876c3ce1f8c543))
 - Peer dependencies - ([910c1ec](https://github.com/FilipTLW/garuda-ng/commit/910c1ec2c97b4b103a4a516150f7509c2933088b))
 - Changed import of provideGarudaNG to use scoped path - ([39da34d](https://github.com/FilipTLW/garuda-ng/commit/39da34dbf5ec210ea7b9637b5ce690de9067f664))
@@ -18,6 +19,7 @@
 
 ### 📚 Documentation
 
+- *(changelog.md)* Update - ([ffaa75a](https://github.com/FilipTLW/garuda-ng/commit/ffaa75af94d8e3184d940ca40c57301bc38c392d))
 - *(changelog.md)* Update - ([92883e3](https://github.com/FilipTLW/garuda-ng/commit/92883e30a4e93394f1a16b4a8c3cd72f73cb0afb))
 - *(changelog.md)* Update - ([4a53bf3](https://github.com/FilipTLW/garuda-ng/commit/4a53bf3789720606dbcc9036da85b2e992e60d36))
 - *(changelog.md)* Update - ([8aa1869](https://github.com/FilipTLW/garuda-ng/commit/8aa18693312ae20849c9085c65cb0a7e94f2d923))
@@ -59,7 +61,7 @@
 
 ## New Contributors ❤️
 
-* @FilipTLW made their first contribution in [#18](https://github.com/FilipTLW/garuda-ng/pull/18)
+* @FilipTLW made their first contribution in [#19](https://github.com/FilipTLW/garuda-ng/pull/19)
 * @temeraire-cx made their first contribution
 * @dr460nf1r3 made their first contribution
 * @renovate[bot] made their first contribution
