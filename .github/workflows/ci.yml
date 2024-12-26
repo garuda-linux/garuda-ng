@@ -5,6 +5,8 @@ on:
     - cron: '0 10 * * *'
   push:
     branches: ['*']
+    tags:
+      - '*.*.*'
   pull_request:
 jobs:
   lint:
