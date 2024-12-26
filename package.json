@@ -2,24 +2,38 @@
   "name": "garuda-ng",
   "version": "1.0.0",
   "description": "Component library for webpages of Garuda Linux for Angular based on PrimeNG",
-  "main": "index.js",
-  "scripts": {
-    "serve docs": "nx run docs:serve"
+  "keywords": [
+    "garuda",
+    "angular"
+  ],
+  "homepage": "https://github.com/FilipTLW/garuda-ng#readme",
+  "bugs": {
+    "url": "https://github.com/FilipTLW/garuda-ng/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/FilipTLW/garuda-ng.git"
   },
-  "keywords": [
-    "garuda",
-    "angular"
-  ],
-  "author": "Filip Myslinski",
   "license": "GPL-3.0-or-later",
-  "bugs": {
-    "url": "https://github.com/FilipTLW/garuda-ng/issues"
+  "author": "Filip Myslinski",
+  "scripts": {
+    "serve docs": "nx run docs:serve",
+    "lint": "nx run-many --target=lint --all"
   },
-  "homepage": "https://github.com/FilipTLW/garuda-ng#readme",
+  "dependencies": {
+    "@angular/animations": "~19.0.0",
+    "@angular/common": "~19.0.0",
+    "@angular/compiler": "~19.0.0",
+    "@angular/core": "~19.0.0",
+    "@angular/forms": "~19.0.0",
+    "@angular/platform-browser": "~19.0.0",
+    "@angular/platform-browser-dynamic": "~19.0.0",
+    "@angular/router": "~19.0.0",
+    "@primeng/themes": "^19.0.2",
+    "primeng": "^19.0.2",
+    "rxjs": "~7.8.0",
+    "zone.js": "~0.15.0"
+  },
   "devDependencies": {
     "@angular-devkit/build-angular": "~19.0.0",
     "@angular-devkit/core": "~19.0.0",
@@ -63,19 +77,5 @@
     "tslib": "^2.3.0",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.13.0"
-  },
-  "dependencies": {
-    "@angular/animations": "~19.0.0",
-    "@angular/common": "~19.0.0",
-    "@angular/compiler": "~19.0.0",
-    "@angular/core": "~19.0.0",
-    "@angular/forms": "~19.0.0",
-    "@angular/platform-browser": "~19.0.0",
-    "@angular/platform-browser-dynamic": "~19.0.0",
-    "@angular/router": "~19.0.0",
-    "@primeng/themes": "^19.0.2",
-    "primeng": "^19.0.2",
-    "rxjs": "~7.8.0",
-    "zone.js": "~0.15.0"
   }
 }
