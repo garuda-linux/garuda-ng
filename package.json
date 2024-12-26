@@ -1,6 +1,6 @@
 {
   "name": "garuda-ng",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Component library for webpages of Garuda Linux for Angular based on PrimeNG",
   "keywords": [
     "garuda",
