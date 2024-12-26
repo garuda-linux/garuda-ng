@@ -1,0 +1,9 @@
+[default]
+extend-ignore-identifiers-re = []
+
+[type.css]
+check-file = false
+
+[type.changelog]
+extend-glob = ["CHANGELOG.md"]
+check-file = false

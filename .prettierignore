@@ -1,6 +1,7 @@
 # Add files here to ignore them from prettier formatting
 /dist
-/coverage
-/.nx/cache
-/.nx/workspace-data
-.angular
+/node_modules
+CHANGELOG.md
+flake.lock
+pnpm-lock.yaml
+pre-commit-config.yaml

@@ -1,0 +1,33 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+.pnpm-debug.log*
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Dependency directories
+node_modules/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Dev tools
+.angular
+.idea
+.nx
+
+# Optional eslint cache
+.eslintcache
+
+# Dotenv environment variable files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# Various other things
+.direnv
+.pre-commit-config.yaml
