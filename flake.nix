@@ -75,11 +75,11 @@
           })
           .shell;
       in rec {
-        default = container-manager;
-        container-manager = mkShell {
+        default = garuda-ng;
+        garuda-ng = mkShell {
           commands = [{package = "pre-commit";}];
           devshell = {
-            name = "container-manager";
+            name = "garuda-ng";
             startup.preCommitHooks.text = ''
               ${self.checks.${system}.pre-commit-check.shellHook}
 
