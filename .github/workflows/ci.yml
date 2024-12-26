@@ -1,12 +1,15 @@
 ---
 name: 'Run tests'
 on:
+  schedule:
+    - cron: '0 10 * * *'
   push:
     branches: ['*']
   pull_request:
 jobs:
   lint:
     runs-on: ubuntu-latest
+    if: ! ${{ github.event_name == 'schedule' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -38,6 +41,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+    if: ! ${{ github.event_name == 'schedule' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -59,3 +63,22 @@ jobs:
 
       - name: Run e2e tests (not failing for now)
         run: pnpm exec nx affected -t test build e2e-ci || true
+
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          exit-code: '1'
+          format: 'table'
+          ignore-unfixed: true
+          scan-ref: '.'
+          scan-type: 'repo'
+          severity: 'CRITICAL,HIGH'
+          skip-dirs: '/root/.local/share/pnpm/store'
+          timeout: 20m0s
+        env:
+          TRIVY_DISABLE_VEX_NOTICE: true
+          TRIVY_SKIP_DB_UPDATE: true
+          TRIVY_SKIP_JAVA_DB_UPDATE: true
