@@ -1,7 +1,9 @@
 # Add files here to ignore them from prettier formatting
+/.direnv
+/.nx
 /dist
 /node_modules
+.pre-commit-config.yaml
 CHANGELOG.md
 flake.lock
 pnpm-lock.yaml
-pre-commit-config.yaml

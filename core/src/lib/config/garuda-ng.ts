@@ -2,14 +2,14 @@ import { EnvironmentProviders, InjectionToken, makeEnvironmentProviders, Provide
 import { PrimeNGConfigType, providePrimeNG } from 'primeng/config';
 
 const DEFAULT_GARUDA_NG_CONFIG: GarudaNGConfig = {
-  font: 'monospace'
-}
+  font: 'monospace',
+};
 
-export const GARUDA_NG_CONFIG = new InjectionToken<GarudaNGConfig>('GARUDA_NG_CONFIG')
+export const GARUDA_NG_CONFIG = new InjectionToken<GarudaNGConfig>('GARUDA_NG_CONFIG');
 
 export type GarudaNGConfig = {
   font?: string;
-}
+};
 
 export function provideGarudaNG(config?: GarudaNGConfig, ...primeNGFeatures: PrimeNGConfigType[]): EnvironmentProviders {
   const primeNGProviders = providePrimeNG(...primeNGFeatures);
@@ -17,7 +17,7 @@ export function provideGarudaNG(config?: GarudaNGConfig, ...primeNGFeatures: Pri
   const garudaProvider: Provider = {
     provide: GARUDA_NG_CONFIG,
     useValue: config ? { ...DEFAULT_GARUDA_NG_CONFIG, ...config } : DEFAULT_GARUDA_NG_CONFIG,
-    multi: false
+    multi: false,
   };
 
   return makeEnvironmentProviders([primeNGProviders, garudaProvider]);

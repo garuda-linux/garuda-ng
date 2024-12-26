@@ -5,11 +5,9 @@ import { GARUDA_NG_CONFIG } from '../config/garuda-ng';
 
 @Component({
   selector: 'garuda-shell',
-  imports: [
-    Menubar,
-  ],
+  imports: [Menubar],
   templateUrl: './shell.component.html',
-  styleUrl: './shell.component.scss'
+  styleUrl: './shell.component.scss',
 })
 export class ShellComponent {
   menuItems = input<MenuItem[]>([]);

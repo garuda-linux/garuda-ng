@@ -1,0 +1,6 @@
+[![Run tests](https://github.com/FilipTLW/garuda-ng/actions/workflows/ci.yml/badge.svg)](https://github.com/FilipTLW/garuda-ng/actions/workflows/ci.yml)
+[![Release management](https://github.com/FilipTLW/garuda-ng/actions/workflows/cd.yml/badge.svg)](https://github.com/FilipTLW/garuda-ng/actions/workflows/cd.yml)
+![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/m/FilipTLW/garuda-ng/main)
+![GitHub Tag](https://img.shields.io/github/v/tag/FilipTLW/garuda-ng)
+![GitHub License](https://img.shields.io/github/license/FilipTLW/garuda-ng)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
