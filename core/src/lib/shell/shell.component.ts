@@ -14,6 +14,7 @@ import { GARUDA_NG_CONFIG } from '../config/garuda-ng';
 })
 export class ShellComponent {
   menuItems = input<MenuItem[]>([]);
+  relativePosition = input<boolean>(false);
 
   config = inject(GARUDA_NG_CONFIG);
 

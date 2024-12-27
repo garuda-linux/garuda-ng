@@ -4,10 +4,9 @@ import { ShellBarEndDirective, ShellBarLinkDirective, ShellComponent } from '@ga
 import { MenuItem } from 'primeng/api';
 import { NgOptimizedImage } from '@angular/common';
 import { ShellBarStartDirective } from '@garudalinux/core';
-import { Button } from 'primeng/button';
 
 @Component({
-  imports: [RouterModule, ShellComponent, NgOptimizedImage, ShellBarStartDirective, Button, ShellBarEndDirective, ShellBarLinkDirective],
+  imports: [RouterModule, ShellComponent, NgOptimizedImage, ShellBarStartDirective, ShellBarEndDirective, ShellBarLinkDirective],
   selector: 'garuda-docs-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
