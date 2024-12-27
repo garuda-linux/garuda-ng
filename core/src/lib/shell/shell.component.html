@@ -1,1 +1,11 @@
-<p-menubar [model]="menuItems()"> </p-menubar> <ng-content></ng-content>
+<p-menubar [model]="menuItems()" class="garuda-shell-menubar">
+  <ng-template #start>
+    <ng-content select="[garudaShellBarStart]"></ng-content>
+  </ng-template>
+  <ng-template #end>
+    <ng-content select="[garudaShellBarEnd]"></ng-content>
+  </ng-template>
+</p-menubar>
+<div class="garuda-shell-content">
+  <ng-content></ng-content>
+</div>

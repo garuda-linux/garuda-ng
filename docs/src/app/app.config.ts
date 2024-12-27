@@ -10,7 +10,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(appRoutes),
     provideGarudaNG(
       {
-        font: 'Arial',
+        font: 'monospace',
       },
       {
         theme: {
