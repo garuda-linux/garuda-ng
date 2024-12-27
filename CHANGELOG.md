@@ -1,3 +1,14 @@
+## [0.0.2](https://github.com/FilipTLW/garuda-ng/compare/0.0.1..0.0.2) - 2024-12-27
+
+### 🐛 Bug Fixes
+
+- Published build output instead of source - ([8e39d63](https://github.com/FilipTLW/garuda-ng/commit/8e39d6312ff9edbfe4867be3593bd95efaaa228b))
+
+### 📚 Documentation
+
+- *(changelog.md)* Update - ([cab054c](https://github.com/FilipTLW/garuda-ng/commit/cab054c3cbf291976065a84f05431fdf4f43e763))
+
+
 ## [0.0.1] - 2024-12-26
 
 ### ⛰️  Features
