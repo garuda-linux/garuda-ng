@@ -5,8 +5,6 @@ on:
     - cron: '0 10 * * *'
   push:
     branches: ['*']
-    tags:
-      - '*.*.*'
   pull_request:
 jobs:
   lint:
@@ -66,7 +64,7 @@ jobs:
         uses: nrwl/nx-set-shas@v4
 
       - name: Run e2e tests (not failing for now)
-        run: pnpm exec nx affected -t test build e2e-ci || true
+        run: pnpm exec nx affected -t test build e2e-ci
 
   scan:
     runs-on: ubuntu-24.04
@@ -88,7 +86,7 @@ jobs:
           TRIVY_SKIP_JAVA_DB_UPDATE: true
 
   check_deps:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     name: Check for new dependencies
     if: ${{ github.event_name == 'pull_request' }}
     steps:
@@ -96,3 +94,45 @@ jobs:
         uses: hiwelo/new-dependencies-action@1.0.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+
+  publish-docs:
+    runs-on: ubuntu-24.04
+    name: Deploy docs to Cloudflare Pages
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build the documentation
+        run: pnpx nx build docs
+
+      - name: Deploy to Cloudflare Pages
+        if: (github.event_name == 'push') && (github.ref == 'refs/heads/main')
+        uses: cloudflare/wrangler-action@v3
+        with:
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: pages deploy --branch dev
+          packageManager: pnpm
+
+      - name: Deploy to Cloudflare Pages
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: cloudflare/wrangler-action@v3
+        with:
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: pages deploy --branch ${{ github.ref_name }}
+          packageManager: pnpm
