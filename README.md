@@ -27,7 +27,7 @@ The library can be installed using your favourite node package manager.
 pnpm add @garudalinux/core
 
 # yarn
-yard add @garudalinux/core
+yarn add @garudalinux/core
 
 # npm
 npm install @garudalinux/core
