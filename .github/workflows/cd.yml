@@ -95,4 +95,4 @@ jobs:
       - name: Publish to NPM
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: pnpx nx release publish core --access=public
+        run: pnpx nx run core:publish
