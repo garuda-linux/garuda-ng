@@ -6,9 +6,13 @@ on:
     types:
       - completed
     branches: '[0-9]+.[0-9]+.[0-9]+'
+  push:
+    branches: ['main']
 jobs:
   changelog:
     runs-on: ubuntu-24.04
+    name: Generate and commit changelog
+    if: ${{ github.event_name != 'push' }}
     permissions:
       contents: write
     steps:
@@ -67,6 +71,8 @@ jobs:
 
   publish:
     runs-on: ubuntu-24.04
+    name: Publish to NPM
+    if: ${{ github.event_name != 'push' }}
     permissions:
       contents: read
     steps:
@@ -96,3 +102,45 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: pnpx nx run core:publish
+
+  publish-docs:
+    runs-on: ubuntu-24.04
+    name: Deploy documentation to Cloudflare Pages
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build the documentation
+        run: pnpx nx build docs
+
+      - name: Deploy to prod using Wrangler
+        if: ${{ github.event_name != 'push' }}
+        uses: cloudflare/wrangler-action@v3
+        with:
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: pages deploy --branch main
+          packageManager: pnpm
+
+      - name: Deploy to dev using Wrangler
+        if: ${{ github.event_name == 'push' }}
+        uses: cloudflare/wrangler-action@v3
+        with:
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: pages deploy --branch dev
+          packageManager: pnpm

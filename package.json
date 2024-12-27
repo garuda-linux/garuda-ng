@@ -87,7 +87,8 @@
     "ts-node": "10.9.2",
     "tslib": "^2.8.1",
     "typescript": "~5.6.3",
-    "typescript-eslint": "^8.18.2"
+    "typescript-eslint": "^8.18.2",
+    "wrangler": "^3.99.0"
   },
   "packageManager": "pnpm@10.0.0-rc.0+sha512.bce495587126f9a37d64150bf80dcf9bd96f0d64cfd450c9b1a7e5bf2cfc81aef3d50178f259855351c872905a240861a55031652c81e8a11665bfa65f6a1dc2"
 }

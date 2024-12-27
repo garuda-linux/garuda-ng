@@ -11,6 +11,7 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-24.04
+    name: Lint codebase
     if: ${{ github.event_name != 'schedule' }}
     steps:
       - name: Checkout
@@ -43,6 +44,7 @@ jobs:
 
   test:
     runs-on: ubuntu-24.04
+    name: Run tests
     if: ${{ github.event_name != 'schedule' }}
     steps:
       - name: Checkout
@@ -87,6 +89,7 @@ jobs:
 
   check_deps:
     runs-on: ubuntu-latest
+    name: Check for new dependencies
     if: ${{ github.event_name == 'pull_request' }}
     steps:
       - name: Check for new dependencies
