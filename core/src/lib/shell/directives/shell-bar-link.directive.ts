@@ -6,6 +6,4 @@ import { Directive } from '@angular/core';
     class: 'p-menubar-item-link garuda-shell__bar-link',
   },
 })
-export class ShellBarLinkDirective {
-  constructor() {}
-}
+export class ShellBarLinkDirective {}

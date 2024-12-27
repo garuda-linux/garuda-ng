@@ -6,6 +6,4 @@ import { Directive } from '@angular/core';
     class: 'garuda-shell__bar-end',
   },
 })
-export class ShellBarEndDirective {
-  constructor() {}
-}
+export class ShellBarEndDirective {}

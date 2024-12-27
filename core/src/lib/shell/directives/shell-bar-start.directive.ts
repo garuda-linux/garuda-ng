@@ -6,6 +6,4 @@ import { Directive } from '@angular/core';
     class: 'garuda-shell__bar_start',
   },
 })
-export class ShellBarStartDirective {
-  constructor() {}
-}
+export class ShellBarStartDirective {}
