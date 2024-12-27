@@ -5,7 +5,7 @@ on:
     - cron: '0 10 * * *'
   push:
     branches: ['*']
-  pull_request_target:
+  pull_request:
     types: [opened, synchronize]
 jobs:
   lint:
@@ -94,7 +94,7 @@ jobs:
   check_deps:
     runs-on: ubuntu-24.04
     name: Check for new dependencies
-    if: ${{ github.event_name == 'pull_request_target' }}
+    if: ${{ github.event_name == 'pull_request' }}
     steps:
       - name: Check for new dependencies
         uses: hiwelo/new-dependencies-action@1.0.1
@@ -157,13 +157,14 @@ jobs:
 
   organize:
     runs-on: ubuntu-24.04
+    name: Some housekeeping
     permissions:
       pull-requests: write
     needs: lint
-    if: needs.lint.outputs.pre-commit == 'failure' && github.event.action == 'opened'
+    if: needs.lint.outputs.pre-commit == 'failure' && github.event_name == 'pull_request'
     steps:
       - name: Add comment
-        if: needs.lint.outputs.pre-commit == 'failure' && github.event.action == 'opened'
+        if: needs.lint.outputs.pre-commit == 'failure' && github.event_name == 'pull_request'
         uses: actions/github-script@v7
         with:
           script: |
