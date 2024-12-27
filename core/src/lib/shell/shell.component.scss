@@ -11,8 +11,8 @@
 .garuda-shell-menubar:not(.garuda-shell-relative) {
   position: fixed;
   width: calc(100% - 16px);
+}
 
-  .garuda-shell-content {
-    padding-top: 60px;
-  }
+.garuda-shell-content:not(.garuda-shell-relative) {
+  padding-top: 60px;
 }

@@ -6,6 +6,6 @@
     <ng-content select="[garudaShellBarEnd]"></ng-content>
   </ng-template>
 </p-menubar>
-<div class="garuda-shell-content">
+<div class="garuda-shell-content" [class.garuda-shell-relative]="relativePosition()">
   <ng-content></ng-content>
 </div>
