@@ -35,6 +35,9 @@ importers:
       '@primeng/themes':
         specifier: ^19.0.2
         version: 19.0.2
+      primeicons:
+        specifier: ^7.0.0
+        version: 7.0.0
       primeng:
         specifier: ^19.0.2
         version: 19.0.2(aztdthhn2eql7smtl5zhzf47xm)
@@ -6564,6 +6567,9 @@ packages:
   pretty-format@29.7.0:
     resolution: {integrity: sha512-Pdlw/oPxN+aXdmM9R00JVC9WVFoCLTKJvDVLgmJ+qAffBMxsV85l/Lu7sNx4zSzPyoL2euImuEwHhOXdEgNFZQ==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
+
+  primeicons@7.0.0:
+    resolution: {integrity: sha512-jK3Et9UzwzTsd6tzl2RmwrVY/b8raJ3QZLzoDACj+oTJ0oX7L9Hy+XnVwgo4QVKlKpnP/Ur13SXV/pVh4LzaDw==}
 
   primeng@19.0.2:
     resolution: {integrity: sha512-7vizB1ynvvADjZBE9/Ks/YFwbY/d2tKYo+8Uq3OsBq9+rf9pIwKQIhd9GKkpe1gXx5Ig2SOFVeTp1Ru4H/vlVA==}
@@ -15254,6 +15260,8 @@ snapshots:
       '@jest/schemas': 29.6.3
       ansi-styles: 5.2.0
       react-is: 18.3.1
+
+  primeicons@7.0.0: {}
 
   primeng@19.0.2(aztdthhn2eql7smtl5zhzf47xm):
     dependencies:

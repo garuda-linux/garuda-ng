@@ -1,2 +1,2 @@
-export * from './lib/shell/shell.component';
+export * from './lib/shell';
 export * from './lib/config/garuda-ng';

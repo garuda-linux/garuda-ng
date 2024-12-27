@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { ShellComponent } from '@garudalinux/core';
+import { ShellBarEndDirective, ShellBarLinkDirective, ShellComponent } from '@garudalinux/core';
 import { MenuItem } from 'primeng/api';
+import { NgOptimizedImage } from '@angular/common';
+import { ShellBarStartDirective } from '@garudalinux/core';
+import { Button } from 'primeng/button';
 
 @Component({
-  imports: [RouterModule, ShellComponent],
+  imports: [RouterModule, ShellComponent, NgOptimizedImage, ShellBarStartDirective, Button, ShellBarEndDirective, ShellBarLinkDirective],
   selector: 'garuda-docs-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -12,10 +15,13 @@ import { MenuItem } from 'primeng/api';
 export class AppComponent {
   menuItems: MenuItem[] = [
     {
-      label: 'test1',
+      label: 'Getting Started',
     },
     {
-      label: 'test2',
+      label: 'Components',
+    },
+    {
+      label: 'Theming',
     },
   ];
 }
