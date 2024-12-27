@@ -21,7 +21,8 @@
     "format": "prettier -w .",
     "lint": "nx run-many --target=lint --all --fix",
     "release": "git tag $(git cliff --bumped-version) -m $(git cliff --bumped-version)",
-    "serve docs": "nx run docs:serve"
+    "serve docs": "nx run docs:serve",
+    "test": "nx run-many --target=test --all"
   },
   "config": {
     "commitizen": {

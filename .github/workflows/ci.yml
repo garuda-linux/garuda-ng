@@ -5,13 +5,14 @@ on:
     - cron: '0 10 * * *'
   push:
     branches: ['*']
-    tags:
-      - '*.*.*'
-  pull_request:
+  pull_request_target:
+    types: [opened, synchronize]
 jobs:
   lint:
     runs-on: ubuntu-24.04
     name: Lint codebase
+    outputs:
+      pre-commit: ${{ steps.linter.outcome }}
     if: ${{ github.event_name != 'schedule' }}
     steps:
       - name: Checkout
@@ -40,6 +41,7 @@ jobs:
         uses: DeterminateSystems/magic-nix-cache-action@main
 
       - name: Run linters via pre-commit
+        id: linter
         run: nix develop -c pre-commit run --all-files
 
   test:
@@ -49,6 +51,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -66,7 +70,7 @@ jobs:
         uses: nrwl/nx-set-shas@v4
 
       - name: Run e2e tests (not failing for now)
-        run: pnpm exec nx affected -t test build e2e-ci || true
+        run: pnpm exec nx affected -t test build e2e-ci
 
   scan:
     runs-on: ubuntu-24.04
@@ -88,11 +92,84 @@ jobs:
           TRIVY_SKIP_JAVA_DB_UPDATE: true
 
   check_deps:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     name: Check for new dependencies
-    if: ${{ github.event_name == 'pull_request' }}
+    if: ${{ github.event_name == 'pull_request_target' }}
     steps:
       - name: Check for new dependencies
         uses: hiwelo/new-dependencies-action@1.0.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+
+  publish-docs:
+    runs-on: ubuntu-24.04
+    name: Deploy docs to Cloudflare Pages
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build the documentation
+        run: pnpx nx build docs
+
+      - name: Deploy to Cloudflare Pages
+        if: (github.event_name == 'push') && (github.ref == 'refs/heads/main')
+        uses: cloudflare/wrangler-action@v3
+        with:
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: pages deploy --branch dev
+          packageManager: pnpm
+
+      - name: Deploy to Cloudflare Pages
+        if: ${{ github.event_name == 'pull_request' }}
+        id: deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: pages deploy --branch ${{ github.ref_name }}
+          packageManager: pnpm
+
+      - name: Comment on pull request
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: thollander/actions-comment-pull-request@v3
+        with:
+          message: |
+            The documentation has been deployed to Cloudflare Pages :rocket:
+            You can view the deployment here:
+              - [${{ steps.deploy.outputs.deployment-url }}](${{ steps.deploy.outputs.deployment-url }})
+              - [${{ steps.deploy.outputs.pages-deployment-alias-url }}](${{ steps.deploy.outputs.pages-deployment-alias-url }})
+
+  organize:
+    runs-on: ubuntu-24.04
+    permissions:
+      pull-requests: write
+    needs: lint
+    if: needs.lint.outputs.pre-commit == 'failure' && github.event.action == 'opened'
+    steps:
+      - name: Add comment
+        if: needs.lint.outputs.pre-commit == 'failure' && github.event.action == 'opened'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: "Thank you for contributing to garuda-ng! Please run 'pnpm format' and 'pnpm lint' on your code before submitting a pull request. Afterwards, please force push your changes."
+            })
