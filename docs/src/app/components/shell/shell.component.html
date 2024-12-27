@@ -1,0 +1,95 @@
+<div xmlns="http://www.w3.org/1999/html">
+  <h1>Shell</h1>
+
+  <pre><code [highlight]="importLine" language="typescript"></code></pre>
+
+  <p>
+    The shell is the layout component which wraps an application. It contains a menu bar for navigation. For demonstration purposes, all
+    examples listed here will use the relative position mode of the shell.
+  </p>
+
+  <section class="docs-section">
+    <h2>Base Example</h2>
+    <div class="example-container">
+      <garuda-docs-shell-base-example></garuda-docs-shell-base-example>
+    </div>
+    <br />
+    <p-tabs value="0">
+      <p-tablist>
+        <p-tab value="0">HTML</p-tab>
+        <p-tab value="1">TS</p-tab>
+      </p-tablist>
+      <p-tabpanels>
+        <p-tabpanel value="0">
+          <pre><code [highlight]="(baseCodeHTML | async) ?? ''" language="XML"></code></pre>
+        </p-tabpanel>
+        <p-tabpanel value="1">
+          <pre><code [highlight]="(baseCodeTS | async) ?? ''" language="typescript"></code></pre>
+        </p-tabpanel>
+      </p-tabpanels>
+    </p-tabs>
+  </section>
+
+  <section class="docs-section">
+    <h2>Positioning Additional Content</h2>
+
+    <section class="docs-subsection">
+      <h3>Before Tabs</h3>
+
+      <p>The <code>garudaShellBarStart</code> directive can be used to position content before the tabs.</p>
+
+      <div class="example-container">
+        <garuda-docs-shell-bar-start-example></garuda-docs-shell-bar-start-example>
+      </div>
+      <br />
+      <p-tabs value="0">
+        <p-tablist>
+          <p-tab value="0">HTML</p-tab>
+          <p-tab value="1">TS</p-tab>
+        </p-tablist>
+        <p-tabpanels>
+          <p-tabpanel value="0">
+            <pre><code [highlight]="(shellBarStartCodeHTML | async) ?? ''" language="XML"></code></pre>
+          </p-tabpanel>
+          <p-tabpanel value="1">
+            <pre><code [highlight]="(shellBarStartCodeTS | async) ?? ''" language="typescript"></code></pre>
+          </p-tabpanel>
+        </p-tabpanels>
+      </p-tabs>
+    </section>
+
+    <section class="docs-subsection">
+      <h3>After Tabs</h3>
+
+      <p>The <code>garudaShellBarEnd</code> directive can be used to position content after the tabs.</p>
+
+      <div class="example-container">
+        <garuda-docs-shell-bar-end-example></garuda-docs-shell-bar-end-example>
+      </div>
+      <br />
+      <p-tabs value="0">
+        <p-tablist>
+          <p-tab value="0">HTML</p-tab>
+          <p-tab value="1">TS</p-tab>
+        </p-tablist>
+        <p-tabpanels>
+          <p-tabpanel value="0">
+            <pre><code [highlight]="(shellBarEndCodeHTML | async) ?? ''" language="XML"></code></pre>
+          </p-tabpanel>
+          <p-tabpanel value="1">
+            <pre><code [highlight]="(shellBarEndCodeTS | async) ?? ''" language="typescript"></code></pre>
+          </p-tabpanel>
+        </p-tabpanels>
+      </p-tabs>
+    </section>
+  </section>
+
+  <section class="docs-section">
+    <h2>Relative Position</h2>
+
+    <p>
+      By default, the position of the bar is fixed and a padding is placed on top of the content. If you don't want this behavior, you can
+      set the <code>[relativePosition]</code> property to <code>true</code>.
+    </p>
+  </section>
+</div>

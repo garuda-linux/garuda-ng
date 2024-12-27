@@ -1,12 +1,7 @@
 <garuda-shell [menuItems]="menuItems">
-  <img
-    garudaShellBarStart
-    ngSrc="https://gitlab.com/garuda-linux/themes-and-settings/artwork/garuda-icons/-/raw/master/usr/share/icons/garuda/garuda-blue.svg?ref_type=heads"
-    width="28"
-    height="28"
-    alt="logo"
-  />
+  <img garudaShellBarStart ngSrc="garuda-blue.svg" width="28" height="28" alt="logo" />
   <a garudaShellBarEnd garudaShellBarLink href="https://github.com/FilipTLW/garuda-ng">
     <i class="pi pi-github"></i>
   </a>
+  <router-outlet></router-outlet>
 </garuda-shell>

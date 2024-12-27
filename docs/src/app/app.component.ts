@@ -18,6 +18,7 @@ export class AppComponent {
     },
     {
       label: 'Components',
+      routerLink: '/components',
     },
     {
       label: 'Theming',
