@@ -30,8 +30,10 @@ node_modules/
 
 # Various other things
 .direnv
-.pre-commit-config.yaml
-
-dist/
-CHANGES.md
 .npmrc
+.pre-commit-config.yaml
+CHANGES.md
+
+# Compiled output
+dist/
+jest.preset.js

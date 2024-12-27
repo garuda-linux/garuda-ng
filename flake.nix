@@ -77,7 +77,44 @@
       in rec {
         default = garuda-ng;
         garuda-ng = mkShell {
-          commands = [{package = "pre-commit";}];
+          commands = [
+            {package = "jq";}
+            {package = "pre-commit";}
+            {
+              category = "garuda-ng";
+              command = ''
+                VERSION=$(git-cliff --bumped-version)
+                git tag "$VERSION" -m "$VERSION"
+                cat <<< $(JQ_VERSION=$VERSION jq '.version=env.JQ_VERSION' ./core/package.json) > ./core/package.json
+              '';
+              help = "Bump the version of the project dynamically and create a new tag";
+              name = "release";
+            }
+            {
+              category = "garuda-ng";
+              command = "pre-commit run --all-files";
+              help = "Lint and format all files of the project";
+              name = "lint";
+            }
+            {
+              category = "garuda-ng";
+              command = "cz";
+              help = "Commit using commitizen";
+              name = "commit";
+            }
+            {
+              category = "garuda-ng";
+              command = "nx run docs:serve";
+              help = "Start the development server for the documentation";
+              name = "serve-docs";
+            }
+            {
+              category = "garuda-ng";
+              command = "nx run-many --target=build --all";
+              help = "Build all the projects";
+              name = "build";
+            }
+          ];
           devshell = {
             name = "garuda-ng";
             startup.preCommitHooks.text = ''
