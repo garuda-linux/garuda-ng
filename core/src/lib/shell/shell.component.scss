@@ -11,6 +11,7 @@
 .garuda-shell-menubar:not(.garuda-shell-relative) {
   position: fixed;
   width: calc(100% - 16px);
+  z-index: 1000;
 }
 
 .garuda-shell-content:not(.garuda-shell-relative) {
