@@ -1,8 +1,8 @@
 ---
-name: 'Release management'
+name: 'CD'
 on:
   workflow_run:
-    workflows: ['Run tests']
+    workflows: ['CI']
     types:
       - completed
 jobs:
@@ -44,6 +44,18 @@ jobs:
         run: |
           VERSION=$(git cliff --bumped-version)
           echo "version=$VERSION" >> "$GITHUB_ENV"
+
+      - name: Install jq
+        run: |
+          sudo apt-get update
+          sudo apt-get -y install jq
+
+      - name: Update package.json
+        run: |
+          JQ_VERSION=${{ steps.calculate_version.outputs.version }} jq '.version=env.JQ_VERSION' ./core/package.json > ./tmp/package.json
+          mv ./tmp/package.json ./core/package.json
+          git add ./core/package.json
+          git commit -m "chore(core): bump version to ${{ steps.calculate_version.outputs.version }}"
 
       - name: Tag the release
         run: |

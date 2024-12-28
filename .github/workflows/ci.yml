@@ -1,5 +1,5 @@
 ---
-name: 'Run tests'
+name: 'CI'
 on:
   schedule:
     - cron: '0 10 * * *'
@@ -69,11 +69,35 @@ jobs:
       - name: Nx stuff
         uses: nrwl/nx-set-shas@v4
 
-      - name: Run e2e tests (not failing for now)
-        run: pnpm exec nx affected -t test build e2e-ci
+      - name: Run test
+        run: pnpm exec nx run-many --target=build --all
+
+  build:
+    runs-on: ubuntu-24.04
+    name: Build the project
+    if: ${{ github.event_name != 'schedule' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build the project
+        run: pnpm exec nx run-many --target=build --all
 
   scan:
     runs-on: ubuntu-24.04
+    name: Scan for vulnerabilities
     steps:
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@0.29.0
@@ -103,7 +127,7 @@ jobs:
 
   publish-docs:
     runs-on: ubuntu-24.04
-    name: Deploy docs to Cloudflare Pages
+    name: Deploy to Cloudflare Pages
     permissions:
       contents: read
       pull-requests: write

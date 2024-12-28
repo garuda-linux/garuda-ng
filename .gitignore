@@ -32,8 +32,13 @@ node_modules/
 .direnv
 .npmrc
 .pre-commit-config.yaml
+.wrangler
 CHANGES.md
 
 # Compiled output
 dist/
 jest.preset.js
+
+# Test results
+core/test-results/
+coverage/
