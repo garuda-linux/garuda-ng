@@ -44,7 +44,7 @@ jobs:
         run: |
           PATH=$(pnpm bin):$PATH
           VERSION=$(git cliff --bumped-version)
-          echo "version=$VERSION" >> "$GITHUB_ENV"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
 
       - name: Install jq
         run: |
