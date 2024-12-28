@@ -1,3 +1,58 @@
+## [0.1.0](https://github.com/FilipTLW/garuda-ng/compare/0.0.2..0.1.0) - 2024-12-28
+
+### ⛰️  Features
+
+- *(shell)* Added option for shell bar to have relative position - ([495ef0c](https://github.com/FilipTLW/garuda-ng/commit/495ef0c8b10524242a37cf84cbd33bbf4e4499db))
+- *(shell)* Added shell component - ([99b8aa6](https://github.com/FilipTLW/garuda-ng/commit/99b8aa65aa46011be4c5e15926aa6027c2bb81f7))
+- *(shell)* Added shell component - ([f61bc45](https://github.com/FilipTLW/garuda-ng/commit/f61bc45b998d5e5e263d01363078cc9e6caee941))
+
+### 🐛 Bug Fixes
+
+- *(shell)* Set z-index of bar - ([ba0b323](https://github.com/FilipTLW/garuda-ng/commit/ba0b323ed5a4d9fe4f307f07f0426e82411f5242))
+- *(shell)* Fixed padding not applying correctly when shell position was fixed - ([d3f6b6b](https://github.com/FilipTLW/garuda-ng/commit/d3f6b6b4c8c4132ce26f054c50238a1fcdc83b2c))
+
+### 🚀 Release
+
+- 0.1.0 ([#40](https://github.com/dr460nf1r3/container-manager/issues/40)) - ([0292d0d](https://github.com/FilipTLW/garuda-ng/commit/0292d0dde1430f4d3dc7c4214afb9d6f726a94b8))
+- 0.1.0 ([#39](https://github.com/dr460nf1r3/container-manager/issues/39)) - ([845ed04](https://github.com/FilipTLW/garuda-ng/commit/845ed0469b83707770f6ed933f77bb7111fd1bb5))
+- 0.1.0 ([#38](https://github.com/dr460nf1r3/container-manager/issues/38)) - ([0253cc2](https://github.com/FilipTLW/garuda-ng/commit/0253cc2bb1866ae5eae6377863e9abbbced1a007))
+- 0.1.0 - ([f09424e](https://github.com/FilipTLW/garuda-ng/commit/f09424ec97373d4271ac53ac62e9b3ec149e7e18))
+- 0.1.0 ([#37](https://github.com/dr460nf1r3/container-manager/issues/37)) - ([eb20375](https://github.com/FilipTLW/garuda-ng/commit/eb203758e807772f04072bd3351c21307ac0cece))
+- 0.1.0 ([#36](https://github.com/dr460nf1r3/container-manager/issues/36)) - ([a34dea2](https://github.com/FilipTLW/garuda-ng/commit/a34dea2b1624ad6fe50c3a52e6ce452483f109fe))
+- 0.1.0 - ([3d7afd8](https://github.com/FilipTLW/garuda-ng/commit/3d7afd891b811a880f1b8fadbe00c5d47e9e4f08))
+- 0.1.0 - ([3e3eb84](https://github.com/FilipTLW/garuda-ng/commit/3e3eb84c803fd60f34e2b9d2a6ba657e5384990e))
+
+### 📚 Documentation
+
+- *(changelog.md)* Update - ([70415de](https://github.com/FilipTLW/garuda-ng/commit/70415de6485b8ecac7ba83b8934c94776e1f672d))
+- *(readme)* Extend readme and add contributing.md - ([f889ace](https://github.com/FilipTLW/garuda-ng/commit/f889ace74a8de4a177fa48e50638e3e0b83c40f2))
+- *(readme.md)* Updated README - ([7b6b3d6](https://github.com/FilipTLW/garuda-ng/commit/7b6b3d601a87a58961d93efa1018800eba8b5ff6))
+- *(shell)* Added shell documentation - ([81b833e](https://github.com/FilipTLW/garuda-ng/commit/81b833e05b90dadce41af90a10fc5e915914b595))
+
+### 🧪 Testing
+
+- Corrected tests - ([67ed7eb](https://github.com/FilipTLW/garuda-ng/commit/67ed7eb3e1f6e839c99bfde8718d6f951ca5f80f))
+
+### ⚙️ Miscellaneous Tasks
+
+- *(cd)* Fixup GITHUB_OUTPUT - ([54f3215](https://github.com/FilipTLW/garuda-ng/commit/54f3215894b7f3b58a19e1c4c8e8c49b9f46e835))
+- *(cd)* Fixup GITHUB_OUTPUT - ([7c01609](https://github.com/FilipTLW/garuda-ng/commit/7c016099154683ce9ee1bae1b7875b147f6b5985))
+- *(cd)* Fixup if clause for tag job - ([ef1bbfb](https://github.com/FilipTLW/garuda-ng/commit/ef1bbfb3b1d33bf70790573e1d863be1574a8e6c))
+- *(cd)* Skip pipeline on pushing README - ([8532d31](https://github.com/FilipTLW/garuda-ng/commit/8532d316778ea8125de1f27f5b2785375f24edfa))
+- *(cliff.toml)* Add group for release - ([c73f2c0](https://github.com/FilipTLW/garuda-ng/commit/c73f2c0bd9d3ef52dc94f2ef4e98b0c55a7a0352))
+- *(core)* Bump version to 0.1.0 - ([6e3458e](https://github.com/FilipTLW/garuda-ng/commit/6e3458e24780fdb1ce6c6f7a52820e932e76e6d6))
+- *(pages)* Provide wrangler.toml and have dev/prod deployments, restrict push to main - ([a8bf084](https://github.com/FilipTLW/garuda-ng/commit/a8bf084070cd74605b717d759737f075e29ee3dc))
+- *(pages)* Let wrangler know about where to deploy - ([0b1e076](https://github.com/FilipTLW/garuda-ng/commit/0b1e076251407012a745ba6ba5e33e3b659f3c5b))
+- *(pages)* Deploy docs to cloudflare pages - ([f906bed](https://github.com/FilipTLW/garuda-ng/commit/f906bedc0895c2e7b7c591b88e2a781fb489ae73))
+- *(pr)* Fix pr target - ([e9c2e4c](https://github.com/FilipTLW/garuda-ng/commit/e9c2e4cee5f4423be502f23f7174a9e011cd6995))
+- *(pr)* Comment on lint failures - ([0da6bf3](https://github.com/FilipTLW/garuda-ng/commit/0da6bf3adf59b2d769dfd091c9b60eab96fa902b))
+- *(test)* Fix nx failure by pulling the full history - ([9f01d8a](https://github.com/FilipTLW/garuda-ng/commit/9f01d8a6bec218c500e4a0daa0de92728329a743))
+- *(tools)* Add devshell scripts and auto-load node_modules bin path - ([759cfd0](https://github.com/FilipTLW/garuda-ng/commit/759cfd03b60ba952ed6608c809e457a7ecf955e8))
+- Use more fitting names for workflows - ([8fb567a](https://github.com/FilipTLW/garuda-ng/commit/8fb567a56557fa119ec4e443ef5a9a3e0015c63f))
+- Update package json in cd, build ci - ([fab07e0](https://github.com/FilipTLW/garuda-ng/commit/fab07e0325706aa1c887736f4ebc7b843cde47ff))
+- Add automated tagging on 'bump:' commit message, rework docs deployment - ([cc77dd1](https://github.com/FilipTLW/garuda-ng/commit/cc77dd14bba94e044af073feed56a6bff4ce0992))
+
+
 ## [0.0.2](https://github.com/FilipTLW/garuda-ng/compare/0.0.1..0.0.2) - 2024-12-27
 
 ### 🐛 Bug Fixes
@@ -27,6 +82,10 @@
 - Removed autogenerated tests - ([6c29bb3](https://github.com/FilipTLW/garuda-ng/commit/6c29bb3a0cf6152cc4175792e4bdc3de5b376080))
 - Changed tsconfig path to garudalinux - ([b6a9048](https://github.com/FilipTLW/garuda-ng/commit/b6a904823c526fa7872d350bcfc59bd831b464c2))
 - Corrected name of devshell - ([8ac3e21](https://github.com/FilipTLW/garuda-ng/commit/8ac3e215750d07e02f7f07c6a6c44b2a27ed751e))
+
+### 🚀 Release
+
+- Set version to 0.0.1 - ([7a8bd89](https://github.com/FilipTLW/garuda-ng/commit/7a8bd899f586401a2a14c0994f471baa37667ec6))
 
 ### 📚 Documentation
 
@@ -65,10 +124,6 @@
 - Add test/linting workflows - ([b9ab328](https://github.com/FilipTLW/garuda-ng/commit/b9ab32836ef5b521ee21d9ed6e6fefa6209f59ac))
 - Add delivery pipeline - ([e1b3521](https://github.com/FilipTLW/garuda-ng/commit/e1b3521a1c0a0bfdc279e2d69ba60129290f21fd))
 - A lot of maintenance overhead and dev tools - ([97b5bec](https://github.com/FilipTLW/garuda-ng/commit/97b5bec9346afe4fdad9e2f738de7f9a3af9c3d2))
-
-### Bump
-
-- Set version to 0.0.1 - ([7a8bd89](https://github.com/FilipTLW/garuda-ng/commit/7a8bd899f586401a2a14c0994f471baa37667ec6))
 
 ## New Contributors ❤️
 
