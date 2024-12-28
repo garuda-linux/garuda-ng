@@ -1,8 +1,8 @@
 ---
-name: 'Release management'
+name: 'CD'
 on:
   workflow_run:
-    workflows: ['Run tests']
+    workflows: ['CI']
     types:
       - completed
 jobs:

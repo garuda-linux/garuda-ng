@@ -1,5 +1,5 @@
 ---
-name: 'Run tests'
+name: 'CI'
 on:
   schedule:
     - cron: '0 10 * * *'
@@ -97,6 +97,7 @@ jobs:
 
   scan:
     runs-on: ubuntu-24.04
+    name: Scan for vulnerabilities
     steps:
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@0.29.0
@@ -126,7 +127,7 @@ jobs:
 
   publish-docs:
     runs-on: ubuntu-24.04
-    name: Deploy docs to Cloudflare Pages
+    name: Deploy to Cloudflare Pages
     permissions:
       contents: read
       pull-requests: write
