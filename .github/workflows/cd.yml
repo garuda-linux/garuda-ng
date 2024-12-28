@@ -42,6 +42,7 @@ jobs:
       - name: Calculate the next version
         id: calculate_version
         run: |
+          PATH=$(pnpm bin):$PATH
           VERSION=$(git cliff --bumped-version)
           echo "version=$VERSION" >> "$GITHUB_ENV"
 
