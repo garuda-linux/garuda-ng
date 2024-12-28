@@ -9,7 +9,7 @@ jobs:
   tag:
     runs-on: ubuntu-24.04
     name: Tag the release
-    if: contains(github.event.head_commit.message, 'bump:')
+    if: startsWith(github.event.workflow_run.head_commit.message, 'bump:')
     permissions:
       contents: write
     outputs:
