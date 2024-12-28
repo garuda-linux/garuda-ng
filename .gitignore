@@ -32,6 +32,7 @@ node_modules/
 .direnv
 .npmrc
 .pre-commit-config.yaml
+.wrangler
 CHANGES.md
 
 # Compiled output
