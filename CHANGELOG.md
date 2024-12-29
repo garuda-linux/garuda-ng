@@ -1,3 +1,35 @@
+## [0.2.0](https://github.com/FilipTLW/garuda-ng/compare/0.1.0..0.2.0) - 2024-12-29
+
+### ⛰️  Features
+
+- *(toast)* Added message toast service ([#41](https://github.com/dr460nf1r3/container-manager/issues/41)) - ([b630036](https://github.com/FilipTLW/garuda-ng/commit/b630036853f23c1e12c948d0fcc284260fa9c3e3))
+- *(toast)* Added message toast service - ([f7cf57d](https://github.com/FilipTLW/garuda-ng/commit/f7cf57d8ec3acc9fb955c2c550aaf36fdcbb1874))
+
+### 🚀 Release
+
+- 0.2.0 ([#45](https://github.com/dr460nf1r3/container-manager/issues/45)) - ([e8ea170](https://github.com/FilipTLW/garuda-ng/commit/e8ea170a00dae185c6488563513ebf245ee8965c))
+- 0.2.0 - ([644c49a](https://github.com/FilipTLW/garuda-ng/commit/644c49a3e7f96f2d6f448c72f5568a2f0c979735))
+
+### 📚 Documentation
+
+- *(changelog.md)* Update [skip ci] - ([62d8150](https://github.com/FilipTLW/garuda-ng/commit/62d8150490fcd87157298f5cbd02ec79d3fe10d2))
+- *(readme)* Updated package readme ([#44](https://github.com/dr460nf1r3/container-manager/issues/44)) - ([891dcda](https://github.com/FilipTLW/garuda-ng/commit/891dcdab11ca67b41204488af3070297367a1343))
+- *(readme)* Updated package readme - ([1401fe6](https://github.com/FilipTLW/garuda-ng/commit/1401fe632bc5d6b9846af227f44232ac1b246d5a))
+- *(toast)* Added message toast documentation - ([35dbe29](https://github.com/FilipTLW/garuda-ng/commit/35dbe29a1c6d8870af8397423dbea019c2895ad9))
+- Made docs more accessible for mobile devices ([#42](https://github.com/dr460nf1r3/container-manager/issues/42)) - ([563ed93](https://github.com/FilipTLW/garuda-ng/commit/563ed9327f81882c2ac8c355704a67d81d5b16fe))
+- A few changes to accessibility - ([374b838](https://github.com/FilipTLW/garuda-ng/commit/374b8388993ab813a7156fd706e13e410f758447))
+- Made docs more accessible for mobile devices - ([1e86252](https://github.com/FilipTLW/garuda-ng/commit/1e86252217e1f7a015792c24deeea11121a1c6e5))
+
+### 🧪 Testing
+
+- *(toast)* Added correct providers to message toast service test ([#43](https://github.com/dr460nf1r3/container-manager/issues/43)) - ([210410b](https://github.com/FilipTLW/garuda-ng/commit/210410bd809073725a64bf6375e5bc15177377b0))
+- *(toast)* Added correct providers to message toast service test - ([5d51c45](https://github.com/FilipTLW/garuda-ng/commit/5d51c45bbc350197c479d5f13fc1ff09b68217ed))
+
+### ⚙️ Miscellaneous Tasks
+
+- *(core)* Bump version to 0.2.0 - ([f97e6bb](https://github.com/FilipTLW/garuda-ng/commit/f97e6bb06159e3d4560ec233b8306b4a4997d8de))
+
+
 ## [0.1.0](https://github.com/FilipTLW/garuda-ng/compare/0.0.2..0.1.0) - 2024-12-28
 
 ### ⛰️  Features
