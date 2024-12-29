@@ -1,11 +1,12 @@
 import { Component, HostBinding, inject, input } from '@angular/core';
 import { Menubar } from 'primeng/menubar';
 import { MenuItem } from 'primeng/api';
-import { GARUDA_NG_CONFIG } from '../config/garuda-ng';
+import { GARUDA_NG_CONFIG } from '../config';
+import { Toast } from 'primeng/toast';
 
 @Component({
   selector: 'garuda-shell',
-  imports: [Menubar],
+  imports: [Menubar, Toast],
   templateUrl: './shell.component.html',
   styleUrl: './shell.component.scss',
   host: {

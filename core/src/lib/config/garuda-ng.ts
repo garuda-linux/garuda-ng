@@ -1,5 +1,6 @@
 import { EnvironmentProviders, InjectionToken, makeEnvironmentProviders, Provider } from '@angular/core';
 import { PrimeNGConfigType, providePrimeNG } from 'primeng/config';
+import { MessageService } from 'primeng/api';
 
 const DEFAULT_GARUDA_NG_CONFIG: GarudaNGConfig = {
   font: 'monospace',
@@ -20,5 +21,5 @@ export function provideGarudaNG(config?: GarudaNGConfig, ...primeNGFeatures: Pri
     multi: false,
   };
 
-  return makeEnvironmentProviders([primeNGProviders, garudaProvider]);
+  return makeEnvironmentProviders([primeNGProviders, garudaProvider, MessageService]);
 }

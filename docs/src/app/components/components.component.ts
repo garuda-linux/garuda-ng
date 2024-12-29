@@ -21,5 +21,14 @@ export class ComponentsComponent {
         },
       ],
     },
+    {
+      label: 'Services',
+      items: [
+        {
+          label: 'Message Toast',
+          routerLink: '/components/toast-service',
+        },
+      ],
+    },
   ];
 }
