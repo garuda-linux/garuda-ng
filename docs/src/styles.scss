@@ -14,3 +14,11 @@
 .docs-subsection {
   margin-top: 2em;
 }
+
+.import-container {
+  max-width: calc(100vw - 16px);
+}
+
+.import-code {
+  overflow-x: auto;
+}

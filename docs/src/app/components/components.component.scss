@@ -1,4 +1,14 @@
-.components-menu {
+.components-container {
   display: flex;
   gap: 1em;
+}
+
+.components-menu {
+  @media only screen and (device-width > 768px) {
+    display: block !important;
+  }
+
+  @media only screen and (device-width <= 768px) {
+    position: absolute;
+  }
 }

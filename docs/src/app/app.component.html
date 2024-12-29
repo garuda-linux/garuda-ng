@@ -1,4 +1,12 @@
 <garuda-shell [menuItems]="menuItems">
+  <p-button
+    garudaShellBarStart
+    icon="pi {{ sidebarToggleService.icon() }}"
+    [text]="true"
+    (onClick)="sidebarToggleService.toggle()"
+    [style.display]="sidebarToggleService.arrowDisplayStyle()"
+    class="sidebar-toggle"
+  ></p-button>
   <img garudaShellBarStart ngSrc="garuda-blue.svg" width="28" height="28" alt="logo" />
   <a garudaShellBarEnd garudaShellBarLink href="https://github.com/FilipTLW/garuda-ng">
     <i class="pi pi-github"></i>
