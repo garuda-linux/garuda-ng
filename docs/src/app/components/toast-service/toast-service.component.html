@@ -1,0 +1,62 @@
+<div>
+  <h1>Message Toast</h1>
+
+  <pre><code [highlight]="importLine" language="typescript"></code></pre>
+
+  <p>The message toast service allows you to show short notifications to the user.</p>
+
+  <p-message icon="pi pi-info-circle"
+    >The message toast service requires the app to use the <a routerLink="/components/shell">Shell</a> in order to function
+    properly.</p-message
+  >
+
+  <section class="docs-section">
+    <h2>Base Example</h2>
+
+    <div class="example-container">
+      <garuda-docs-toast-base-example></garuda-docs-toast-base-example>
+    </div>
+
+    <br />
+
+    <garuda-docs-code-example [html]="(baseCodeHTML | async) ?? ''" [ts]="(baseCodeTS | async) ?? ''"></garuda-docs-code-example>
+  </section>
+
+  <section class="docs-section">
+    <h2>Severity</h2>
+
+    <p>
+      The message toast has multiple severities: <code>info</code>, <code>success</code>, <code>warn</code>, <code>error</code>,
+      <code>contrast</code>, <code>secondary</code>.
+    </p>
+
+    <div class="example-container">
+      <garuda-docs-toast-severity-example></garuda-docs-toast-severity-example>
+    </div>
+
+    <br />
+
+    <garuda-docs-code-example [html]="(severityCodeHTML | async) ?? ''" [ts]="(severityCodeTS | async) ?? ''"></garuda-docs-code-example>
+  </section>
+
+  <section class="docs-section">
+    <h2>Positioning</h2>
+
+    <p>
+      The message toast can be positioned differently. Following values are allowed: <code>top-left</code>, <code>top-center</code>,
+      <code>top-right</code>, <code>bottom-left</code>, <code>bottom-center</code>, <code>bottom-right</code>, <code>center</code>. Default
+      value is <code>top-right</code>.
+    </p>
+
+    <div class="example-container">
+      <garuda-docs-toast-positioning-example></garuda-docs-toast-positioning-example>
+    </div>
+
+    <br />
+
+    <garuda-docs-code-example
+      [html]="(positioningCodeHTML | async) ?? ''"
+      [ts]="(positioningCodeTS | async) ?? ''"
+    ></garuda-docs-code-example>
+  </section>
+</div>
