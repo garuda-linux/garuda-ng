@@ -1,0 +1,5 @@
+.sidebar-toggle {
+  @media only screen and (device-width > 768px) {
+    display: none !important;
+  }
+}

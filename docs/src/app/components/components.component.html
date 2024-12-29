@@ -1,4 +1,4 @@
-<div class="components-menu" [style.margin-bottom.em]="5">
-  <p-menu [model]="components"></p-menu>
-  <router-outlet></router-outlet>
+<div class="components-container" [style.margin-bottom.em]="5">
+  <p-menu [model]="components" [style.display]="sidebarToggleService.displayStyle()" class="components-menu"></p-menu>
+  <router-outlet [style.display]="'none'"></router-outlet>
 </div>

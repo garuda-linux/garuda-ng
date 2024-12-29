@@ -2,7 +2,7 @@
 @let tsValue = ts();
 @let scssValue = scss();
 
-<p-tabs value="0">
+<p-tabs value="0" class="tabs-container">
   <p-tablist>
     @if (htmlValue) {
       <p-tab value="0">HTML</p-tab>
@@ -14,20 +14,20 @@
       <p-tab value="2">SCSS</p-tab>
     }
   </p-tablist>
-  <p-tabpanels>
+  <p-tabpanels class="tab-panels">
     @if (htmlValue) {
       <p-tabpanel value="0">
-        <pre><code [highlight]="htmlValue" language="XML"></code></pre>
+        <pre><code class="code-container" [highlight]="htmlValue" language="XML"></code></pre>
       </p-tabpanel>
     }
     @if (tsValue) {
       <p-tabpanel value="1">
-        <pre><code [highlight]="tsValue" language="typescript"></code></pre>
+        <pre><code class="code-container" [highlight]="tsValue" language="typescript"></code></pre>
       </p-tabpanel>
     }
     @if (scssValue) {
       <p-tabpanel value="2">
-        <pre><code [highlight]="scssValue" language="scss"></code></pre>
+        <pre><code class="code-container" [highlight]="scssValue" language="scss"></code></pre>
       </p-tabpanel>
     }
   </p-tabpanels>
