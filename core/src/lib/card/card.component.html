@@ -1,0 +1,23 @@
+<p-card class="garuda-card-p-card">
+  @switch (cardRole()) {
+    @case ('product-showcase') {
+      <ng-template #header>
+        <div class="garuda-card-product-showcase-header">
+          <div class="garuda-card-thumbnail-container">
+            <ng-content select="[garudaCardThumbnail]"></ng-content>
+          </div>
+          <div>
+            <ng-content select="[garudaCardTitle]"></ng-content>
+            <ng-content select="[garudaCardFeatureList]"></ng-content>
+          </div>
+        </div>
+      </ng-template>
+      <ng-content></ng-content>
+      <ng-template #footer>
+        <div class="garuda-card-action-container">
+          <ng-content select="[garudaCardAction]"></ng-content>
+        </div>
+      </ng-template>
+    }
+  }
+</p-card>

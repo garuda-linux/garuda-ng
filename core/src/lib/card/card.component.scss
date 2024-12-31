@@ -1,0 +1,15 @@
+.garuda-card-product-showcase-header {
+  display: flex;
+  padding: 2em 2em 0 2em;
+  align-items: center;
+
+  .garuda-card-thumbnail-container {
+    margin-right: 2em;
+  }
+}
+
+.garuda-card-action-container {
+  display: flex;
+  gap: 1em;
+  justify-content: flex-end;
+}
