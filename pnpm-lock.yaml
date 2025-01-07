@@ -39,14 +39,14 @@ importers:
         specifier: ^11.11.1
         version: 11.11.1
       ngx-highlightjs:
-        specifier: ^12.0.0
-        version: 12.0.0(@angular/common@19.0.5(@angular/core@19.0.5(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.0.5(rxjs@7.8.1)(zone.js@0.15.0))
+        specifier: ^13.0.0
+        version: 13.0.0(@angular/cdk@19.0.4(@angular/common@19.0.5(@angular/core@19.0.5(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.0.5(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/common@19.0.5(@angular/core@19.0.5(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.0.5(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1)
       primeicons:
         specifier: ^7.0.0
         version: 7.0.0
       primeng:
         specifier: ^19.0.2
-        version: 19.0.2(aztdthhn2eql7smtl5zhzf47xm)
+        version: 19.0.2(92b92adca913ce7d162f98c6210e37aa)
       rxjs:
         specifier: ~7.8.1
         version: 7.8.1
@@ -77,7 +77,7 @@ importers:
         version: 9.17.0
       '@nx/angular':
         specifier: ^20.3.0
-        version: 20.3.0(t32rgrfoe5knhfj7ae7aetuyvm)
+        version: 20.3.0(c8406b47fa93db710f5e76f531d282f0)
       '@nx/devkit':
         specifier: 20.3.0
         version: 20.3.0(nx@20.3.0(@swc-node/register@1.10.9(@swc/core@1.10.2(@swc/helpers@0.5.15))(@swc/types@0.1.17)(typescript@5.6.3))(@swc/core@1.10.2(@swc/helpers@0.5.15)))
@@ -5965,11 +5965,13 @@ packages:
       tailwindcss:
         optional: true
 
-  ngx-highlightjs@12.0.0:
-    resolution: {integrity: sha512-1lSUv3hNpriHewwe8zz8eMX6q/Tcq1ZCsJ1GitBsr86y39e+q4U/s8LKE7rvK6SVAbQlUuopdbbKWR0zjihjLg==}
+  ngx-highlightjs@13.0.0:
+    resolution: {integrity: sha512-ucE9lV/C1BWoOWq2Iw+L5xVpl1ijSYIAcCPUNm/u8wzVKScDnuiDODpJ9PnBGjRjwatyqI97BHOpijATJi2T+A==}
     peerDependencies:
-      '@angular/common': '>=17.0.0'
-      '@angular/core': '>=17.0.0'
+      '@angular/cdk': '>=19.0.0'
+      '@angular/common': '>=19.0.0'
+      '@angular/core': '>=19.0.0'
+      rxjs: '>=7.0.0'
 
   node-abort-controller@3.1.1:
     resolution: {integrity: sha512-AGK2yQKIjRuqnc6VkX2Xj5d+QW8xZ87pa1UK6yA6ouUyuxfHuMP6umE5QK7UmTeOAymo+Zx1Fxiuw9rVx8taHQ==}
@@ -8011,7 +8013,7 @@ snapshots:
       typescript: 5.6.3
       webpack: 5.96.1(@swc/core@1.10.2(@swc/helpers@0.5.15))(esbuild@0.24.0)
       webpack-dev-middleware: 7.4.2(webpack@5.96.1(@swc/core@1.10.2(@swc/helpers@0.5.15))(esbuild@0.24.0))
-      webpack-dev-server: 5.1.0(webpack@5.88.0(@swc/core@1.10.2(@swc/helpers@0.5.15))(esbuild@0.17.19))
+      webpack-dev-server: 5.1.0(webpack@5.97.1(@swc/core@1.10.2(@swc/helpers@0.5.15))(esbuild@0.17.19))
       webpack-merge: 6.0.1
       webpack-subresource-integrity: 5.1.0(webpack@5.96.1(@swc/core@1.10.2(@swc/helpers@0.5.15))(esbuild@0.24.0))
     optionalDependencies:
@@ -8044,7 +8046,7 @@ snapshots:
       '@angular-devkit/architect': 0.1900.6(chokidar@4.0.3)
       rxjs: 7.8.1
       webpack: 5.96.1(@swc/core@1.10.2(@swc/helpers@0.5.15))(esbuild@0.24.0)
-      webpack-dev-server: 5.1.0(webpack@5.88.0(@swc/core@1.10.2(@swc/helpers@0.5.15))(esbuild@0.17.19))
+      webpack-dev-server: 5.1.0(webpack@5.97.1(@swc/core@1.10.2(@swc/helpers@0.5.15))(esbuild@0.17.19))
     transitivePeerDependencies:
       - chokidar
 
@@ -10210,7 +10212,7 @@ snapshots:
       - bluebird
       - supports-color
 
-  '@nx/angular@20.3.0(t32rgrfoe5knhfj7ae7aetuyvm)':
+  '@nx/angular@20.3.0(c8406b47fa93db710f5e76f531d282f0)':
     dependencies:
       '@angular-devkit/build-angular': 19.0.6(@angular/compiler-cli@19.0.5(@angular/compiler@19.0.5(@angular/core@19.0.5(rxjs@7.8.1)(zone.js@0.15.0)))(typescript@5.6.3))(@angular/compiler@19.0.5(@angular/core@19.0.5(rxjs@7.8.1)(zone.js@0.15.0)))(@rspack/core@1.1.8(@swc/helpers@0.5.15))(@swc/core@1.10.2(@swc/helpers@0.5.15))(@types/node@22.10.2)(chokidar@4.0.3)(jest-environment-jsdom@29.7.0)(jest@29.7.0(@types/node@22.10.2)(ts-node@10.9.2(@swc/core@1.10.2(@swc/helpers@0.5.15))(@types/node@22.10.2)(typescript@5.6.3)))(ng-packagr@19.0.1(@angular/compiler-cli@19.0.5(@angular/compiler@19.0.5(@angular/core@19.0.5(rxjs@7.8.1)(zone.js@0.15.0)))(typescript@5.6.3))(tslib@2.8.1)(typescript@5.6.3))(stylus@0.64.0)(typescript@5.6.3)(vite@5.4.11(@types/node@22.10.2)(less@4.2.0)(sass@1.80.7)(stylus@0.64.0)(terser@5.36.0))
       '@angular-devkit/core': 19.0.6(chokidar@4.0.3)
@@ -14608,11 +14610,13 @@ snapshots:
     optionalDependencies:
       rollup: 4.29.1
 
-  ngx-highlightjs@12.0.0(@angular/common@19.0.5(@angular/core@19.0.5(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.0.5(rxjs@7.8.1)(zone.js@0.15.0)):
+  ngx-highlightjs@13.0.0(@angular/cdk@19.0.4(@angular/common@19.0.5(@angular/core@19.0.5(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.0.5(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/common@19.0.5(@angular/core@19.0.5(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.0.5(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1):
     dependencies:
+      '@angular/cdk': 19.0.4(@angular/common@19.0.5(@angular/core@19.0.5(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.0.5(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1)
       '@angular/common': 19.0.5(@angular/core@19.0.5(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1)
       '@angular/core': 19.0.5(rxjs@7.8.1)(zone.js@0.15.0)
       highlight.js: 11.11.1
+      rxjs: 7.8.1
       tslib: 2.8.1
 
   node-abort-controller@3.1.1: {}
@@ -15288,7 +15292,7 @@ snapshots:
 
   primeicons@7.0.0: {}
 
-  primeng@19.0.2(aztdthhn2eql7smtl5zhzf47xm):
+  primeng@19.0.2(92b92adca913ce7d162f98c6210e37aa):
     dependencies:
       '@angular/animations': 19.0.5(@angular/core@19.0.5(rxjs@7.8.1)(zone.js@0.15.0))
       '@angular/cdk': 19.0.4(@angular/common@19.0.5(@angular/core@19.0.5(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.0.5(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1)
@@ -16473,17 +16477,6 @@ snapshots:
 
   webidl-conversions@7.0.0: {}
 
-  webpack-dev-middleware@7.4.2(webpack@5.88.0(@swc/core@1.10.2(@swc/helpers@0.5.15))(esbuild@0.17.19)):
-    dependencies:
-      colorette: 2.0.20
-      memfs: 4.15.1
-      mime-types: 2.1.35
-      on-finished: 2.4.1
-      range-parser: 1.2.1
-      schema-utils: 4.3.0
-    optionalDependencies:
-      webpack: 5.88.0(@swc/core@1.10.2(@swc/helpers@0.5.15))(esbuild@0.17.19)
-
   webpack-dev-middleware@7.4.2(webpack@5.96.1(@swc/core@1.10.2(@swc/helpers@0.5.15))(esbuild@0.24.0)):
     dependencies:
       colorette: 2.0.20
@@ -16506,7 +16499,7 @@ snapshots:
     optionalDependencies:
       webpack: 5.97.1(@swc/core@1.10.2(@swc/helpers@0.5.15))(esbuild@0.17.19)
 
-  webpack-dev-server@5.1.0(webpack@5.88.0(@swc/core@1.10.2(@swc/helpers@0.5.15))(esbuild@0.17.19)):
+  webpack-dev-server@5.1.0(webpack@5.97.1(@swc/core@1.10.2(@swc/helpers@0.5.15))(esbuild@0.17.19)):
     dependencies:
       '@types/bonjour': 3.5.13
       '@types/connect-history-api-fallback': 1.5.4
@@ -16534,10 +16527,10 @@ snapshots:
       serve-index: 1.9.1
       sockjs: 0.3.24
       spdy: 4.0.2
-      webpack-dev-middleware: 7.4.2(webpack@5.88.0(@swc/core@1.10.2(@swc/helpers@0.5.15))(esbuild@0.17.19))
+      webpack-dev-middleware: 7.4.2(webpack@5.97.1(@swc/core@1.10.2(@swc/helpers@0.5.15))(esbuild@0.17.19))
       ws: 8.18.0
     optionalDependencies:
-      webpack: 5.88.0(@swc/core@1.10.2(@swc/helpers@0.5.15))(esbuild@0.17.19)
+      webpack: 5.97.1(@swc/core@1.10.2(@swc/helpers@0.5.15))(esbuild@0.17.19)
     transitivePeerDependencies:
       - bufferutil
       - debug
