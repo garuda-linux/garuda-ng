@@ -14,6 +14,15 @@ import { SidebarToggleService } from '../../util/sidebar-toggle/sidebar-toggle.s
 export class ComponentsComponent implements OnInit, OnDestroy {
   components: MenuItem[] = [
     {
+      label: 'Panel',
+      items: [
+        {
+          label: 'Card',
+          routerLink: '/components/card',
+        },
+      ],
+    },
+    {
       label: 'Layout',
       items: [
         {
