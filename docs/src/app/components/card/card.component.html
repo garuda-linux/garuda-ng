@@ -1,0 +1,33 @@
+<div class="component-docs">
+  <h1>Card</h1>
+
+  <pre><code [highlight]="importLine" language="typescript" class="import-code"></code></pre>
+
+  <p>
+    The card component may be used to display various information to the user in a use-case specific format. The format is defined by the
+    <code>cardRole</code> property.
+  </p>
+
+  <section class="docs-section">
+    <h2>Role: product-showcase</h2>
+
+    <h3>DOM Layout</h3>
+
+    <p-tree [value]="domLayoutProductShowcase"></p-tree>
+
+    <h3>Example</h3>
+
+    <div class="example-container">
+      <garuda-docs-product-showcase-base-example></garuda-docs-product-showcase-base-example>
+    </div>
+
+    <br />
+
+    <garuda-docs-code-example
+      [html]="(productShowcaseBaseCodeHTML | async) ?? ''"
+      [ts]="(productShowcaseBaseCodeTS | async) ?? ''"
+      [scss]="(productShowcaseBaseCodeSCSS | async) ?? ''"
+    >
+    </garuda-docs-code-example>
+  </section>
+</div>
