@@ -1,3 +1,19 @@
+## [0.3.1](https://github.com/FilipTLW/garuda-ng/compare/0.3.0..0.3.1) - 2025-01-21
+
+### 🚀 Release
+
+- 0.3.0 ([#56](https://github.com/dr460nf1r3/container-manager/issues/56)) - ([46d1b36](https://github.com/FilipTLW/garuda-ng/commit/46d1b36e86242b3747546f01d5f1d2399c48683a))
+- 0.3.0 - ([fce0cd2](https://github.com/FilipTLW/garuda-ng/commit/fce0cd2ce5a1885e2a7c85cc3f9f352c5228bc4b))
+
+### 📚 Documentation
+
+- *(changelog.md)* Update [skip ci] - ([419646c](https://github.com/FilipTLW/garuda-ng/commit/419646c25fb195cbd46c8a20ae8c7f6384bb13ab))
+
+### ⚙️ Miscellaneous Tasks
+
+- *(core)* Bump version to 0.3.1 - ([748ffc1](https://github.com/FilipTLW/garuda-ng/commit/748ffc1f0420d5817594bdfd923092b2a48216c5))
+
+
 ## [0.3.0](https://github.com/FilipTLW/garuda-ng/compare/0.2.0..0.3.0) - 2025-01-21
 
 ### ⛰️  Features
