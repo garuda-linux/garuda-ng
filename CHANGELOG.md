@@ -1,3 +1,27 @@
+## [0.3.0](https://github.com/FilipTLW/garuda-ng/compare/0.2.0..0.3.0) - 2025-01-21
+
+### ⛰️  Features
+
+- *(card)* Added product-showcase card ([#53](https://github.com/dr460nf1r3/container-manager/issues/53)) - ([1a7ea19](https://github.com/FilipTLW/garuda-ng/commit/1a7ea197cdfbafa132e21a89710331e13b7d1256))
+- *(card)* Added product-showcase card - ([9402b96](https://github.com/FilipTLW/garuda-ng/commit/9402b96db368036e97ada63dd5bd47249894852e))
+- *(card)* Added product-showcase card - ([a0fc71b](https://github.com/FilipTLW/garuda-ng/commit/a0fc71b5b5359c6923928c9289ffdbc0b21e3900))
+
+### 🐛 Bug Fixes
+
+- *(deps)* Update dependency ngx-highlightjs to v13 ([#48](https://github.com/dr460nf1r3/container-manager/issues/48)) - ([4851487](https://github.com/FilipTLW/garuda-ng/commit/4851487563588b958416edeb3c77955ca6893c1d))
+- *(deps)* Update dependency ngx-highlightjs to v13 - ([32d70fa](https://github.com/FilipTLW/garuda-ng/commit/32d70fad21e635d04f98f67ecd1fe50a2efc8e90))
+
+### 📚 Documentation
+
+- *(card)* Added product-showcase card docs - ([cd3be75](https://github.com/FilipTLW/garuda-ng/commit/cd3be756d353ada1948b1180304794c6b6f2cccb))
+- *(card)* Added product-showcase card docs - ([9c2516e](https://github.com/FilipTLW/garuda-ng/commit/9c2516eb8084353414ceca76e408b3df80719642))
+- *(changelog.md)* Update [skip ci] - ([87cb195](https://github.com/FilipTLW/garuda-ng/commit/87cb1958f527364a13947a321f0309fb14bd74d9))
+
+### ⚙️ Miscellaneous Tasks
+
+- *(core)* Bump version to 0.3.0 - ([8297ca1](https://github.com/FilipTLW/garuda-ng/commit/8297ca14c7ca69a64066358bac7ce89cd29bdf02))
+
+
 ## [0.2.0](https://github.com/FilipTLW/garuda-ng/compare/0.1.0..0.2.0) - 2024-12-29
 
 ### ⛰️  Features
