@@ -1,6 +1,6 @@
 {
   "name": "@garudalinux/core",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Component library for webpages of Garuda Linux for Angular based on PrimeNG",
   "keywords": [
     "garuda",
