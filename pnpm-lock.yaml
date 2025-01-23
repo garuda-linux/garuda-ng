@@ -46,7 +46,7 @@ importers:
         version: 7.0.0
       primeng:
         specifier: ^19.0.2
-        version: 19.0.2(92b92adca913ce7d162f98c6210e37aa)
+        version: 19.0.5(92b92adca913ce7d162f98c6210e37aa)
       rxjs:
         specifier: ~7.8.1
         version: 7.8.1
@@ -6589,8 +6589,8 @@ packages:
   primeicons@7.0.0:
     resolution: {integrity: sha512-jK3Et9UzwzTsd6tzl2RmwrVY/b8raJ3QZLzoDACj+oTJ0oX7L9Hy+XnVwgo4QVKlKpnP/Ur13SXV/pVh4LzaDw==}
 
-  primeng@19.0.2:
-    resolution: {integrity: sha512-7vizB1ynvvADjZBE9/Ks/YFwbY/d2tKYo+8Uq3OsBq9+rf9pIwKQIhd9GKkpe1gXx5Ig2SOFVeTp1Ru4H/vlVA==}
+  primeng@19.0.5:
+    resolution: {integrity: sha512-3IMWTUykIyZpT7d+pD7KzB+68GcY8/xOV10V1Tf09cPkPuwXlFP+NAVGIqAOXBzkw+RmJksSBoa13bpS/fMo1g==}
     peerDependencies:
       '@angular/animations': ^19.0.0
       '@angular/cdk': ^19.0.0
@@ -7299,8 +7299,8 @@ packages:
   tinybench@2.9.0:
     resolution: {integrity: sha512-0+DUvqWMValLmha6lr4kD8iAMK1HzV0/aKnCtWb9v9641TnP/MFb7Pc2bxoxQjTXAErryXVgUOfv2YqNllqGeg==}
 
-  tinyexec@0.3.1:
-    resolution: {integrity: sha512-WiCJLEECkO18gwqIp6+hJg0//p23HXp4S+gGtAKu3mI2F2/sXC4FvHvXvB0zJVVaTPhx1/tOwdbRsa1sOBIKqQ==}
+  tinyexec@0.3.2:
+    resolution: {integrity: sha512-KQQR9yN7R5+OSwaK0XQoj22pwHoTlgYqmUscPYoknOoWCWfj/5/ABTMRi69FrKU5ffPVh5QcFikpWJI/P1ocHA==}
 
   tinyglobby@0.2.10:
     resolution: {integrity: sha512-Zc+8eJlFMvgatPZTl6A9L/yht8QqdmUNtURHaKZLmKBE12hNPSrqNkUp2cs3M/UKmNVVAMFQYSjYIVHDjW5zew==}
@@ -15292,7 +15292,7 @@ snapshots:
 
   primeicons@7.0.0: {}
 
-  primeng@19.0.2(92b92adca913ce7d162f98c6210e37aa):
+  primeng@19.0.5(92b92adca913ce7d162f98c6210e37aa):
     dependencies:
       '@angular/animations': 19.0.5(@angular/core@19.0.5(rxjs@7.8.1)(zone.js@0.15.0))
       '@angular/cdk': 19.0.4(@angular/common@19.0.5(@angular/core@19.0.5(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.0.5(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1)
@@ -16097,7 +16097,7 @@ snapshots:
 
   tinybench@2.9.0: {}
 
-  tinyexec@0.3.1: {}
+  tinyexec@0.3.2: {}
 
   tinyglobby@0.2.10:
     dependencies:
@@ -16429,7 +16429,7 @@ snapshots:
       pathe: 1.1.2
       std-env: 3.8.0
       tinybench: 2.9.0
-      tinyexec: 0.3.1
+      tinyexec: 0.3.2
       tinypool: 1.0.2
       tinyrainbow: 1.2.0
       vite: 5.4.11(@types/node@22.10.2)(less@4.1.3)(sass@1.83.0)(stylus@0.64.0)(terser@5.36.0)
