@@ -1,77 +1,12 @@
 ---
 name: 'CD'
 on:
-  workflow_run:
-    workflows: ['CI']
-    types:
-      - completed
+  push:
+    tags:
+      - '[0-9]+.[0-9]+.[0-9]+'
 jobs:
-  tag:
-    runs-on: ubuntu-24.04
-    name: Tag the release
-    if: startsWith(github.event.workflow_run.head_commit.message, 'bump:')
-    permissions:
-      contents: write
-    outputs:
-      version: ${{ steps.calculate_version.outputs.version }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          persist-credentials: true
-          ssh-key: ${{ secrets.DEPLOY_KEY }}
-
-      - name: Set git user info
-        run: |
-          git config user.name 'Temeraire'
-          git config user.email 'actions@chaotic.cx'
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: 'pnpm'
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Calculate the next version
-        id: calculate_version
-        run: |
-          PATH=$(pnpm bin):$PATH
-          VERSION=$(git cliff --bumped-version)
-          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
-
-      - name: Install jq
-        run: |
-          sudo apt-get update
-          sudo apt-get -y install jq
-
-      - name: Update package.json
-        run: |
-          JQ_VERSION=${{ steps.calculate_version.outputs.version }} jq '.version=env.JQ_VERSION' ./core/package.json > /tmp/package.json
-          mv /tmp/package.json ./core/package.json
-          git add ./core/package.json
-          git commit -m "chore(core): bump version to ${{ steps.calculate_version.outputs.version }}"
-
-      - name: Tag the release
-        run: |
-          git tag ${{ steps.calculate_version.outputs.version }} -m "${{ steps.calculate_version.outputs.version }}"
-
-      - name: Push changes
-        uses: ad-m/github-push-action@v0.8.0
-        with:
-          branch: ${{ github.ref }}
-          ssh: true
-          tags: true
-
   changelog:
     runs-on: ubuntu-24.04
-    needs: [tag]
     name: Generate and commit changelog
     permissions:
       contents: write
@@ -81,7 +16,7 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: true
-          ref: ${{ needs.tag.outputs.version }}
+          ref: ${{ github.ref_name }}
           ssh-key: ${{ secrets.DEPLOY_KEY }}
 
       - name: Set git user info
@@ -132,7 +67,6 @@ jobs:
 
   publish:
     runs-on: ubuntu-24.04
-    needs: [tag]
     name: Publish to NPM
     permissions:
       contents: read
@@ -140,7 +74,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: ${{ needs.tag.outputs.version }}
+          ref: ${{ github.ref_name }}
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -168,7 +102,6 @@ jobs:
 
   publish-docs:
     runs-on: ubuntu-24.04
-    needs: [tag]
     name: Deploy docs to Cloudflare Pages
     permissions:
       contents: read
@@ -176,7 +109,7 @@ jobs:
       - name: Checkout tag
         uses: actions/checkout@v4
         with:
-          ref: ${{ needs.tag.outputs.version }}
+          ref: ${{ github.ref_name }}
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
