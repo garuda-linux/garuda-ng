@@ -69,7 +69,7 @@
     "@swc/core": "~1.10.9",
     "@swc/helpers": "~0.5.15",
     "@types/jest": "^29.5.14",
-    "@types/node": "22.10.2",
+    "@types/node": "22.10.10",
     "@typescript-eslint/utils": "^8.21.0",
     "angular-eslint": "^19.0.2",
     "autoprefixer": "^10.4.20",
