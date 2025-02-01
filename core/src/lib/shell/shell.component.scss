@@ -17,3 +17,19 @@
 .garuda-shell-content:not(.garuda-shell-relative) {
   padding-top: 60px;
 }
+
+.garuda-shell__dropdown {
+  --p-menu-background: rgb(from var(--bg-color) r g b / 0.2);
+  backdrop-filter: blur(5px);
+}
+
+.garuda-shell__dropdown.garuda-shell-relative {
+  margin-top: 8px;
+}
+
+.garuda-shell__dropdown:not(.garuda-shell-relative) {
+  position: fixed;
+  top: 68px;
+  z-index: 2000;
+  width: calc(100% - 16px);
+}
