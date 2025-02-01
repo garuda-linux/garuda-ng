@@ -8,14 +8,15 @@ import { ShellComponent } from '../shell.component';
   },
 })
 export class ShellBarDropdownToggleDirective {
-  shellComponent = input.required<ShellComponent>({
+  // workaround for current problems with input signals on directives
+  shellComponent = input<ShellComponent>(undefined as unknown as ShellComponent, {
     alias: 'garudaShellBarDropdownToggle',
   });
 
   @HostListener('click') onClick() {
-    this.shellComponent().toggleDropdown();
+    this.shellComponent()?.toggleDropdown();
   }
 
   @HostBinding('class.garuda-shell__dropdown-always-visible')
-  alwaysVisible = this.shellComponent().alwaysShowDropDownMenu;
+  alwaysVisible = this.shellComponent()?.alwaysShowDropdownMenu;
 }

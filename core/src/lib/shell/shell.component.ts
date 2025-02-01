@@ -1,4 +1,16 @@
-import { Component, ElementRef, HostBinding, inject, input, OnDestroy, OnInit, Renderer2, signal, viewChild } from '@angular/core';
+import {
+  Component,
+  contentChild,
+  ElementRef,
+  HostBinding,
+  inject,
+  input,
+  OnDestroy,
+  OnInit,
+  Renderer2,
+  signal,
+  viewChild,
+} from '@angular/core';
 import { Menubar } from 'primeng/menubar';
 import { MenuItem } from 'primeng/api';
 import { GARUDA_NG_CONFIG } from '../config';
@@ -23,12 +35,12 @@ export class ShellComponent implements OnInit, OnDestroy {
 
   menuItems = input<MenuItem[]>([]);
   relativePosition = input<boolean>(false);
-  alwaysShowDropDownMenu = input<boolean>(false);
+  alwaysShowDropdownMenu = input<boolean>(false);
 
   dropdownOpen = signal<boolean>(false);
 
-  dropdownButton = viewChild(ShellBarDropdownToggleDirective);
-  dropdownButtonRef = viewChild(ShellBarDropdownToggleDirective, { read: ElementRef });
+  dropdownButton = contentChild(ShellBarDropdownToggleDirective);
+  dropdownButtonRef = contentChild(ShellBarDropdownToggleDirective, { read: ElementRef });
   autoDropdownButtonRef = viewChild('autoDropdownButton', { read: ElementRef });
   menu = viewChild.required('menu', { read: ElementRef });
 

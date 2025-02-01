@@ -1,5 +1,5 @@
 <p-menubar
-  [model]="alwaysShowDropDownMenu() ? [] : menuItems()"
+  [model]="alwaysShowDropdownMenu() ? [] : menuItems()"
   class="garuda-shell-menubar"
   [class.garuda-shell-relative]="relativePosition()"
 >
@@ -8,7 +8,7 @@
     @if (dropdownButton() === undefined) {
       <p-button
         #autoDropdownButton
-        [class.garuda-shell__dropdown-always-visible]="alwaysShowDropDownMenu()"
+        [class.garuda-shell__dropdown-always-visible]="alwaysShowDropdownMenu()"
         class="garuda-shell__dropdown-toggle"
         (onClick)="toggleDropdown()"
         icon="pi pi-bars"
