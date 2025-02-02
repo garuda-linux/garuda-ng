@@ -50,8 +50,8 @@ jobs:
 
       - name: Commit changes
         run: |
-          git tag -f ${{ github.ref_name }}
           git commit -m "chore(core): bump version to ${{ github.ref_name }}"
+          git tag -f ${{ github.ref_name }}
 
       - name: Push changes
         uses: ad-m/github-push-action@v0.8.0
