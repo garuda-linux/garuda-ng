@@ -3,7 +3,7 @@ name: 'CD'
 on:
   push:
     tags:
-      - '*'
+      - '**'
 jobs:
   changelog:
     runs-on: ubuntu-24.04
@@ -36,13 +36,31 @@ jobs:
         run: |
           git checkout main
           git add CHANGELOG.md
-          git commit -m "docs(changelog.md): update [skip ci]"
+
+      - name: Install jq
+        run: |
+          sudo apt-get update
+          sudo apt-get -y install jq
+
+      - name: Update package.json
+        run: |
+          JQ_VERSION=${{ github.ref_name }} jq '.version=env.JQ_VERSION' ./core/package.json > /tmp/package.json
+          mv /tmp/package.json ./core/package.json
+          git add ./core/package.json
+
+      - name: Commit changes
+        run: |
+          git tag -f ${{ github.ref_name }}
+          git commit -m "chore(core): bump version to ${{ github.ref_name }}"
 
       - name: Push changes
         uses: ad-m/github-push-action@v0.8.0
         with:
+          branch: ${{ github.event.repository.default_branch }}
           ssh: true
-          branch: ${{ github.ref }}
+          tags: true
+          # Overwrite the existing tag, so the next step can use it
+          force: true
 
       - name: Generate a changelog for the latest release
         uses: orhun/git-cliff-action@v4
@@ -70,6 +88,7 @@ jobs:
     name: Publish to NPM
     permissions:
       contents: read
+    needs: changelog
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -105,6 +124,7 @@ jobs:
     name: Deploy docs to Cloudflare Pages
     permissions:
       contents: read
+    needs: changelog
     steps:
       - name: Checkout tag
         uses: actions/checkout@v4
