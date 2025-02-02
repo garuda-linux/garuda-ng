@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@garudalinux/core": ["core/src/index.ts"]
+      "@garudalinux/core": ["core/src/index.ts"],
+      "@garudalinux/themes": ["themes/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

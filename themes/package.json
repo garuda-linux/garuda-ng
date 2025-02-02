@@ -1,10 +1,14 @@
 {
-  "name": "@garudalinux/core",
-  "version": "0.3.1",
-  "description": "Component library for webpages of Garuda Linux for Angular based on PrimeNG",
+  "name": "@garudalinux/themes",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "description": "Themes for the component library for webpages of Garuda Linux for Angular based on PrimeNG.",
   "keywords": [
     "garuda",
-    "angular"
+    "angular",
+    "catppuccin"
   ],
   "homepage": "https://github.com/FilipTLW/garuda-ng#readme",
   "bugs": {
@@ -17,12 +21,8 @@
   "license": "GPL-3.0-or-later",
   "author": "Filip Myslinski",
   "peerDependencies": {
-    "@angular/core": "~19.0.5",
-    "primeng": "^19.0.2",
-    "jest-preset-angular": "~14.4.2",
-    "@playwright/test": "^1.49.1",
-    "@angular/platform-browser": "~19.0.5",
-    "@angular/common": "~19.0.5"
+    "@catppuccin/palette": "^1.7.1",
+    "@primeng/themes": "^19.0.5"
   },
   "dependencies": {},
   "packageManager": "pnpm@10.1.0+sha512.c89847b0667ddab50396bbbd008a2a43cf3b581efd59cf5d9aa8923ea1fb4b8106c041d540d08acb095037594d73ebc51e1ec89ee40c88b30b8a66c0fae0ac1b"

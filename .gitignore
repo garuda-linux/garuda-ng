@@ -42,3 +42,6 @@ jest.preset.js
 # Test results
 core/test-results/
 coverage/
+
+vite.config.*.timestamp*
+vitest.config.*.timestamp*
