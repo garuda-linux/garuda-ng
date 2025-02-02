@@ -1,3 +1,56 @@
+## [0.4.0-rc.1](https://github.com/FilipTLW/garuda-ng/compare/0.3.1..0.4.0-rc.1) - 2025-02-02
+
+### ⛰️  Features
+
+- *(shell)* Added custom dropdown menu for mobile devices ([#65](https://github.com/dr460nf1r3/container-manager/issues/65)) - ([4d8cd7f](https://github.com/FilipTLW/garuda-ng/commit/4d8cd7ffd7025acbc9fe06928b9ed9332ae96aa8))
+- *(shell)* Added custom dropdown menu for mobile devices - ([037d51c](https://github.com/FilipTLW/garuda-ng/commit/037d51c25a787232098a48ff56c8afbcb419e172))
+- *(shell)* Added custom dropdown menu for mobile devices - ([5866757](https://github.com/FilipTLW/garuda-ng/commit/58667579db6becb934ef0e84d2f97faa044d3e5c))
+
+### 🐛 Bug Fixes
+
+- *(card)* Made card mobile friendly ([#66](https://github.com/dr460nf1r3/container-manager/issues/66)) - ([7ff8812](https://github.com/FilipTLW/garuda-ng/commit/7ff88126c72e4e51e6933366dfbd959c0f6dc17b))
+- *(card)* Made card mobile friendly - ([11b48b3](https://github.com/FilipTLW/garuda-ng/commit/11b48b3980ea234e1c296abdc0eca2ba763a593a))
+- *(card)* Made card mobile friendly - ([568fcbc](https://github.com/FilipTLW/garuda-ng/commit/568fcbce8512709e45ef8ae6e01cbefba8b78622))
+
+### 🚀 Release
+
+- 0.4.0-rc.1 - ([2e19d7f](https://github.com/FilipTLW/garuda-ng/commit/2e19d7fdd4721cdc411c577561578ccc8d47049e))
+
+### 📚 Documentation
+
+- *(changelog.md)* Update [skip ci] - ([9ce0fb7](https://github.com/FilipTLW/garuda-ng/commit/9ce0fb7e3575b129de4769a22d68a0da1d654f74))
+- *(shell)* Added documentation for shell dropdown menu - ([68eeb5f](https://github.com/FilipTLW/garuda-ng/commit/68eeb5ff70848450dcfcd912c4779d03b5dc528b))
+
+### ⚙️ Miscellaneous Tasks
+
+- Auto-update package.json and make next steps wait for first one ([#72](https://github.com/dr460nf1r3/container-manager/issues/72)) - ([3a669c5](https://github.com/FilipTLW/garuda-ng/commit/3a669c59bf69a7060fbe7faf78ef264e3fbae682))
+- Allow semver with extensions, v3 ([#71](https://github.com/dr460nf1r3/container-manager/issues/71)) - ([f7466e6](https://github.com/FilipTLW/garuda-ng/commit/f7466e65702824ad1ed2ee295e4b1f8e34f49cb6))
+- Extend glob - ([ac5365d](https://github.com/FilipTLW/garuda-ng/commit/ac5365daa1255b23587419d0c5926c974397a894))
+- Auto-update package.json and make next steps wait for first one - ([eb0a4e0](https://github.com/FilipTLW/garuda-ng/commit/eb0a4e0b5ff0f7fa83c62fe291953aeb1cbfc272))
+- Allow semver with extensions, v3 - ([b9af311](https://github.com/FilipTLW/garuda-ng/commit/b9af311750e76f3f6f034a5d323ab8e67d31fdfd))
+- Allow semver with extensions, v2 ([#70](https://github.com/dr460nf1r3/container-manager/issues/70)) - ([ec3def2](https://github.com/FilipTLW/garuda-ng/commit/ec3def2949a70ff25790534cc1bdf88f2ac15364))
+- Allow semver with extensions, v2 - ([45625f7](https://github.com/FilipTLW/garuda-ng/commit/45625f7291ce63a8d8de864827330eebf0f89fa2))
+- Allow semver extensions as tag ([#69](https://github.com/dr460nf1r3/container-manager/issues/69)) - ([2f9da72](https://github.com/FilipTLW/garuda-ng/commit/2f9da7234a4aea10ea2b63f55fb27077cdaa884d))
+- Allow semver extensions as tag - ([268e66b](https://github.com/FilipTLW/garuda-ng/commit/268e66bbfeb6dd333effff341d46c238cd072d1c))
+- Switch to non-deprecated nix cache action ([#67](https://github.com/dr460nf1r3/container-manager/issues/67)) - ([295e435](https://github.com/FilipTLW/garuda-ng/commit/295e435acad816e72e7a559d7e4d0121e7c1829d))
+- Switch to non-deprecated nix cache action - ([7889bcb](https://github.com/FilipTLW/garuda-ng/commit/7889bcbd8521198007ffdb13b3eebc4414fcd8cb))
+- Only trigger cd on pushed tag ([#58](https://github.com/dr460nf1r3/container-manager/issues/58)) - ([30415f8](https://github.com/FilipTLW/garuda-ng/commit/30415f8485c80c8954a304b2be66107de63a91a5))
+- Only trigger cd on pushed tag - ([015cae6](https://github.com/FilipTLW/garuda-ng/commit/015cae69c593b782023914d3af3e51e265edcf1f))
+- Update nix flake lock ([#57](https://github.com/dr460nf1r3/container-manager/issues/57)) - ([92c4144](https://github.com/FilipTLW/garuda-ng/commit/92c4144c47d9d1eb3ced41a71e63fa8890b25121))
+- Fix-up shellcheck warning - ([ce984f3](https://github.com/FilipTLW/garuda-ng/commit/ce984f326af148189bd9b206c11fc0e5d52dbe8d))
+- Update nix flake lock - ([1e88860](https://github.com/FilipTLW/garuda-ng/commit/1e88860d459a83900b474772ecd25b34874127a7))
+
+### Build
+
+- Upgrade all deps ([#59](https://github.com/dr460nf1r3/container-manager/issues/59)) - ([5e17713](https://github.com/FilipTLW/garuda-ng/commit/5e1771304af4eaadcf43c14fd75d230f63879bb8))
+- Upgrade all deps - ([c07342e](https://github.com/FilipTLW/garuda-ng/commit/c07342ed8c5ee98e24671938acfd9a948c473d96))
+
+## New Contributors ❤️
+
+* @FilipTLW made their first contribution in [#72](https://github.com/FilipTLW/garuda-ng/pull/72)
+* @dr460nf1r3 made their first contribution
+* @temeraire-cx made their first contribution
+
 ## [0.3.1](https://github.com/FilipTLW/garuda-ng/compare/0.3.0..0.3.1) - 2025-01-21
 
 ### 🚀 Release
