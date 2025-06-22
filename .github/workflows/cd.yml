@@ -32,9 +32,31 @@ jobs:
         env:
           OUTPUT: CHANGELOG.md
 
-      - name: Commit changelog
+      - name: Determine source branch
+        id: determine_branch
         run: |
-          git checkout main
+          # Get the commit hash of the tag
+          TAG_COMMIT=$(git rev-list -n 1 ${{ github.ref_name }})
+          echo "Tag commit: $TAG_COMMIT"
+
+          # Check if this commit exists in main
+          if git merge-base --is-ancestor "$TAG_COMMIT" origin/main; then
+            echo "Commit is in main branch"
+            echo "target_branch=main" >> "$GITHUB_OUTPUT"
+          else
+            # Find which branch contains this commit
+            BRANCH=$(git branch -r --contains "$TAG_COMMIT" | grep -v '/HEAD' | head -1 | sed 's/.*origin\///')
+            if [ -z "$BRANCH" ]; then
+              echo "Could not determine source branch, defaulting to main"
+              echo "target_branch=main" >> "$GITHUB_OUTPUT"
+            else
+              echo "Found source branch: $BRANCH"
+              echo "target_branch=$BRANCH" >> "$GITHUB_OUTPUT"
+            fi
+          fi
+      - name: Checkout target branch
+        run: |
+          git checkout ${{ steps.determine_branch.outputs.target_branch }}
           git add CHANGELOG.md
 
       - name: Install jq
@@ -56,7 +78,7 @@ jobs:
       - name: Push changes
         uses: ad-m/github-push-action@v0.8.0
         with:
-          branch: ${{ github.event.repository.default_branch }}
+          branch: ${{ steps.determine_branch.outputs.target_branch }}
           ssh: true
           tags: true
           # Overwrite the existing tag, so the next step can use it
