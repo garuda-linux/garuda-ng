@@ -42,3 +42,7 @@ jest.preset.js
 # Test results
 core/test-results/
 coverage/
+
+# Nx stuff, added via migrations
+.cursor/rules/nx-rules.mdc
+.github/instructions/nx.instructions.md

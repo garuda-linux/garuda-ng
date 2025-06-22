@@ -1,5 +1,5 @@
 {
-  description = "Container manager ❄️";
+  description = "Garuda-ng ❄️";
 
   inputs = {
     devshell = {
