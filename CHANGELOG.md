@@ -1,3 +1,44 @@
+## [1.0.0-rc.1](https://github.com/FilipTLW/garuda-ng/compare/0.3.1..1.0.0-rc.1) - 2025-07-13
+
+### ⛰️  Features
+
+- *(global)* Upgraded to angular 20 - ([d9c47f1](https://github.com/FilipTLW/garuda-ng/commit/d9c47f1aa6ee448c13ab3c4e1bd2a89d81f747ee))
+- *(shell)* Added custom dropdown menu for mobile devices - ([f71f33d](https://github.com/FilipTLW/garuda-ng/commit/f71f33d8d8f6df54ac0e1ce328aa07a03cf4296b))
+
+### 🐛 Bug Fixes
+
+- *(card)* Made card mobile friendly - ([5a14c81](https://github.com/FilipTLW/garuda-ng/commit/5a14c81a847c08131409ab21c4a1c3a7bdaff675))
+- *(card)* Made card mobile friendly - ([f859dea](https://github.com/FilipTLW/garuda-ng/commit/f859dea4f8e07d7c879eb3f0b30f401faa1284eb))
+- *(shell)* Fixed shell bar dropdown toggle directive not working will alwaysShowDropdown - ([639af9c](https://github.com/FilipTLW/garuda-ng/commit/639af9c9e09f615754088a6c79b2d48b2276c8e5))
+
+### 📚 Documentation
+
+- *(shell)* Added documentation for shell dropdown menu - ([1565a42](https://github.com/FilipTLW/garuda-ng/commit/1565a427e99c2274a0e086f215ac9a8df2da8c97))
+
+### ⚙️ Miscellaneous Tasks
+
+- Cleanup git history - ([51175d1](https://github.com/FilipTLW/garuda-ng/commit/51175d1b56a1da6e62993dea6d075aa778660da0))
+
+## New Contributors ❤️
+
+* @dr460nf1r3 made their first contribution
+
+## [0.3.1](https://github.com/FilipTLW/garuda-ng/compare/0.3.0..0.3.1) - 2025-01-21
+
+### 🚀 Release
+
+- 0.3.0 ([#56](https://github.com/dr460nf1r3/container-manager/issues/56)) - ([46d1b36](https://github.com/FilipTLW/garuda-ng/commit/46d1b36e86242b3747546f01d5f1d2399c48683a))
+- 0.3.0 - ([fce0cd2](https://github.com/FilipTLW/garuda-ng/commit/fce0cd2ce5a1885e2a7c85cc3f9f352c5228bc4b))
+
+### 📚 Documentation
+
+- *(changelog.md)* Update [skip ci] - ([419646c](https://github.com/FilipTLW/garuda-ng/commit/419646c25fb195cbd46c8a20ae8c7f6384bb13ab))
+
+### ⚙️ Miscellaneous Tasks
+
+- *(core)* Bump version to 0.3.1 - ([748ffc1](https://github.com/FilipTLW/garuda-ng/commit/748ffc1f0420d5817594bdfd923092b2a48216c5))
+
+
 ## [0.3.0](https://github.com/FilipTLW/garuda-ng/compare/0.2.0..0.3.0) - 2025-01-21
 
 ### ⛰️  Features
