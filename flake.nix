@@ -1,5 +1,5 @@
 {
-  description = "Container manager ❄️";
+  description = "Garuda-ng ❄️";
 
   inputs = {
     devshell = {
@@ -10,7 +10,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
-      inputs.nixpkgs-stable.follows = "nixpkgs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

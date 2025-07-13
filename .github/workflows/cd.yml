@@ -1,77 +1,14 @@
 ---
 name: 'CD'
 on:
-  workflow_run:
-    workflows: ['CI']
-    types:
-      - completed
+  push:
+    tags:
+      - '**'
 jobs:
-  tag:
-    runs-on: ubuntu-24.04
-    name: Tag the release
-    if: startsWith(github.event.workflow_run.head_commit.message, 'bump:')
-    permissions:
-      contents: write
-    outputs:
-      version: ${{ steps.calculate_version.outputs.version }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          persist-credentials: true
-          ssh-key: ${{ secrets.DEPLOY_KEY }}
-
-      - name: Set git user info
-        run: |
-          git config user.name 'Temeraire'
-          git config user.email 'actions@chaotic.cx'
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: 'pnpm'
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Calculate the next version
-        id: calculate_version
-        run: |
-          PATH=$(pnpm bin):$PATH
-          VERSION=$(git cliff --bumped-version)
-          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
-
-      - name: Install jq
-        run: |
-          sudo apt-get update
-          sudo apt-get -y install jq
-
-      - name: Update package.json
-        run: |
-          JQ_VERSION=${{ steps.calculate_version.outputs.version }} jq '.version=env.JQ_VERSION' ./core/package.json > /tmp/package.json
-          mv /tmp/package.json ./core/package.json
-          git add ./core/package.json
-          git commit -m "chore(core): bump version to ${{ steps.calculate_version.outputs.version }}"
-
-      - name: Tag the release
-        run: |
-          git tag ${{ steps.calculate_version.outputs.version }} -m "${{ steps.calculate_version.outputs.version }}"
-
-      - name: Push changes
-        uses: ad-m/github-push-action@v0.8.0
-        with:
-          branch: ${{ github.ref }}
-          ssh: true
-          tags: true
-
   changelog:
+    if: >-
+      !contains(github.ref, 'refs/tags/release/')
     runs-on: ubuntu-24.04
-    needs: [tag]
     name: Generate and commit changelog
     permissions:
       contents: write
@@ -81,13 +18,39 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: true
-          ref: ${{ needs.tag.outputs.version }}
+          ref: ${{ github.ref_name }}
           ssh-key: ${{ secrets.DEPLOY_KEY }}
 
       - name: Set git user info
         run: |
           git config user.name 'Temeraire'
           git config user.email 'actions@chaotic.cx'
+
+      - name: Determine source branch
+        id: determine_branch
+        run: |
+          # Get the commit hash of the tag
+          TAG_COMMIT=$(git rev-list -n 1 ${{ github.ref_name }})
+          echo "Tag commit: $TAG_COMMIT"
+
+          # Check if this commit exists in main
+          if git merge-base --is-ancestor "$TAG_COMMIT" origin/main; then
+            echo "Commit is in main branch"
+            echo "target_branch=main" >> "$GITHUB_OUTPUT"
+          else
+            # Find which branch contains this commit
+            BRANCH=$(git branch -r --contains "$TAG_COMMIT" | grep -v '/HEAD' | head -1 | sed 's/.*origin\///')
+            if [ -z "$BRANCH" ]; then
+              echo "Could not determine source branch, defaulting to main"
+              echo "target_branch=main" >> "$GITHUB_OUTPUT"
+            else
+              echo "Found source branch: $BRANCH"
+              echo "target_branch=$BRANCH" >> "$GITHUB_OUTPUT"
+            fi
+          fi
+      - name: Checkout target branch
+        run: |
+          git checkout ${{ steps.determine_branch.outputs.target_branch }}
 
       - name: Generate a complete changelog
         uses: orhun/git-cliff-action@v4
@@ -97,17 +60,31 @@ jobs:
         env:
           OUTPUT: CHANGELOG.md
 
-      - name: Commit changelog
+      - name: Add changelog to commit
+        run: git add CHANGELOG.md
+
+      - name: Install jq
         run: |
-          git checkout main
-          git add CHANGELOG.md
-          git commit -m "docs(changelog.md): update [skip ci]"
+          sudo apt-get update
+          sudo apt-get -y install jq
+
+      - name: Update package.json
+        run: |
+          JQ_VERSION=${{ github.ref_name }} jq '.version=env.JQ_VERSION' ./core/package.json > /tmp/package.json
+          mv /tmp/package.json ./core/package.json
+          git add ./core/package.json
+
+      - name: Commit changes
+        run: |
+          git commit -m "chore(core): bump version to ${{ github.ref_name }}"
+          git tag release/${{ github.ref_name }}
 
       - name: Push changes
         uses: ad-m/github-push-action@v0.8.0
         with:
+          branch: ${{ steps.determine_branch.outputs.target_branch }}
           ssh: true
-          branch: ${{ github.ref }}
+          tags: true
 
       - name: Generate a changelog for the latest release
         uses: orhun/git-cliff-action@v4
@@ -118,21 +95,17 @@ jobs:
           GITHUB_REPO: ${{ github.repository }}
           OUTPUT: CHANGES.md
 
-      - name: Get current tag
-        id: get_tag
-        run: echo "tag_name=$(git describe --abbrev=0 --tags)" >> "$GITHUB_OUTPUT"
-
       - name: Create release
         uses: softprops/action-gh-release@v2
         with:
           body_path: CHANGES.md
           fail_on_unmatched_files: true
-          tag_name: ${{ steps.get_tag.outputs.tag_name }}
+          tag_name: release/${{ github.ref_name }}
           token: ${{ secrets.GITHUB_TOKEN }}
 
   publish:
+    if: contains(github.ref, 'refs/tags/release/')
     runs-on: ubuntu-24.04
-    needs: [tag]
     name: Publish to NPM
     permissions:
       contents: read
@@ -140,7 +113,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: ${{ needs.tag.outputs.version }}
+          ref: ${{ github.ref_name }}
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -168,15 +141,15 @@ jobs:
 
   publish-docs:
     runs-on: ubuntu-24.04
-    needs: [tag]
     name: Deploy docs to Cloudflare Pages
     permissions:
       contents: read
+    needs: publish
     steps:
       - name: Checkout tag
         uses: actions/checkout@v4
         with:
-          ref: ${{ needs.tag.outputs.version }}
+          ref: ${{ github.ref_name }}
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
