@@ -52,6 +52,15 @@ jobs:
         run: |
           git checkout ${{ steps.determine_branch.outputs.target_branch }}
 
+      - name: Generate a changelog for the latest release
+        uses: orhun/git-cliff-action@v4
+        with:
+          config: cliff.toml
+          args: -v --no-exec --github-repo ${{ github.repository }} --latest --strip header
+        env:
+          GITHUB_REPO: ${{ github.repository }}
+          OUTPUT: /tmp/CHANGES.md
+
       - name: Generate a complete changelog
         uses: orhun/git-cliff-action@v4
         with:
@@ -86,21 +95,13 @@ jobs:
           ssh: true
           tags: true
 
-      - name: Generate a changelog for the latest release
-        uses: orhun/git-cliff-action@v4
-        with:
-          config: cliff.toml
-          args: -v --no-exec --github-repo ${{ github.repository }} --latest --strip header
-        env:
-          GITHUB_REPO: ${{ github.repository }}
-          OUTPUT: CHANGES.md
-
       - name: Create release
         uses: softprops/action-gh-release@v2
         with:
-          body_path: CHANGES.md
+          body_path: /tmp/CHANGES.md
           fail_on_unmatched_files: true
-          tag_name: release/${{ github.ref_name }}
+          name: Release ${{ github.ref_name }}
+          tag_name: ${{ github.ref_name }}
           token: ${{ secrets.GITHUB_TOKEN }}
 
   publish:
