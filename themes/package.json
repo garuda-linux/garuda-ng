@@ -1,7 +1,7 @@
 {
-  "name": "@garudalinux/core",
+  "name": "@garudalinux/themes",
   "version": "1.0.0-rc.2",
-  "description": "Component library for webpages of Garuda Linux for Angular based on PrimeNG",
+  "description": "Theme Package for @garudalinux/core.",
   "keywords": [
     "garuda",
     "angular"
@@ -23,9 +23,16 @@
     "@angular/common": "~20.0.0",
     "@angular/core": "~20.0.0",
     "@angular/platform-browser": "~20.0.0",
+    "@catppuccin/palette": "2.0.0-beta.1",
     "@playwright/test": "^1.49.1",
     "jest-preset-angular": "~14.6.0",
     "primeng": "^20.0.0-rc.3"
+  },
+  "main": "./src/index.ts",
+  "exports": {
+    "./dr460nized": {
+      "import": "./lib/dr460nized"
+    }
   },
   "dependencies": {},
   "packageManager": "pnpm@10.12.1+sha512.f0dda8580f0ee9481c5c79a1d927b9164f2c478e90992ad268bbb2465a736984391d6333d2c327913578b2804af33474ca554ba29c04a8b13060a717675ae3ac"
