@@ -1,13 +1,6 @@
-# git-cliff ~ configuration file
-# https://git-cliff.org/docs/configuration
-#
-# Lines starting with "#" are comments.
-# Configuration options are organized into tables and keys.
-# See documentation for more information on available options.
-
 [remote.github]
-owner = "dr460nf1r3"
-repo = "container-manager"
+owner = "garuda-linux"
+repo = "garuda-ng"
 
 [changelog]
 # template for the changelog body
@@ -66,7 +59,7 @@ body = """
 trim = true
 # postprocessors
 postprocessors = [
-  { pattern = '<REPO>', replace = "https://github.com/dr460nf1r3/container-manager" }, # replace repository URL
+  { pattern = '<REPO>', replace = "https://github.com/garuda-linux/garuda-ng" },
 ]
 
 [git]
@@ -107,7 +100,7 @@ filter_commits = false
 # regex for matching git tags
 tag_pattern = "[0-9].*"
 # regex for skipping tags
-skip_tags = "beta|alpha"
+skip_tags = "beta|alpha|release"
 # sort the tags topologically
 topo_order = false
 # sort the commits inside sections by oldest/newest order
