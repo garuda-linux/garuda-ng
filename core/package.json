@@ -6,13 +6,13 @@
     "garuda",
     "angular"
   ],
-  "homepage": "https://github.com/FilipTLW/garuda-ng#readme",
+  "homepage": "https://github.com/garuda-linux/garuda-ng#readme",
   "bugs": {
-    "url": "https://github.com/FilipTLW/garuda-ng/issues"
+    "url": "https://github.com/garuda-linux/garuda-ng/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FilipTLW/garuda-ng.git"
+    "url": "git+https://github.com/garuda-linux/garuda-ng.git"
   },
   "license": "GPL-3.0-or-later",
   "author": "Filip Myslinski",
