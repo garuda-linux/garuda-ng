@@ -6,6 +6,8 @@ on:
       - '**'
 jobs:
   changelog:
+    if: >-
+      !contains(github.ref, 'refs/tags/release/')
     runs-on: ubuntu-24.04
     name: Generate and commit changelog
     permissions:
@@ -75,7 +77,7 @@ jobs:
       - name: Commit changes
         run: |
           git commit -m "chore(core): bump version to ${{ github.ref_name }}"
-          git tag -f ${{ github.ref_name }}
+          git tag release/${{ github.ref_name }}
 
       - name: Push changes
         uses: ad-m/github-push-action@v0.8.0
@@ -83,8 +85,6 @@ jobs:
           branch: ${{ steps.determine_branch.outputs.target_branch }}
           ssh: true
           tags: true
-          # Overwrite the existing tag, so the next step can use it
-          force: true
 
       - name: Generate a changelog for the latest release
         uses: orhun/git-cliff-action@v4
@@ -104,15 +104,15 @@ jobs:
         with:
           body_path: CHANGES.md
           fail_on_unmatched_files: true
-          tag_name: ${{ steps.get_tag.outputs.tag_name }}
+          tag_name: release/${{ github.ref_name }}
           token: ${{ secrets.GITHUB_TOKEN }}
 
   publish:
+    if: contains(github.ref, 'refs/tags/release/')
     runs-on: ubuntu-24.04
     name: Publish to NPM
     permissions:
       contents: read
-    needs: changelog
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -148,7 +148,7 @@ jobs:
     name: Deploy docs to Cloudflare Pages
     permissions:
       contents: read
-    needs: changelog
+    needs: publish
     steps:
       - name: Checkout tag
         uses: actions/checkout@v4
