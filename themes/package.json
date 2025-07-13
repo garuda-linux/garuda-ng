@@ -20,13 +20,8 @@
     "Nico Jensch <npm@dr460nf1r3.org>"
   ],
   "peerDependencies": {
-    "@angular/common": "~20.0.0",
-    "@angular/core": "~20.0.0",
-    "@angular/platform-browser": "~20.0.0",
     "@catppuccin/palette": "2.0.0-beta.1",
-    "@playwright/test": "^1.49.1",
-    "jest-preset-angular": "~14.6.0",
-    "primeng": "^20.0.0-rc.3"
+    "@primeuix/themes": "^1.2.1"
   },
   "main": "./src/index.ts",
   "exports": {
