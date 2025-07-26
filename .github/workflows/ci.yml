@@ -100,7 +100,7 @@ jobs:
     name: Scan for vulnerabilities
     steps:
       - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@0.29.0
+        uses: aquasecurity/trivy-action@0.32.0
         with:
           exit-code: '1'
           format: 'table'

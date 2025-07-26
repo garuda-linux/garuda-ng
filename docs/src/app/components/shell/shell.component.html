@@ -61,6 +61,43 @@
   </section>
 
   <section class="docs-section">
+    <h2>Always Using The Dropdown Menu</h2>
+
+    <p>
+      The dropdown menu is by default only used on mobile devices, but with <code>[alwaysShowDropdownMenu]</code> it can be always used.
+      This does not affect additional content described before.
+    </p>
+
+    <div class="example-container">
+      <garuda-docs-shell-bar-always-dropdown-example></garuda-docs-shell-bar-always-dropdown-example>
+    </div>
+
+    <br />
+
+    <garuda-docs-code-example
+      [html]="(shellBarAlwaysDropdownCodeHTML | async) ?? ''"
+      [ts]="(shellBarAlwaysDropdownCodeTS | async) ?? ''"
+    ></garuda-docs-code-example>
+  </section>
+
+  <section class="docs-section">
+    <h2>Custom Button For Opening Dropdown</h2>
+
+    <p>The button for opening dropdown can be overridden using the <code>[garudaShellBarDropdownToggle]</code> directive.</p>
+
+    <div class="example-container">
+      <garuda-docs-shell-bar-dropdown-toggle-example></garuda-docs-shell-bar-dropdown-toggle-example>
+    </div>
+
+    <br />
+
+    <garuda-docs-code-example
+      [html]="(shellBarDropdownToggleCodeHTML | async) ?? ''"
+      [ts]="(shellBarDropdownToggleCodeTS | async) ?? ''"
+    ></garuda-docs-code-example>
+  </section>
+
+  <section class="docs-section">
     <h2>Relative Position</h2>
 
     <p>

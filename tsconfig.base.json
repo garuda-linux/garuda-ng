@@ -15,7 +15,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@garudalinux/core": ["core/src/index.ts"]
+      "@garudalinux/core": ["core/src/index.ts"],
+      "@garudalinux/themes": ["themes/src/index.ts"],
+      "@garudalinux/themes/catppuccin": ["themes/catppuccin/src/public_api.ts"],
+      "@garudalinux/themes/dr460nized": ["themes/dr460nized/src/public_api.ts"],
+      "@garudalinux/themes/vo1ded": ["themes/vo1ded/src/public_api.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
