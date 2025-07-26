@@ -1,10 +1,22 @@
 .garuda-card-product-showcase-header {
-  display: flex;
+  display: block;
   padding: 2em 2em 0 2em;
-  align-items: center;
+
+  @media only screen and (device-width >= 768px) {
+    display: flex;
+    align-items: center;
+  }
 
   .garuda-card-thumbnail-container {
-    margin-right: 2em;
+    margin-right: 0;
+    margin-bottom: 1.25rem;
+    display: flex;
+    justify-content: center;
+
+    @media only screen and (device-width >= 768px) {
+      margin-right: 2.5rem;
+      display: block;
+    }
   }
 }
 
@@ -12,4 +24,9 @@
   display: flex;
   gap: 1em;
   justify-content: flex-end;
+  place-self: center;
+
+  @media only screen and (device-width < 768px) {
+    justify-content: space-evenly;
+  }
 }

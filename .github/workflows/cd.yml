@@ -52,6 +52,15 @@ jobs:
         run: |
           git checkout ${{ steps.determine_branch.outputs.target_branch }}
 
+      - name: Generate a changelog for the latest release
+        uses: orhun/git-cliff-action@v4
+        with:
+          config: cliff.toml
+          args: -v --no-exec --github-repo ${{ github.repository }} --latest --strip header
+        env:
+          GITHUB_REPO: ${{ github.repository }}
+          OUTPUT: /tmp/CHANGES.md
+
       - name: Generate a complete changelog
         uses: orhun/git-cliff-action@v4
         with:
@@ -68,11 +77,13 @@ jobs:
           sudo apt-get update
           sudo apt-get -y install jq
 
-      - name: Update package.json
+      - name: Update package.json's
         run: |
-          JQ_VERSION=${{ github.ref_name }} jq '.version=env.JQ_VERSION' ./core/package.json > /tmp/package.json
-          mv /tmp/package.json ./core/package.json
-          git add ./core/package.json
+          JQ_VERSION=${{ github.ref_name }} jq '.version=env.JQ_VERSION' ./core/package.json > /tmp/package-core.json
+          JQ_VERSION=${{ github.ref_name }} jq '.version=env.JQ_VERSION' ./themes/package.json > /tmp/package-themes.json
+          mv /tmp/package-core.json ./core/package.json
+          mv /tmp/package-themes.json ./themes/package.json
+          git add ./core/package.json ./themes/package.json
 
       - name: Commit changes
         run: |
@@ -86,21 +97,13 @@ jobs:
           ssh: true
           tags: true
 
-      - name: Generate a changelog for the latest release
-        uses: orhun/git-cliff-action@v4
-        with:
-          config: cliff.toml
-          args: -v --no-exec --github-repo ${{ github.repository }} --latest --strip header
-        env:
-          GITHUB_REPO: ${{ github.repository }}
-          OUTPUT: CHANGES.md
-
       - name: Create release
         uses: softprops/action-gh-release@v2
         with:
-          body_path: CHANGES.md
+          body_path: /tmp/CHANGES.md
           fail_on_unmatched_files: true
-          tag_name: release/${{ github.ref_name }}
+          name: Release ${{ github.ref_name }}
+          tag_name: ${{ github.ref_name }}
           token: ${{ secrets.GITHUB_TOKEN }}
 
   publish:

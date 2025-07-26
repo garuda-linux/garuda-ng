@@ -1,11 +1,33 @@
-<p-menubar [model]="menuItems()" class="garuda-shell-menubar" [class.garuda-shell-relative]="relativePosition()">
+<p-menubar
+  [model]="alwaysShowDropdownMenu() ? [] : menuItems()"
+  class="garuda-shell-menubar"
+  [class.garuda-shell-relative]="relativePosition()"
+>
   <ng-template #start>
     <ng-content select="[garudaShellBarStart]"></ng-content>
+    @if (dropdownButton() === undefined) {
+      <p-button
+        #autoDropdownButton
+        [class.garuda-shell__dropdown-always-visible]="alwaysShowDropdownMenu()"
+        class="garuda-shell__dropdown-toggle"
+        (onClick)="toggleDropdown()"
+        icon="pi pi-bars"
+        [text]="true"
+      />
+    }
   </ng-template>
   <ng-template #end>
     <ng-content select="[garudaShellBarEnd]"></ng-content>
   </ng-template>
 </p-menubar>
+<p-menu
+  #menu
+  [model]="menuItems()"
+  [style.display]="dropdownOpen() ? 'block' : 'none'"
+  class="garuda-shell__dropdown"
+  [class.garuda-shell-relative]="relativePosition()"
+  (click)="closeMenu()"
+/>
 <div class="garuda-shell-content" [class.garuda-shell-relative]="relativePosition()">
   <ng-content></ng-content>
 </div>
