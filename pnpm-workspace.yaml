@@ -10,3 +10,4 @@ onlyBuiltDependencies:
   - workerd
 packages:
   - 'core'
+  - 'themes'

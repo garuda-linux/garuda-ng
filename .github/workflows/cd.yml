@@ -77,11 +77,13 @@ jobs:
           sudo apt-get update
           sudo apt-get -y install jq
 
-      - name: Update package.json
+      - name: Update package.json's
         run: |
-          JQ_VERSION=${{ github.ref_name }} jq '.version=env.JQ_VERSION' ./core/package.json > /tmp/package.json
-          mv /tmp/package.json ./core/package.json
-          git add ./core/package.json
+          JQ_VERSION=${{ github.ref_name }} jq '.version=env.JQ_VERSION' ./core/package.json > /tmp/package-core.json
+          JQ_VERSION=${{ github.ref_name }} jq '.version=env.JQ_VERSION' ./themes/package.json > /tmp/package-themes.json
+          mv /tmp/package-core.json ./core/package.json
+          mv /tmp/package-themes.json ./themes/package.json
+          git add ./core/package.json ./themes/package.json
 
       - name: Commit changes
         run: |
