@@ -1,4 +1,20 @@
-## [1.0.0-rc.2](https://github.com/garuda-linux/garuda-ng/compare/1.0.0-rc.1..1.0.0-rc.2) - 2025-07-13
+## [1.0.0-rc.3](https://github.com/garuda-linux/garuda-ng/compare/1.0.0-rc.2..1.0.0-rc.3) - 2025-07-26
+
+### ⛰️  Features
+
+- Added theme library ([#99](https://github.com/garuda-linux/garuda-ng/issues/99)) - ([f243988](https://github.com/garuda-linux/garuda-ng/commit/f2439881085fa54831de2b9b8f068b81b274c28e))
+- Added theme library - ([a9b71d3](https://github.com/garuda-linux/garuda-ng/commit/a9b71d3d6ede51ff9ce12e9b1088eaf6b3c31a42))
+
+### 🎨 Styling
+
+- Lint - ([c7e7292](https://github.com/garuda-linux/garuda-ng/commit/c7e729262546bebdb4f23cc6b4732eb4fbfeaf4b))
+
+## New Contributors ❤️
+
+* @dr460nf1r3 made their first contribution
+* @FilipTLW made their first contribution
+
+## [1.0.0-rc.2] - 2025-07-13
 
 ### 🎨 Styling
 
@@ -13,7 +29,7 @@
 - Generate changes.md based on current tag, not release tag - ([2dadb38](https://github.com/garuda-linux/garuda-ng/commit/2dadb38fe2184c339111ea530596897729489c1e))
 
 
-## [1.0.0-rc.1] - 2025-07-13
+## [1.0.0-rc.1](https://github.com/garuda-linux/garuda-ng/compare/0.3.1..1.0.0-rc.1) - 2025-07-13
 
 ### ⛰️  Features
 
@@ -34,9 +50,6 @@
 
 - Cleanup git history - ([51175d1](https://github.com/garuda-linux/garuda-ng/commit/51175d1b56a1da6e62993dea6d075aa778660da0))
 
-## New Contributors ❤️
-
-* @dr460nf1r3 made their first contribution
 
 ## [0.3.1](https://github.com/garuda-linux/garuda-ng/compare/0.3.0..0.3.1) - 2025-01-21
 
