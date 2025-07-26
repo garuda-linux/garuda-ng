@@ -151,10 +151,13 @@ jobs:
       contents: read
     needs: publish
     steps:
-      - name: Checkout tag
+      - name: Checkout
         uses: actions/checkout@v4
         with:
+          fetch-depth: 0
+          persist-credentials: true
           ref: ${{ github.ref_name }}
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
