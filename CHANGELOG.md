@@ -1,11 +1,19 @@
-## [1.0.0-rc.4](https://github.com/garuda-linux/garuda-ng/compare/1.0.0-rc.3..1.0.0-rc.4) - 2025-07-26
+## [1.0.0-rc.5](https://github.com/garuda-linux/garuda-ng/compare/1.0.0-rc.4..1.0.0-rc.5) - 2025-07-26
+
+### ⚙️ Miscellaneous Tasks
+
+- Use the current branch name for cf deployments ([#102](https://github.com/garuda-linux/garuda-ng/issues/102)) - ([13a6e5f](https://github.com/garuda-linux/garuda-ng/commit/13a6e5f631deb8d886419856ba3aeac0d0ce2a86))
+- Use the current branch name for cf deployments - ([d6a4385](https://github.com/garuda-linux/garuda-ng/commit/d6a438599213b989763b4018b6d528d70a49d542))
+
+
+## [1.0.0-rc.4] - 2025-07-26
 
 ### ⚙️ Miscellaneous Tasks
 
 - Publish themes to npmjs - ([ef673b8](https://github.com/garuda-linux/garuda-ng/commit/ef673b8c88242bbc3396298f350f35f7e38edea7))
 
 
-## [1.0.0-rc.3] - 2025-07-26
+## [1.0.0-rc.3](https://github.com/garuda-linux/garuda-ng/compare/1.0.0-rc.2..1.0.0-rc.3) - 2025-07-26
 
 ### ⛰️  Features
 
@@ -21,7 +29,7 @@
 * @dr460nf1r3 made their first contribution
 * @FilipTLW made their first contribution
 
-## [1.0.0-rc.2](https://github.com/garuda-linux/garuda-ng/compare/1.0.0-rc.1..1.0.0-rc.2) - 2025-07-13
+## [1.0.0-rc.2] - 2025-07-13
 
 ### 🎨 Styling
 
@@ -36,7 +44,7 @@
 - Generate changes.md based on current tag, not release tag - ([2dadb38](https://github.com/garuda-linux/garuda-ng/commit/2dadb38fe2184c339111ea530596897729489c1e))
 
 
-## [1.0.0-rc.1] - 2025-07-13
+## [1.0.0-rc.1](https://github.com/garuda-linux/garuda-ng/compare/0.3.1..1.0.0-rc.1) - 2025-07-13
 
 ### ⛰️  Features
 
