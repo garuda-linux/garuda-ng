@@ -140,7 +140,9 @@ jobs:
       - name: Publish to NPM
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: pnpx nx run core:publish
+        run: |
+          pnpx nx run core:publish
+          pnpx nx run themes:publish
 
   publish-docs:
     runs-on: ubuntu-24.04
