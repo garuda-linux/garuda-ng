@@ -225,27 +225,12 @@ importers:
 
   themes:
     dependencies:
-      '@angular/common':
-        specifier: ~20.0.0
-        version: 20.0.7(@angular/core@20.0.7(@angular/compiler@20.0.7)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2)
-      '@angular/core':
-        specifier: ~20.0.0
-        version: 20.0.7(@angular/compiler@20.0.7)(rxjs@7.8.2)(zone.js@0.15.1)
-      '@angular/platform-browser':
-        specifier: ~20.0.0
-        version: 20.0.7(@angular/animations@20.0.7(@angular/common@20.0.7(@angular/core@20.0.7(@angular/compiler@20.0.7)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.0.7(@angular/compiler@20.0.7)(rxjs@7.8.2)(zone.js@0.15.1)))(@angular/common@20.0.7(@angular/core@20.0.7(@angular/compiler@20.0.7)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.0.7(@angular/compiler@20.0.7)(rxjs@7.8.2)(zone.js@0.15.1))
       '@catppuccin/palette':
         specifier: 2.0.0-beta.1
         version: 2.0.0-beta.1
-      '@playwright/test':
-        specifier: ^1.49.1
-        version: 1.54.1
-      jest-preset-angular:
-        specifier: ~14.6.0
-        version: 14.6.0(b17ad5a85ca1a026ece6eaded5d648f4)
-      primeng:
-        specifier: ^20.0.0-rc.3
-        version: 20.0.0-rc.3(889ed4ceb7b4b5c02d4639baa517c9ad)
+      '@primeuix/themes':
+        specifier: ^1.2.1
+        version: 1.2.1
 
 packages:
 
