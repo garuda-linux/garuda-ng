@@ -6,10 +6,10 @@
   --p-menubar-background: rgb(from var(--bg-color) r g b / 0.2);
   backdrop-filter: blur(5px);
   border-radius: var(--p-menubar-border-radius);
+  margin: 8px;
 }
 
 .garuda-shell-menubar:not(.garuda-shell-relative) {
-  position: fixed;
   width: calc(100% - 16px);
   z-index: 1000;
 }
@@ -21,6 +21,11 @@
 .garuda-shell__dropdown {
   --p-menu-background: rgb(from var(--bg-color) r g b / 0.2);
   backdrop-filter: blur(5px);
+  margin: 8px;
+}
+
+.garuda-shell-content {
+  padding: 8px;
 }
 
 .garuda-shell__dropdown.garuda-shell-relative {
