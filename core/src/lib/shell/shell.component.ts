@@ -18,12 +18,13 @@ import { Toast } from 'primeng/toast';
 import { Button } from 'primeng/button';
 import { ShellBarDropdownToggleDirective } from './directives/shell-bar-dropdown-toggle.directive';
 import { Menu } from 'primeng/menu';
+import { ScrollTop } from 'primeng/scrolltop';
 
 const MENU_TOGGLE_GLOBAL_STYLE_ID = 'garuda-ng__menu-toggle-style';
 
 @Component({
   selector: 'garuda-shell',
-  imports: [Menubar, Toast, Button, Menu],
+  imports: [Menubar, Toast, Button, Menu, ScrollTop],
   templateUrl: './shell.component.html',
   styleUrl: './shell.component.scss',
   host: {
