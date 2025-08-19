@@ -44,7 +44,7 @@
     "highlight.js": "^11.11.1",
     "ngx-highlightjs": "^14.0.1",
     "primeicons": "^7.0.0",
-    "primeng": "20.0.0",
+    "primeng": "20.0.1",
     "rxjs": "~7.8.2",
     "zone.js": "~0.15.1"
   },
