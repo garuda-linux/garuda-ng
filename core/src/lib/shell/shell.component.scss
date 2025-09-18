@@ -15,7 +15,7 @@
 }
 
 .garuda-shell-content:not(.garuda-shell-relative) {
-  padding-top: 60px;
+  padding-top: var(--content-padding);
 }
 
 .garuda-shell__dropdown {

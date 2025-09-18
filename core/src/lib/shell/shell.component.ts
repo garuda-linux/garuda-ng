@@ -27,7 +27,8 @@ const MENU_TOGGLE_GLOBAL_STYLE_ID = 'garuda-ng__menu-toggle-style';
   templateUrl: './shell.component.html',
   styleUrl: './shell.component.scss',
   host: {
-    class: 'garuda-shell',
+    'class': 'garuda-shell',
+    '[style.--content-padding.px]': 'contentPadding()',
   },
 })
 export class ShellComponent implements OnInit, OnDestroy {
@@ -36,11 +37,14 @@ export class ShellComponent implements OnInit, OnDestroy {
   menuItems = input<MenuItem[]>([]);
   relativePosition = input<boolean>(false);
   alwaysShowDropdownMenu = input<boolean>(false);
+  contentPadding = input<number>(60);
 
   dropdownOpen = signal<boolean>(false);
 
   dropdownButton = contentChild(ShellBarDropdownToggleDirective);
-  dropdownButtonRef = contentChild(ShellBarDropdownToggleDirective, { read: ElementRef });
+  dropdownButtonRef = contentChild(ShellBarDropdownToggleDirective, {
+    read: ElementRef,
+  });
   autoDropdownButtonRef = viewChild('autoDropdownButton', { read: ElementRef });
   menu = viewChild.required('menu', { read: ElementRef });
 
