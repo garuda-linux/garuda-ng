@@ -1,0 +1,42 @@
+<div class="getting-started-container">
+  <div class="caption">
+    <h1>Welcome to</h1>
+    <img ngSrc="garuda-blue.svg" width="56" height="56" alt="logo" />
+    <div class="garuda-ng-end">
+      <h1 class="garuda-ng">GarudaNG</h1>
+      <h1>!</h1>
+    </div>
+  </div>
+  <section class="docs-section">
+    <h2>What is GarudaNG?</h2>
+    <p>
+      GarudaNG is a component library for <a href="angular.dev">Angular</a> built on top of <a href="https://primeng.org/">PrimeNG</a> for
+      website-based projects of <a href="garudalinux.org">Garuda Linux</a>.
+    </p>
+  </section>
+  <section class="docs-section">
+    <h2>License</h2>
+    <p>
+      GarudaNG is licensed under the GNU General Public License. GarudaNG depends on open-source third party projects, which may be licensed
+      differently.
+    </p>
+  </section>
+  <section class="docs-section">
+    <h2>Installation</h2>
+    <p>
+      GarudaNG can be installed using your favorite node package manager, simply install {{ '@garudalinux/core' }}. For example if you're
+      using pnpm:
+    </p>
+    <pre><code class="code-container" highlight="pnpm add @garudalinux/core" language="shell"></code></pre>
+  </section>
+  <section class="docs-section">
+    <h2>Configuration</h2>
+    <p>
+      GarudaNG must be configured by providing it ideally in the ApplicationConfig of your angular application. This can be done using the
+      provideGarudaNG function. If your application is already using PrimeNG, then this will replace your providePrimeNG call. All PrimeNG
+      specific configuration can be put after the GarudaNG configuration.
+    </p>
+    <p>Example:</p>
+    <garuda-docs-code-example [ts]="(provideGarudaNGSample | async) ?? ''" tabId="1"> </garuda-docs-code-example>
+  </section>
+</div>
