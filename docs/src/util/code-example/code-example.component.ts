@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, model } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from 'primeng/tabs';
 import { Highlight } from 'ngx-highlightjs';
@@ -13,4 +13,6 @@ export class CodeExampleComponent {
   html = input<string | undefined>();
   ts = input<string | undefined>();
   scss = input<string | undefined>();
+
+  tabId = model<string>('0');
 }

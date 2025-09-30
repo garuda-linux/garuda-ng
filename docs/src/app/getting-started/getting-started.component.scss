@@ -1,0 +1,16 @@
+.getting-started-container {
+  margin: 0 1em;
+
+  .caption {
+    display: flex;
+    gap: 1em;
+
+    .garuda-ng-end {
+      display: flex;
+
+      .garuda-ng {
+        color: #2984d0;
+      }
+    }
+  }
+}

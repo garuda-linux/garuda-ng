@@ -20,6 +20,7 @@ export class AppComponent {
   menuItems: MenuItem[] = [
     {
       label: 'Getting Started',
+      routerLink: '/',
     },
     {
       label: 'Components',
