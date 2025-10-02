@@ -12,10 +12,13 @@
   position: fixed;
   width: calc(100% - 16px);
   z-index: 1000;
+  top: 8px;
+  left: 8px;
 }
 
 .garuda-shell-content:not(.garuda-shell-relative) {
   padding-top: var(--content-padding);
+  margin: 8px;
 }
 
 .garuda-shell__dropdown {
@@ -30,6 +33,7 @@
 .garuda-shell__dropdown:not(.garuda-shell-relative) {
   position: fixed;
   top: 68px;
+  left: 8px;
   z-index: 2000;
   width: calc(100% - 16px);
 }

@@ -77,6 +77,10 @@ export class ShellComponent implements OnInit, OnDestroy {
           display: block;
         }
       }
+
+      body {
+        margin: 0;
+      }
       `;
       document.head.append(styleElement);
     }
