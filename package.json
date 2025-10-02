@@ -83,7 +83,7 @@
     "git-cliff": "^2.9.1",
     "jest": "30.0.5",
     "jest-environment-jsdom": "30.0.5",
-    "jest-preset-angular": "15.0.0",
+    "jest-preset-angular": "15.0.2",
     "jest-util": "30.0.5",
     "jsonc-eslint-parser": "^2.4.0",
     "ng-packagr": "20.1.0",
