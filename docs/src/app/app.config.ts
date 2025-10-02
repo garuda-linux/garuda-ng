@@ -1,4 +1,4 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig, provideZonelessChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { appRoutes } from './app.routes';
 import Aura from '@primeuix/themes/aura';
@@ -9,11 +9,11 @@ import { provideHighlightOptions } from 'ngx-highlightjs';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideZonelessChangeDetection(),
     provideRouter(appRoutes),
     provideGarudaNG(
       {
-        font: 'monospace',
+        font: 'Inter',
       },
       {
         theme: {
@@ -29,6 +29,7 @@ export const appConfig: ApplicationConfig = {
         typescript: () => import('highlight.js/lib/languages/typescript'),
         xml: () => import('highlight.js/lib/languages/xml'),
         scss: () => import('highlight.js/lib/languages/scss'),
+        shell: () => import('highlight.js/lib/languages/shell'),
       },
     }),
   ],

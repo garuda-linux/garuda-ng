@@ -140,7 +140,9 @@ jobs:
       - name: Publish to NPM
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: pnpx nx run core:publish
+        run: |
+          pnpx nx run core:publish
+          pnpx nx run themes:publish
 
   publish-docs:
     runs-on: ubuntu-24.04
@@ -152,7 +154,10 @@ jobs:
       - name: Checkout tag
         uses: actions/checkout@v5
         with:
+          fetch-depth: 0
+          persist-credentials: true
           ref: ${{ github.ref_name }}
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -169,10 +174,33 @@ jobs:
       - name: Build the documentation
         run: pnpx nx build docs
 
+      - name: Determine source branch
+        id: determine_branch
+        run: |
+          # Get the commit hash of the tag
+          TAG_COMMIT=$(git rev-list -n 1 ${{ github.ref_name }})
+          echo "Tag commit: $TAG_COMMIT"
+
+          # Check if this commit exists in main
+          if git merge-base --is-ancestor "$TAG_COMMIT" origin/main; then
+            echo "Commit is in main branch"
+            echo "target_branch=main" >> "$GITHUB_OUTPUT"
+          else
+            # Find which branch contains this commit
+            BRANCH=$(git branch -r --contains "$TAG_COMMIT" | grep -v '/HEAD' | head -1 | sed 's/.*origin\///')
+            if [ -z "$BRANCH" ]; then
+              echo "Could not determine source branch, defaulting to main"
+              echo "target_branch=main" >> "$GITHUB_OUTPUT"
+            else
+              echo "Found source branch: $BRANCH"
+              echo "target_branch=$BRANCH" >> "$GITHUB_OUTPUT"
+            fi
+          fi
+
       - name: Deploy Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: pages deploy --branch main
+          command: pages deploy --branch ${{ steps.determine_branch.outputs.target_branch }}
           packageManager: pnpm

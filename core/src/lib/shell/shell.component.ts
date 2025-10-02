@@ -18,16 +18,18 @@ import { Toast } from 'primeng/toast';
 import { Button } from 'primeng/button';
 import { ShellBarDropdownToggleDirective } from './directives/shell-bar-dropdown-toggle.directive';
 import { Menu } from 'primeng/menu';
+import { ScrollTop } from 'primeng/scrolltop';
 
 const MENU_TOGGLE_GLOBAL_STYLE_ID = 'garuda-ng__menu-toggle-style';
 
 @Component({
   selector: 'garuda-shell',
-  imports: [Menubar, Toast, Button, Menu],
+  imports: [Menubar, Toast, Button, Menu, ScrollTop],
   templateUrl: './shell.component.html',
   styleUrl: './shell.component.scss',
   host: {
-    class: 'garuda-shell',
+    'class': 'garuda-shell',
+    '[style.--content-padding.px]': 'contentPadding()',
   },
 })
 export class ShellComponent implements OnInit, OnDestroy {
@@ -36,11 +38,14 @@ export class ShellComponent implements OnInit, OnDestroy {
   menuItems = input<MenuItem[]>([]);
   relativePosition = input<boolean>(false);
   alwaysShowDropdownMenu = input<boolean>(false);
+  contentPadding = input<number>(60);
 
   dropdownOpen = signal<boolean>(false);
 
   dropdownButton = contentChild(ShellBarDropdownToggleDirective);
-  dropdownButtonRef = contentChild(ShellBarDropdownToggleDirective, { read: ElementRef });
+  dropdownButtonRef = contentChild(ShellBarDropdownToggleDirective, {
+    read: ElementRef,
+  });
   autoDropdownButtonRef = viewChild('autoDropdownButton', { read: ElementRef });
   menu = viewChild.required('menu', { read: ElementRef });
 
@@ -72,6 +77,10 @@ export class ShellComponent implements OnInit, OnDestroy {
         @media only screen and (width <= 960px) {
           display: block;
         }
+      }
+
+      body {
+        margin: 0;
       }
       `;
       document.head.append(styleElement);

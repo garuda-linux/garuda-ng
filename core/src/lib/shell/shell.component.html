@@ -31,6 +31,7 @@
 <div class="garuda-shell-content" [class.garuda-shell-relative]="relativePosition()">
   <ng-content></ng-content>
 </div>
+
 <p-toast position="top-left" key="top-left" />
 <p-toast position="top-center" key="top-center" />
 <p-toast position="top-right" key="top-right" />
@@ -38,3 +39,5 @@
 <p-toast position="bottom-center" key="bottom-center" />
 <p-toast position="bottom-right" key="bottom-right" />
 <p-toast position="center" key="center" />
+
+<p-scroll-top [buttonProps]="{ styleClass: 'z-50', rounded: true }"></p-scroll-top>

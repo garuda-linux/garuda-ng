@@ -8,6 +8,3 @@ onlyBuiltDependencies:
   - nx
   - sharp
   - workerd
-packages:
-  - 'core'
-  - 'themes'
