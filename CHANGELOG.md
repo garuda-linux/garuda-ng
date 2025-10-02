@@ -1,18 +1,48 @@
-## [1.0.0-rc.7](https://github.com/garuda-linux/garuda-ng/compare/1.0.0-rc.6..1.0.0-rc.7) - 2025-07-26
+## [1.0.0](https://github.com/garuda-linux/garuda-ng/compare/1.0.0-rc.7..1.0.0) - 2025-10-02
+
+### ⛰️  Features
+
+- *(shell)* Content-padding property of shell ([#120](https://github.com/garuda-linux/garuda-ng/issues/120)) - ([fd4a7ac](https://github.com/garuda-linux/garuda-ng/commit/fd4a7ac170932026026687c4c4c702ba68f81422))
+- *(shell)* Content-padding property of shell - ([6378ef2](https://github.com/garuda-linux/garuda-ng/commit/6378ef2cd8b5e29d4f12216d8de45cb6eee3037c))
+- *(shell)* Add themed scroll-top component - ([feb46c7](https://github.com/garuda-linux/garuda-ng/commit/feb46c77bdb6b6f20a6e597dbc16f622e2aebeee))
+- Changed docs font to Inter ([#130](https://github.com/garuda-linux/garuda-ng/issues/130)) - ([1049272](https://github.com/garuda-linux/garuda-ng/commit/1049272720c204e24579c9a7518666b27ee0aafe))
+- Changed docs font to Inter - ([4aba446](https://github.com/garuda-linux/garuda-ng/commit/4aba4467306130c37d78a2f45c4a41e8d49ab3b6))
+- Made docs use zoneless change detection - ([23752b7](https://github.com/garuda-linux/garuda-ng/commit/23752b7fae091934eb3d543e7e2115bef1dcc3f0))
+- Moved margin from body to shell - ([f8b75da](https://github.com/garuda-linux/garuda-ng/commit/f8b75dae114b05b2b447d9c29a7309186d909687))
+- Scroll top ([#124](https://github.com/garuda-linux/garuda-ng/issues/124)) - ([42890a9](https://github.com/garuda-linux/garuda-ng/commit/42890a9b1f493c9dc36bb186b29f3b1ee4991fde))
+
+### 📚 Documentation
+
+- *(shell)* Documented new content-padding property - ([72d12b5](https://github.com/garuda-linux/garuda-ng/commit/72d12b5595498231ec8a3fb36fcc888be9ac58d6))
+- Added getting started docs ([#121](https://github.com/garuda-linux/garuda-ng/issues/121)) - ([101be6d](https://github.com/garuda-linux/garuda-ng/commit/101be6d1a7c4fbb8efc0fd17b2b93c3dd3d77a86))
+- Added getting started docs - ([30433b8](https://github.com/garuda-linux/garuda-ng/commit/30433b8819406f4e6b2af7fcbe6093398d39b95b))
+
+### ⚙️ Miscellaneous Tasks
+
+- Update deps ([#129](https://github.com/garuda-linux/garuda-ng/issues/129)) - ([f3adf99](https://github.com/garuda-linux/garuda-ng/commit/f3adf992fdb0c88503461968bf1929ee30679a5a))
+- Update deps - ([3e2b633](https://github.com/garuda-linux/garuda-ng/commit/3e2b633e24e8b3763cb4de5c44f0ab45dd3d83ba))
+
+### Build
+
+- Added @catppuccin/palette to global dependencies - ([b8a7bb4](https://github.com/garuda-linux/garuda-ng/commit/b8a7bb46125068ef3893cd9457c8b4eb42f7e16f))
+- Removed core and themes from pnpm workspace - ([db43730](https://github.com/garuda-linux/garuda-ng/commit/db437307ac6711cef65a36fe82cc7b6218c08d2a))
+
+
+## [1.0.0-rc.7] - 2025-07-26
 
 ### 🐛 Bug Fixes
 
 - *(themes)* Fixed package.json - ([c66c23e](https://github.com/garuda-linux/garuda-ng/commit/c66c23e9bb42e45673044f18da2c9722c48249e3))
 
 
-## [1.0.0-rc.6] - 2025-07-26
+## [1.0.0-rc.6](https://github.com/garuda-linux/garuda-ng/compare/1.0.0-rc.5..1.0.0-rc.6) - 2025-07-26
 
 ### ⚙️ Miscellaneous Tasks
 
 - Fetch the entire git repo to be able to determine source branch - ([4644add](https://github.com/garuda-linux/garuda-ng/commit/4644add5c07fe878fdad7b05407035327a389008))
 
 
-## [1.0.0-rc.5](https://github.com/garuda-linux/garuda-ng/compare/1.0.0-rc.4..1.0.0-rc.5) - 2025-07-26
+## [1.0.0-rc.5] - 2025-07-26
 
 ### ⚙️ Miscellaneous Tasks
 
@@ -20,14 +50,14 @@
 - Use the current branch name for cf deployments - ([d6a4385](https://github.com/garuda-linux/garuda-ng/commit/d6a438599213b989763b4018b6d528d70a49d542))
 
 
-## [1.0.0-rc.4] - 2025-07-26
+## [1.0.0-rc.4](https://github.com/garuda-linux/garuda-ng/compare/1.0.0-rc.3..1.0.0-rc.4) - 2025-07-26
 
 ### ⚙️ Miscellaneous Tasks
 
 - Publish themes to npmjs - ([ef673b8](https://github.com/garuda-linux/garuda-ng/commit/ef673b8c88242bbc3396298f350f35f7e38edea7))
 
 
-## [1.0.0-rc.3](https://github.com/garuda-linux/garuda-ng/compare/1.0.0-rc.2..1.0.0-rc.3) - 2025-07-26
+## [1.0.0-rc.3] - 2025-07-26
 
 ### ⛰️  Features
 
@@ -41,9 +71,9 @@
 ## New Contributors ❤️
 
 * @dr460nf1r3 made their first contribution
-* @FilipTLW made their first contribution
+* @Vo1dSh4d0w made their first contribution
 
-## [1.0.0-rc.2] - 2025-07-13
+## [1.0.0-rc.2](https://github.com/garuda-linux/garuda-ng/compare/1.0.0-rc.1..1.0.0-rc.2) - 2025-07-13
 
 ### 🎨 Styling
 
@@ -58,7 +88,7 @@
 - Generate changes.md based on current tag, not release tag - ([2dadb38](https://github.com/garuda-linux/garuda-ng/commit/2dadb38fe2184c339111ea530596897729489c1e))
 
 
-## [1.0.0-rc.1](https://github.com/garuda-linux/garuda-ng/compare/0.3.1..1.0.0-rc.1) - 2025-07-13
+## [1.0.0-rc.1] - 2025-07-13
 
 ### ⛰️  Features
 
@@ -281,7 +311,7 @@
 
 ## New Contributors ❤️
 
-* @FilipTLW made their first contribution in [#19](https://github.com/garuda-linux/garuda-ng/pull/19)
+* @Vo1dSh4d0w made their first contribution in [#19](https://github.com/garuda-linux/garuda-ng/pull/19)
 * @temeraire-cx made their first contribution
 * @dr460nf1r3 made their first contribution
 * @renovate[bot] made their first contribution
