@@ -39,5 +39,6 @@
       "matchPackageNames": ["typescript"]
     }
   ],
-  "reviewersFromCodeOwners": true
+  "reviewersFromCodeOwners": true,
+  "baseBranchPatterns": ["dev"]
 }
