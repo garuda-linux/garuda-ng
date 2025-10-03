@@ -1,14 +1,20 @@
 .components-container {
   display: flex;
   gap: 1em;
-}
 
-.components-menu {
-  @media only screen and (device-width > 768px) {
-    display: block !important;
-  }
+  .inline-container {
+    display: inline;
 
-  @media only screen and (device-width <= 768px) {
-    position: absolute;
+    .components-menu {
+      position: sticky;
+      top: 68px;
+      @media only screen and (device-width > 768px) {
+        display: block !important;
+      }
+
+      @media only screen and (device-width <= 768px) {
+        position: fixed;
+      }
+    }
   }
 }
