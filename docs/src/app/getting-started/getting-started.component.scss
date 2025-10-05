@@ -8,11 +8,12 @@
     }
   }
 
-  .caption {
+  .caption & {
+    gap: 1em;
+
     @media (min-width: 768px) {
       display: flex;
     }
-    gap: 1em;
 
     .garuda-ng-end {
       display: flex;
