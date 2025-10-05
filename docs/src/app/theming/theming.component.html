@@ -36,7 +36,9 @@
     </p>
     <ul>
       @for (theme of themes; track theme.label) {
-        <li (click)="previewTheme(theme.value)" (keydown)="previewTheme(theme.value)" tabindex="0">{{ theme.label }}</li>
+        <li (click)="previewTheme(theme.value)" (keydown)="previewTheme(theme.value)" class="theme-selection" tabindex="0">
+          {{ theme.label }}
+        </li>
       }
     </ul>
     <p>
