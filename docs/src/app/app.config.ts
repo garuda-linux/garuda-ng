@@ -4,7 +4,7 @@ import { appRoutes } from './app.routes';
 import { provideGarudaNG } from '@garudalinux/core';
 import { CatppuccinAura } from '@garudalinux/themes/catppuccin';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideHighlightOptions } from 'ngx-highlightjs';
 
 export const appConfig: ApplicationConfig = {
@@ -22,7 +22,7 @@ export const appConfig: ApplicationConfig = {
       },
     ),
     provideAnimations(),
-    provideHttpClient(),
+    provideHttpClient(withFetch()),
     provideHighlightOptions({
       coreLibraryLoader: () => import('highlight.js/lib/core'),
       languages: {
