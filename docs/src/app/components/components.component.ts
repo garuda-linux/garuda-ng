@@ -1,4 +1,4 @@
-import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Menu } from 'primeng/menu';
 import { MenuItem } from 'primeng/api';
@@ -10,6 +10,7 @@ import { SidebarToggleService } from '../../util/sidebar-toggle/sidebar-toggle.s
   imports: [CommonModule, Menu, RouterOutlet],
   templateUrl: './components.component.html',
   styleUrl: './components.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ComponentsComponent implements OnInit, OnDestroy {
   components: MenuItem[] = [

@@ -1,0 +1,54 @@
+<div class="theme-container">
+  <div class="caption">
+    <h1>Theming</h1>
+  </div>
+  <section class="docs-section">
+    <h2>What is GarudaNG?</h2>
+    <p>
+      Since GarudaNG is built on top of <a href="https://primeng.org/theming">PrimeNG</a>, we use the theming system of PrimeNG. GarudaNG
+      comes with a variety of pre-built themes that can be used out of the box. These themes are available in a separate package called
+      <a href="https://www.npmjs.com/package/@garudalinux/themes">&#64;garudalinux/themes</a>.
+    </p>
+  </section>
+  <section class="docs-section">
+    <h2>Installation</h2>
+    <p>
+      GarudaNG can be installed using your favorite node package manager, simply install
+      <a href="https://www.npmjs.com/package/@garudalinux/themes">&#64;garudalinux/themes</a>. For example if you're using pnpm:
+    </p>
+    <pre><code class="code-container" highlight="pnpm add @garudalinux/themes" language="shell"></code></pre>
+  </section>
+  <section class="docs-section">
+    <h2>Configuration</h2>
+    <p>
+      GarudaNG must be configured by providing it ideally in the ApplicationConfig of your angular application. This can be done using the
+      provideGarudaNG functions second parameter. For example, to use the Catppuccin theme, you can do the following:
+    </p>
+    <p>Example:</p>
+    <pre><code class="code-container" [highlight]="themeSetup" language="typescript"></code></pre>
+  </section>
+
+  <section class="docs-section">
+    <h2>Available Themes</h2>
+    <p>
+      The following themes are available in the
+      <a href="https://www.npmjs.com/package/@garudalinux/themes">&#64;garudalinux/themes</a> package:
+    </p>
+    <ul>
+      @for (theme of themes; track theme.label) {
+        <li (click)="previewTheme(theme.value)" (keydown)="previewTheme(theme.value)" tabindex="0">{{ theme.label }}</li>
+      }
+    </ul>
+    <p>
+      You can switch between these themes by changing the theme name in the configuration. You may also click a themes name to preview it.
+    </p>
+  </section>
+  <section class="docs-section">
+    <h2>Custom Themes</h2>
+    <p>
+      You can also create your own custom themes by following the guidelines provided by PrimeNG in their
+      <a href="https://primeng.org/theming">theming documentation</a>. Once you have created your custom theme, you can include it in your
+      project and configure GarudaNG to use it.
+    </p>
+  </section>
+</div>

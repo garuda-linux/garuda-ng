@@ -9,7 +9,7 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "moduleResolution": "bundler",
-    "lib": ["ES2015", "DOM"]
+    "lib": ["ES2022", "DOM"]
   },
   "files": [],
   "include": [],

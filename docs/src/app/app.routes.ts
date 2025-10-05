@@ -28,4 +28,8 @@ export const appRoutes: Route[] = [
       },
     ],
   },
+  {
+    path: 'theming',
+    loadComponent: () => import('./theming/theming.component').then((m) => m.ThemingComponent),
+  },
 ];

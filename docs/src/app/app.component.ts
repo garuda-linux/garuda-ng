@@ -1,9 +1,8 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { ShellBarEndDirective, ShellBarLinkDirective, ShellComponent } from '@garudalinux/core';
+import { ShellBarEndDirective, ShellBarLinkDirective, ShellComponent, ShellBarStartDirective } from '@garudalinux/core';
 import { MenuItem } from 'primeng/api';
 import { NgOptimizedImage } from '@angular/common';
-import { ShellBarStartDirective } from '@garudalinux/core';
 import { Button } from 'primeng/button';
 import { SidebarToggleService } from '../util/sidebar-toggle/sidebar-toggle.service';
 
@@ -13,6 +12,7 @@ import { SidebarToggleService } from '../util/sidebar-toggle/sidebar-toggle.serv
   selector: 'garuda-docs-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
   protected readonly sidebarToggleService = inject(SidebarToggleService);
@@ -28,6 +28,7 @@ export class AppComponent {
     },
     {
       label: 'Theming',
+      routerLink: '/theming',
     },
   ];
 }
