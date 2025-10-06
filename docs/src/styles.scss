@@ -69,6 +69,10 @@ div {
   overflow-x: auto;
 }
 
+.p-button.p-scrolltop {
+  z-index: 2000;
+}
+
 :root {
   font-feature-settings:
     'liga' 1,
