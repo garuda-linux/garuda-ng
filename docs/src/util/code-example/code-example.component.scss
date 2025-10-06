@@ -7,5 +7,7 @@
 }
 
 .code-container {
-  overflow-x: auto;
+  overflow-x: scroll;
+  width: 100%;
+  display: block;
 }

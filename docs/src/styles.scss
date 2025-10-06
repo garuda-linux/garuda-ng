@@ -30,11 +30,22 @@ div {
 
 .component-docs {
   margin: 0 8px;
+  max-width: calc(100vw - 64px);
+}
+
+.component-summary {
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.component-tree {
+  max-width: calc(100% - 32px);
+  overflow-x: scroll;
 }
 
 .example-container {
   border: 1px solid var(--p-content-border-color);
-  max-width: calc(100vw - 32px);
+  max-width: calc(100% - 32px);
   overflow-x: scroll;
   padding: 8px;
 }
@@ -48,7 +59,8 @@ div {
 }
 
 .import-container {
-  max-width: calc(100vw - 32px);
+  max-width: calc(100% - 32px);
+  overflow-x: scroll;
 }
 
 .import-code {

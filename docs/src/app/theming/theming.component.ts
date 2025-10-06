@@ -4,10 +4,11 @@ import { themes } from './themes';
 import { FormsModule } from '@angular/forms';
 import { usePreset } from '@primeuix/themes';
 import type { Preset } from '@primeuix/themes/types';
+import { CodeExampleComponent } from '../../util/code-example/code-example.component';
 
 @Component({
   selector: 'garuda-docs-theming',
-  imports: [Highlight, FormsModule],
+  imports: [Highlight, FormsModule, CodeExampleComponent],
   templateUrl: './theming.component.html',
   styleUrl: './theming.component.scss',
 })
