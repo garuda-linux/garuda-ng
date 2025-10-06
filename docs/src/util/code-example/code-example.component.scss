@@ -1,5 +1,7 @@
 .tabs-container {
   max-width: calc(100vw - 32px);
+  position: relative;
+  z-index: 1;
 }
 
 .tab-panels {

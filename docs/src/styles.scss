@@ -48,6 +48,8 @@ div {
   max-width: calc(100% - 32px);
   overflow-x: scroll;
   padding: 8px;
+  position: relative;
+  z-index: 1;
 }
 
 .docs-section {
