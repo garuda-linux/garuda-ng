@@ -51,6 +51,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
       if (event instanceof NavigationEnd) {
         if (event.url === '/components') {
           this.sidebarToggleService.toggled.set(true);
+          void this.router.navigateByUrl('/components/card');
         } else {
           this.sidebarToggleService.toggled.set(false);
         }

@@ -18,6 +18,7 @@ export class ThemingComponent {
     value: preset[1],
   }));
   protected readonly themeSetup: string = `
+  import { provideGarudaNG } from '@garudalinux/core';
   import { CatppuccinAura } from '@garudalinux/themes/catppuccin';
 
   providers: [

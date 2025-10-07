@@ -16,14 +16,12 @@ a {
 }
 
 p,
-li,
 h1,
 h2,
 h3,
 h4,
 h5,
 h6,
-span,
 div {
   color: var(--p-text-color);
 }
@@ -71,6 +69,20 @@ div {
 
 .p-button.p-scrolltop {
   z-index: 2000;
+}
+
+// Code example
+garuda-docs-code-example {
+  .tabs-container {
+    .p-tablist {
+      border-top-left-radius: var(--p-menu-border-radius);
+      border-top-right-radius: var(--p-menu-border-radius);
+    }
+  }
+}
+
+.p-tree {
+  border-radius: var(--p-menu-border-radius);
 }
 
 :root {

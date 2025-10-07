@@ -1,6 +1,9 @@
 .components-container {
-  display: flex;
   gap: 1em;
+
+  @media only screen and (device-width > 768px) {
+    display: flex;
+  }
 
   .inline-container {
     display: inline;
