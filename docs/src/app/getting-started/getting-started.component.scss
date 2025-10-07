@@ -1,16 +1,31 @@
 .getting-started-container {
   margin: 0 1em;
+  overflow: scroll;
+  scrollbar-width: none;
+
+  @media (min-width: 768px) {
+    .garuda-ng-end {
+      display: flex;
+    }
+  }
 
   .caption {
-    display: flex;
     gap: 1em;
+
+    @media (min-width: 768px) {
+      display: flex;
+    }
 
     .garuda-ng-end {
       display: flex;
 
       .garuda-ng {
-        color: #2984d0;
+        color: var(--p-primary-color);
       }
     }
   }
+}
+
+.ng-logo {
+  place-self: center;
 }

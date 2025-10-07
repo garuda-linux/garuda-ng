@@ -1,10 +1,10 @@
 import { ApplicationConfig, provideZonelessChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { appRoutes } from './app.routes';
-import Aura from '@primeuix/themes/aura';
 import { provideGarudaNG } from '@garudalinux/core';
+import { CatppuccinAura } from '@garudalinux/themes/catppuccin';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideHighlightOptions } from 'ngx-highlightjs';
 
 export const appConfig: ApplicationConfig = {
@@ -17,12 +17,12 @@ export const appConfig: ApplicationConfig = {
       },
       {
         theme: {
-          preset: Aura,
+          preset: CatppuccinAura,
         },
       },
     ),
     provideAnimations(),
-    provideHttpClient(),
+    provideHttpClient(withFetch()),
     provideHighlightOptions({
       coreLibraryLoader: () => import('highlight.js/lib/core'),
       languages: {
