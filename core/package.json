@@ -27,7 +27,9 @@
     "emoji-js": "^3.9.0",
     "jest-preset-angular": "^15.0.0",
     "primeng": "^20.0.0",
-    "@jsverse/transloco": "^8.1.0"
+    "@jsverse/transloco": "^8.1.0",
+    "@angular/router": "20.3.3",
+    "ngx-markdown": "^20.1.0"
   },
   "dependencies": {},
   "devDependencies": {

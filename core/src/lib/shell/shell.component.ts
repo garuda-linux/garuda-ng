@@ -104,7 +104,7 @@ export class ShellComponent implements OnInit, OnDestroy {
   }
 
   toggleDropdown() {
-    this.dropdownOpen.set(!this.dropdownOpen());
+    this.dropdownOpen.update((open) => !open);
   }
 
   closeMenu() {

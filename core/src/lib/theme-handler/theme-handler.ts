@@ -12,7 +12,7 @@ export class ThemeHandler {
    * Toggle dark mode, updating the local storage and the document accordingly.
    */
   public toggleDarkMode(): void {
-    this.darkMode.set(!this.darkMode());
+    this.darkMode.update((darkMode) => !darkMode);
 
     this.document.documentElement.classList.toggle('p-dark', this.darkMode());
 

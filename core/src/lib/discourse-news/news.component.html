@@ -1,5 +1,5 @@
 <ng-container *transloco="let t">
-  @if (loading()) {
+  @if (blogData.isLoading()) {
     <div class="min-h-[100vh]">
       @for (i of [].constructor(3); track i) {
         <div class="mx-auto mb-10 animate-duration-1000">
@@ -25,10 +25,10 @@
       }
     </div>
   }
-  @if (!blog() && activeTopic().topicData) {
+  @if (blogData.hasValue() && blogData.value().length > 0) {
     <div class="grid grid-cols-12">
       <div class="col-span-12 md:col-span-6">
-        <p-timeline [value]="appService.blogData()">
+        <p-timeline [value]="blogData.value()">
           <ng-template #opposite let-untypedTopic>
             <ng-container *ngIf="typedTopic(untypedTopic) as topic">
               <small class="text-surface-300">{{ topic.topicData.created_at | date }}</small>
@@ -38,12 +38,12 @@
             <ng-container *ngIf="typedTopic(untypedTopic) as topic">
               <div
                 tabindex="0"
-                (click)="activeTopic.set(topic)"
-                (keydown)="activeTopic.set(topic)"
+                (click)="selectedTopic.set(topic)"
+                (keydown)="selectedTopic.set(topic)"
                 [innerHTML]="topic.topicData.fancy_title | emojiPipe"
                 [ngClass]="{
-                  'text-color': activeTopic().topicData.id !== topic.topicData.id,
-                  'text-primary': activeTopic().topicData.id === topic.topicData.id,
+                  'text-color': selectedTopic()?.topicData?.id !== topic.topicData.id,
+                  'text-primary': selectedTopic()?.topicData?.id === topic.topicData.id,
                 }"
                 class="cursor-pointer text-color"
               ></div>
@@ -54,31 +54,31 @@
       <div class="col-span-12 mx-2.5 mt-10 md:col-span-6 md:mx-0 md:mt-0">
         <p-card>
           <ng-template #title>
-            <div [innerHTML]="activeTopic().topicData.fancy_title | emojiPipe" class="font-bold"></div>
+            <div [innerHTML]="selectedTopic()?.topicData?.fancy_title | emojiPipe" class="font-bold"></div>
           </ng-template>
           <ng-template #subtitle>
             <div class="mt-2 flex">
               <div class="ml-0 mr-2.5">
-                <p-avatar [image]="activeTopic().topicData.avatar_template" shape="circle" size="xlarge"></p-avatar>
+                <p-avatar [image]="selectedTopic()?.topicData?.avatar_template" shape="circle" size="xlarge"></p-avatar>
               </div>
               <div class="text-color">
-                {{ activeTopic().topicData.username }} on {{ activeTopic().topicData.created_at | date }}
+                {{ selectedTopic()?.topicData?.username }} on {{ selectedTopic()?.topicData?.created_at | date }}
                 <br />
-                @for (tag of activeTopic().topicData.tags; track tag) {
+                @for (tag of selectedTopic()?.topicData?.tags ?? []; track tag) {
                   <p-chip [label]="tag" class="mr-2 mt-0.5"></p-chip>
                 }
               </div>
             </div>
           </ng-template>
           <p-scrollpanel [style]="{ width: '100%', height: '540px' }">
-            <div [innerHTML]="activeTopic().threadData.post_stream.posts[0].cooked | safeHtml" class="mr-5"></div>
+            <div [innerHTML]="selectedTopic()?.threadData?.post_stream?.posts?.[0]?.cooked ?? '' | safeHtml" class="mr-5"></div>
           </p-scrollpanel>
           <ng-template #footer>
             <div class="mt-1 flex gap-4">
               <p-button
-                (click)="openLinkInNewTab(activeTopic().topicData.link)"
+                (click)="openLinkInNewTab(selectedTopic()?.topicData?.link)"
                 [label]="t('news.fullThread')"
-                [link]="activeTopic().topicData.link"
+                [link]="selectedTopic()?.topicData?.link"
                 [outlined]="true"
                 [rounded]="true"
                 class="w-full"
@@ -91,7 +91,7 @@
       </div>
     </div>
   } @else {
-    @for (data of appService.blogData(); track data.topicData.id) {
+    @for (data of blogData.value(); track data.topicData.id) {
       @defer (on viewport) {
         <div class="mx-auto mb-10 animate-duration-1000">
           <p-card [ngStyle]="{ padding: '2rem' }">
