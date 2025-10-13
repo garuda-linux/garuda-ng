@@ -8,6 +8,7 @@ import { Message } from 'primeng/message';
 import { RouterLink } from '@angular/router';
 import { ToastSeverityExampleComponent } from './examples/toast-severity-example/toast-severity-example.component';
 import { ToastPositioningExampleComponent } from './examples/toast-positioning-example/toast-positioning-example.component';
+import { TitleComponent } from '@garudalinux/core';
 
 @Component({
   selector: 'garuda-docs-toast-service',
@@ -20,6 +21,7 @@ import { ToastPositioningExampleComponent } from './examples/toast-positioning-e
     RouterLink,
     ToastSeverityExampleComponent,
     ToastPositioningExampleComponent,
+    TitleComponent,
   ],
   templateUrl: './toast-service.component.html',
   styleUrl: './toast-service.component.scss',

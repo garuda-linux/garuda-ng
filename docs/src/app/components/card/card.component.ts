@@ -6,10 +6,11 @@ import { TreeNode } from 'primeng/api';
 import { ProductShowcaseBaseExampleComponent } from './examples/product-showcase-base-example/product-showcase-base-example.component';
 import { requestExampleSource } from '../../../util/request-example';
 import { CodeExampleComponent } from '../../../util/code-example/code-example.component';
+import { TitleComponent } from '@garudalinux/core';
 
 @Component({
   selector: 'garuda-docs-card',
-  imports: [CommonModule, Highlight, Tree, ProductShowcaseBaseExampleComponent, CodeExampleComponent],
+  imports: [CommonModule, Highlight, Tree, ProductShowcaseBaseExampleComponent, CodeExampleComponent, TitleComponent],
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss',
 })

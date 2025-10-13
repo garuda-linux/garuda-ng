@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+@use 'tailwindcss';
+@plugin "tailwindcss-primeui";
+
 @import 'primeicons/primeicons.css';
 @import '@catppuccin/highlightjs/css/catppuccin-mocha.css';
 
@@ -16,12 +19,6 @@ a {
 }
 
 p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
 div {
   color: var(--p-text-color);
 }

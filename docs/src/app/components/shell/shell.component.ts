@@ -8,6 +8,7 @@ import { ShellBarEndExampleComponent } from './examples/shell-bar-end-example/sh
 import { CodeExampleComponent } from '../../../util/code-example/code-example.component';
 import { ShellBarDropdownToggleExampleComponent } from './examples/shell-bar-dropdown-toggle-example/shell-bar-dropdown-toggle-example.component';
 import { ShellBarAlwaysDropdownExampleComponent } from './examples/shell-bar-always-dropdown-example/shell-bar-always-dropdown-example.component';
+import { TitleComponent } from '@garudalinux/core';
 
 @Component({
   selector: 'garuda-docs-shell',
@@ -20,6 +21,7 @@ import { ShellBarAlwaysDropdownExampleComponent } from './examples/shell-bar-alw
     CodeExampleComponent,
     ShellBarDropdownToggleExampleComponent,
     ShellBarAlwaysDropdownExampleComponent,
+    TitleComponent,
   ],
   templateUrl: './shell.component.html',
   styleUrl: './shell.component.scss',

@@ -1,0 +1,160 @@
+<ng-container *transloco="let t">
+  @if (loading()) {
+    <div class="min-h-[100vh]">
+      @for (i of [].constructor(3); track i) {
+        <div class="mx-auto mb-10 animate-duration-1000">
+          <p-card [ngStyle]="{ padding: '2rem' }">
+            <ng-template #title>
+              <p-skeleton width="100%" height="2rem" />
+            </ng-template>
+            <ng-template #subtitle>
+              <div class="mt-2 flex">
+                <p-skeleton shape="circle" size="4rem" class="mr-2.5" />
+                <p-skeleton width="100%" height="1.5rem" />
+              </div>
+            </ng-template>
+            <p-skeleton width="100%" height="150px" />
+            <ng-template #footer>
+              <div class="mt-1 flex gap-4">
+                <p-skeleton width="4rem" height="2rem" />
+                <p-skeleton width="4rem" height="2rem" />
+              </div>
+            </ng-template>
+          </p-card>
+        </div>
+      }
+    </div>
+  }
+  @if (!blog() && activeTopic().topicData) {
+    <div class="grid grid-cols-12">
+      <div class="col-span-12 md:col-span-6">
+        <p-timeline [value]="appService.blogData()">
+          <ng-template #opposite let-untypedTopic>
+            <ng-container *ngIf="typedTopic(untypedTopic) as topic">
+              <small class="text-surface-300">{{ topic.topicData.created_at | date }}</small>
+            </ng-container>
+          </ng-template>
+          <ng-template #content let-untypedTopic>
+            <ng-container *ngIf="typedTopic(untypedTopic) as topic">
+              <div
+                tabindex="0"
+                (click)="activeTopic.set(topic)"
+                (keydown)="activeTopic.set(topic)"
+                [innerHTML]="topic.topicData.fancy_title | emojiPipe"
+                [ngClass]="{
+                  'text-color': activeTopic().topicData.id !== topic.topicData.id,
+                  'text-primary': activeTopic().topicData.id === topic.topicData.id,
+                }"
+                class="cursor-pointer text-color"
+              ></div>
+            </ng-container>
+          </ng-template>
+        </p-timeline>
+      </div>
+      <div class="col-span-12 mx-2.5 mt-10 md:col-span-6 md:mx-0 md:mt-0">
+        <p-card>
+          <ng-template #title>
+            <div [innerHTML]="activeTopic().topicData.fancy_title | emojiPipe" class="font-bold"></div>
+          </ng-template>
+          <ng-template #subtitle>
+            <div class="mt-2 flex">
+              <div class="ml-0 mr-2.5">
+                <p-avatar [image]="activeTopic().topicData.avatar_template" shape="circle" size="xlarge"></p-avatar>
+              </div>
+              <div class="text-color">
+                {{ activeTopic().topicData.username }} on {{ activeTopic().topicData.created_at | date }}
+                <br />
+                @for (tag of activeTopic().topicData.tags; track tag) {
+                  <p-chip [label]="tag" class="mr-2 mt-0.5"></p-chip>
+                }
+              </div>
+            </div>
+          </ng-template>
+          <p-scrollpanel [style]="{ width: '100%', height: '540px' }">
+            <div [innerHTML]="activeTopic().threadData.post_stream.posts[0].cooked | safeHtml" class="mr-5"></div>
+          </p-scrollpanel>
+          <ng-template #footer>
+            <div class="mt-1 flex gap-4">
+              <p-button
+                (click)="openLinkInNewTab(activeTopic().topicData.link)"
+                [label]="t('news.fullThread')"
+                [link]="activeTopic().topicData.link"
+                [outlined]="true"
+                [rounded]="true"
+                class="w-full"
+                icon="pi pi-external-link"
+                styleClass="w-full"
+              />
+            </div>
+          </ng-template>
+        </p-card>
+      </div>
+    </div>
+  } @else {
+    @for (data of appService.blogData(); track data.topicData.id) {
+      @defer (on viewport) {
+        <div class="mx-auto mb-10 animate-duration-1000">
+          <p-card [ngStyle]="{ padding: '2rem' }">
+            <ng-template #title>
+              <div [innerHTML]="data.topicData.fancy_title | emojiPipe" class="font-bold"></div>
+            </ng-template>
+            <ng-template #subtitle>
+              <div class="mt-2 flex">
+                <div class="ml-0 mr-2.5">
+                  <p-avatar [image]="data.topicData.avatar_template" shape="circle" size="xlarge"></p-avatar>
+                </div>
+                <div class="text-color">
+                  {{ data.topicData.username }} on {{ data.topicData.created_at | date }}
+                  <br />
+                  @for (tag of data.topicData.tags; track tag) {
+                    <p-chip [label]="tag" class="mr-2 mt-0.5"></p-chip>
+                  }
+                </div>
+              </div>
+            </ng-template>
+            <div [innerHTML]="data.threadData.post_stream.posts[0].cooked | safeHtml" class="mb-10"></div>
+            <ng-template #footer>
+              <div class="gap-2 text-center md:flex">
+                <p-button
+                  (click)="openLinkInNewTab(data.topicData.link)"
+                  [label]="t('news.participate')"
+                  [rounded]="true"
+                  icon="pi pi-external-link"
+                />
+                <br />
+                <div class="mt-5 text-center md:mt-2">
+                  @if (data.topicData.views) {
+                    <p-tag class="mr-2.5" icon="pi pi-eye" [value]="data.topicData.views.toString() + ' ' + t('news.views')"></p-tag>
+                  }
+                  @if (data.topicData.like_count) {
+                    <p-tag
+                      class="ml-2.5"
+                      icon="pi pi-heart"
+                      [value]="data.topicData.like_count.toString() + ' ' + t('news.reactions')"
+                    ></p-tag>
+                  }
+                </div>
+              </div>
+            </ng-template>
+          </p-card>
+        </div>
+      } @placeholder {
+        <div>
+          <div class="mb-4 flex">
+            <p-skeleton shape="circle" size="4rem" class="mr-2" />
+            <div>
+              <p-skeleton width="100%" class="mb-2" />
+              <p-skeleton width="5rem" class="mb-2" />
+              <p-skeleton height=".5rem" />
+            </div>
+          </div>
+          <p-skeleton width="100%" height="150px" />
+          <div class="mt-4 flex justify-start gap-4">
+            <p-skeleton width="4rem" height="2rem" />
+            <p-skeleton width="4rem" height="2rem" />
+          </div>
+        </div>
+      }
+    }
+  }
+</ng-container>

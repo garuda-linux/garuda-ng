@@ -1,0 +1,21 @@
+<ng-container *transloco="let t">
+  <p-card role="note">
+    <p class="text-center text-primary-emphasis">
+      © {{ currentYear }} {{ t('footer.copyright') }}
+      @for (link of footerLinks; track link.label) {
+        @if (!$first) {
+          <span class="mx-2">|</span>
+        }
+        @if (!link.external) {
+          <a class="text-primary" [routerLink]="link.url">
+            {{ t(link.label) }}
+          </a>
+        } @else {
+          <a class="text-primary" [href]="link.url" rel="noopener" [target]="link.external ? '_blank' : '_self'">
+            {{ t(link.label) }}
+          </a>
+        }
+      }
+    </p>
+  </p-card>
+</ng-container>

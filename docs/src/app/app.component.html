@@ -8,10 +8,31 @@
     class="sidebar-toggle"
   ></p-button>
   <img garudaShellBarStart ngSrc="/garuda-purple.svg" width="28" height="28" alt="logo" routerLink="/" style="cursor: pointer" />
-  <a garudaShellBarEnd garudaShellBarLink href="https://github.com/garuda-linux/garuda-ng">
-    <i class="pi pi-github"></i>
-  </a>
+  <div class="flex" garudaShellBarEnd>
+    <a
+      garudaShellBarLink
+      href="https://github.com/garuda-linux/garuda-ng"
+      pRipple
+      tabindex="0"
+      role="button"
+      aria-label="GitHub Repository"
+    >
+      <i class="pi pi-github"></i>
+    </a>
+    <a
+      garudaShellBarLink
+      pRipple
+      tabindex="0"
+      role="button"
+      aria-label="Toggle Dark Mode"
+      (click)="themeHandler.toggleDarkMode()"
+      (keydown)="themeHandler.toggleDarkMode()"
+    >
+      <i class="pi" [class]="{ 'pi-moon': !themeHandler.darkMode(), 'pi-sun': themeHandler.darkMode() }"></i>
+    </a>
+  </div>
   <div [@routerTransition]="prepareRoute(routerOutlet)" class="app-container">
     <router-outlet #routerOutlet="outlet"></router-outlet>
   </div>
+  <garuda-footer copyrightHolder="Garuda Linux"></garuda-footer>
 </garuda-shell>

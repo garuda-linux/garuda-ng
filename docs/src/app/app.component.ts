@@ -1,15 +1,33 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
-import { ShellBarEndDirective, ShellBarLinkDirective, ShellComponent, ShellBarStartDirective } from '@garudalinux/core';
+import {
+  ShellBarEndDirective,
+  ShellBarLinkDirective,
+  ShellComponent,
+  ShellBarStartDirective,
+  FooterComponent,
+  ThemeHandler,
+} from '@garudalinux/core';
 import { MenuItem } from 'primeng/api';
-import { NgOptimizedImage } from '@angular/common';
+import { NgClass, NgOptimizedImage } from '@angular/common';
 import { Button } from 'primeng/button';
 import { SidebarToggleService } from '../util/sidebar-toggle/sidebar-toggle.service';
 import { routeAnimations } from './app.routes';
+import { Ripple } from 'primeng/ripple';
 
 @Component({
-  imports: [RouterModule, ShellComponent, NgOptimizedImage, ShellBarStartDirective, ShellBarEndDirective, ShellBarLinkDirective, Button],
-  providers: [SidebarToggleService],
+  imports: [
+    RouterModule,
+    ShellComponent,
+    NgOptimizedImage,
+    ShellBarStartDirective,
+    ShellBarEndDirective,
+    ShellBarLinkDirective,
+    Button,
+    FooterComponent,
+    Ripple,
+  ],
+  providers: [SidebarToggleService, ThemeHandler],
   selector: 'garuda-docs-root',
   animations: [routeAnimations],
   templateUrl: './app.component.html',
@@ -18,6 +36,7 @@ import { routeAnimations } from './app.routes';
 })
 export class AppComponent {
   protected readonly sidebarToggleService = inject(SidebarToggleService);
+  protected readonly themeHandler = inject(ThemeHandler);
 
   menuItems: MenuItem[] = [
     {
