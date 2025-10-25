@@ -91,7 +91,7 @@ jobs:
           git tag release/${{ github.ref_name }}
 
       - name: Push changes
-        uses: ad-m/github-push-action@v0.8.0
+        uses: ad-m/github-push-action@v1.0.0
         with:
           branch: ${{ steps.determine_branch.outputs.target_branch }}
           ssh: true
