@@ -3,6 +3,7 @@ import {
   contentChild,
   ElementRef,
   HostBinding,
+  HostListener,
   inject,
   input,
   OnDestroy,
@@ -41,6 +42,7 @@ export class ShellComponent implements OnInit, OnDestroy {
   contentPadding = input<number>(60);
 
   dropdownOpen = signal<boolean>(false);
+  ismobile = signal(window.innerWidth < 960);
 
   dropdownButton = contentChild(ShellBarDropdownToggleDirective);
   dropdownButtonRef = contentChild(ShellBarDropdownToggleDirective, {
@@ -101,6 +103,16 @@ export class ShellComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.closeMenuUnregister?.();
     this.closeMenuUnregister = undefined;
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    const mobile = event.target.innerWidth < 960;
+    if (!mobile && this.ismobile()) {
+      // switched from mobile → desktop
+      this.dropdownOpen.set(false); // reset mobile menu
+    }
+    this.ismobile.set(mobile);
   }
 
   toggleDropdown() {
