@@ -11,7 +11,7 @@
         [class.garuda-shell__dropdown-always-visible]="alwaysShowDropdownMenu()"
         class="garuda-shell__dropdown-toggle"
         (onClick)="toggleDropdown()"
-        icon="pi pi-bars"
+        [icon]="dropdownOpen() ? 'pi pi-times' : 'pi pi-bars'"
         [text]="true"
       />
     }
@@ -23,7 +23,7 @@
 <p-menu
   #menu
   [model]="menuItems()"
-  [style.display]="dropdownOpen() ? 'block' : 'none'"
+  [style.display]="ismobile() && dropdownOpen() ? 'block' : 'none'"
   class="garuda-shell__dropdown"
   [class.garuda-shell-relative]="relativePosition()"
   (click)="closeMenu()"
