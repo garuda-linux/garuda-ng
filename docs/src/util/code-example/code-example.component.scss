@@ -1,11 +1,17 @@
 .tabs-container {
   max-width: calc(100vw - 32px);
+  position: relative;
+  z-index: 1;
 }
 
 .tab-panels {
   padding: 0;
+  border-bottom-left-radius: var(--p-menu-border-radius);
+  border-bottom-right-radius: var(--p-menu-border-radius);
 }
 
 .code-container {
-  overflow-x: auto;
+  overflow-x: scroll;
+  width: 100%;
+  display: block;
 }

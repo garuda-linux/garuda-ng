@@ -1,14 +1,25 @@
 .components-container {
-  display: flex;
   gap: 1em;
-}
 
-.components-menu {
   @media only screen and (device-width > 768px) {
-    display: block !important;
+    display: flex;
   }
 
-  @media only screen and (device-width <= 768px) {
-    position: absolute;
+  .inline-container {
+    display: inline;
+
+    .components-menu {
+      position: sticky;
+      top: 68px;
+      z-index: 1000;
+      backdrop-filter: blur(5px);
+      @media only screen and (device-width > 768px) {
+        display: block !important;
+      }
+
+      @media only screen and (device-width <= 768px) {
+        position: fixed;
+      }
+    }
   }
 }
