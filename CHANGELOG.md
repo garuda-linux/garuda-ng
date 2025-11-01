@@ -30,6 +30,9 @@
 
 - *(config)* Migrate renovate config ([#95](https://github.com/garuda-linux/garuda-ng/issues/95)) - ([da81c18](https://github.com/garuda-linux/garuda-ng/commit/da81c18fe757ea3f3578dee91c3412431a81a486))
 - *(config)* Migrate config renovate.json - ([8cc6bc6](https://github.com/garuda-linux/garuda-ng/commit/8cc6bc6af73d76f6d2a4ed5f119fa980e5e983a1))
+- *(core)* Bump version to 1.1.0-rc.2 - ([bab047a](https://github.com/garuda-linux/garuda-ng/commit/bab047aac5e8b14af78bac2d21a6a541eff9bbb4))
+- Do not setup special npm voodoo - ([fd49e7b](https://github.com/garuda-linux/garuda-ng/commit/fd49e7ba760f9822cec017ef4cb12068bf55bc31))
+- Update npm to latest before publishing - ([799038d](https://github.com/garuda-linux/garuda-ng/commit/799038d4c438b9752fa6837f411e1a67d5d173b4))
 - Simply and fix cf pages deployments - ([5573a6b](https://github.com/garuda-linux/garuda-ng/commit/5573a6b02c812d6c06c99569a53df4e6e1749ccf))
 - Use oicd instead of tokens, update node to 24 ([#179](https://github.com/garuda-linux/garuda-ng/issues/179)) - ([20a0c5a](https://github.com/garuda-linux/garuda-ng/commit/20a0c5a82d0299a263b218603cd52d665cd9d3c4))
 - Simply and fix cf pages deployments - ([582a515](https://github.com/garuda-linux/garuda-ng/commit/582a515b7f52f24251f88820cc28460684d3944a))
