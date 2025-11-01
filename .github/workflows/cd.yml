@@ -132,13 +132,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Set up special NPM voodoo
-        run: |
-          echo "@garudalinux:registry=https://registry.npmjs.org/" >> ~/.npmrc
-
       - name: Publish to NPM
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
         run: |
           npm install -g npm
