@@ -156,6 +156,15 @@ jobs:
         with:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: pages deploy --branch main
+          packageManager: pnpm
+
+      - name: Deploy to Cloudflare Pages
+        if: (github.event_name == 'push') && (github.ref == 'refs/heads/dev')
+        uses: cloudflare/wrangler-action@v3
+        with:
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           command: pages deploy --branch dev
           packageManager: pnpm
 
