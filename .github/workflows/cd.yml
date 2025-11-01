@@ -141,6 +141,8 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
         run: |
+          npm install -g npm
+
           NPM_ARGS=()
           echo "${{ github.ref_name }}" | grep -q 'rc' && NPM_ARGS+=(--tag rc)
 
