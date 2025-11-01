@@ -150,7 +150,7 @@ jobs:
       - name: Build the documentation
         run: pnpx nx build docs
 
-      - name: Deploy to Cloudflare Pages
+      - name: Deploy to Cloudflare Pages to main
         if: (github.event_name == 'push') && (github.ref == 'refs/heads/main')
         uses: cloudflare/wrangler-action@v3
         with:
@@ -159,7 +159,7 @@ jobs:
           command: pages deploy --branch main
           packageManager: pnpm
 
-      - name: Deploy to Cloudflare Pages
+      - name: Deploy to Cloudflare Pages to dev
         if: (github.event_name == 'push') && (github.ref == 'refs/heads/dev')
         uses: cloudflare/wrangler-action@v3
         with:
@@ -168,7 +168,7 @@ jobs:
           command: pages deploy --branch dev
           packageManager: pnpm
 
-      - name: Deploy to Cloudflare Pages
+      - name: Deploy to Cloudflare Pages to PR
         if: ${{ github.event_name == 'pull_request' }}
         id: deploy
         uses: cloudflare/wrangler-action@v3
