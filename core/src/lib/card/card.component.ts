@@ -44,19 +44,15 @@ export class CardComponent implements AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     //data-action
-    this.removeClickListener = this.renderer.listen(
-      this.el.nativeElement,
-      'click',
-      (event: Event) => {
-        const target = event.target as HTMLElement;
-        const actionElement = target.closest('[garudaCardAction], [data-action]') as HTMLElement | null;
-        const action = actionElement?.dataset?.['action'];
-        if (action) {
-          event.stopPropagation();
-          this.openDetail(action);
-        }
+    this.removeClickListener = this.renderer.listen(this.el.nativeElement, 'click', (event: Event) => {
+      const target = event.target as HTMLElement;
+      const actionElement = target.closest('[garudaCardAction], [data-action]') as HTMLElement | null;
+      const action = actionElement?.dataset?.['action'];
+      if (action) {
+        event.stopPropagation();
+        this.openDetail(action);
       }
-    );
+    });
   }
 
   ngOnDestroy(): void {

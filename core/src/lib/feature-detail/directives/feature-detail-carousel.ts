@@ -22,7 +22,6 @@ export class FeatureDetailCarousel implements OnInit {
       this.carousel.autoplayInterval = this.carouselSettings.autoPlayCarousel ? (this.carouselSettings.autoPlayIntervalDuration ?? 0) : 0;
     }
 
-    
     this.carousel.value = this.featureScreenshots || [];
   }
 }

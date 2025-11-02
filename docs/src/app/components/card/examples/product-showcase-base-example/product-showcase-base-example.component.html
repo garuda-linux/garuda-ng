@@ -1,6 +1,11 @@
 <div class="card-container">
-  <garuda-card cardRole="product-showcase" [feature]="selectedFeature" [actionFeatures]="actionfeatures"
-  (actionClicked)="onAction($event)" data-action="garudaLinux">
+  <garuda-card
+    cardRole="product-showcase"
+    [feature]="selectedFeature"
+    [actionFeatures]="actionfeatures"
+    (actionClicked)="onAction($event)"
+    data-action="garudaLinux"
+  >
     <img garudaCardThumbnail ngSrc="garuda-blue.svg" width="140" height="140" alt="logo" />
     <h1 garudaCardTitle>Garuda Linux</h1>
     <ul garudaCardFeatureList>
