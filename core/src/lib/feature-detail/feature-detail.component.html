@@ -1,0 +1,38 @@
+<p-card [header]="feature?.title" class="garuda-feature-card">
+  <!-- Image Carousel -->
+  <p-carousel
+    [style]="{ width: '100%' }"
+    [style.display]="activePanel() ? 'none' : 'block'"
+    [styleClass]="'garuda-custom-carousel'"
+    garudaFeatureDetailCarousel
+    [featureScreenshots]="feature?.screenshots || []"
+    [carouselSettings]="carouselSettings"
+  >
+    <ng-template pTemplate="item" let-img>
+      <div class="carousel-item">
+        <img [src]="img" alt="Feature image" class="garuda-image-container" />
+        <div class="overlay"></div>
+      </div>
+    </ng-template>
+  </p-carousel>
+
+  <!-- Package List -->
+  <div class="garuda-feature-packages">
+    <label for="packages">Packages:</label>
+    <ul>
+      <ng-container *garudaFeatureDetailPackages="feature?.packages || []; let pkg">
+        <li>{{ pkg }}</li>
+      </ng-container>
+    </ul>
+  </div>
+
+  <!-- More Info -->
+  <p-accordion [(value)]="activePanel">
+    <p-accordion-panel value="0" (onOpen)="expandcollapse(true)" (onClose)="expandcollapse(false)">
+      <p-accordion-header>{{ feature?.moreInfoText || '' }}</p-accordion-header>
+      <p-accordion-content>
+        <div garudaFeatureDetailMoreinformation [garudaFeatureDetailMoreinformation]="feature?.moreInfo"></div>
+      </p-accordion-content>
+    </p-accordion-panel>
+  </p-accordion>
+</p-card>
