@@ -4,7 +4,6 @@ import { appRoutes } from './app.routes';
 import Aura from '@primeuix/themes/aura';
 import { FeatureDetailPopupService, provideGarudaNG } from '@garudalinux/core';
 import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
-import { provideHttpClient } from '@angular/common/http';
 import { CatppuccinAura } from '@garudalinux/themes/catppuccin';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideHighlightOptions } from 'ngx-highlightjs';
