@@ -2,13 +2,16 @@ import { ApplicationConfig, provideZonelessChangeDetection } from '@angular/core
 import { provideRouter } from '@angular/router';
 import { appRoutes } from './app.routes';
 import Aura from '@primeuix/themes/aura';
-import { provideGarudaNG } from '@garudalinux/core';
-import { provideAnimations } from '@angular/platform-browser/animations';
+import { FeatureDetailPopupService, provideGarudaNG } from '@garudalinux/core';
+import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHighlightOptions } from 'ngx-highlightjs';
+import { DialogService } from 'primeng/dynamicdialog';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    DialogService,
+    FeatureDetailPopupService,
     provideZonelessChangeDetection(),
     provideRouter(appRoutes),
     provideGarudaNG(
