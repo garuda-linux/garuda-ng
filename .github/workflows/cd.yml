@@ -91,7 +91,7 @@ jobs:
           git tag release/${{ github.ref_name }}
 
       - name: Push changes
-        uses: ad-m/github-push-action@v0.8.0
+        uses: ad-m/github-push-action@v1.0.0
         with:
           branch: ${{ steps.determine_branch.outputs.target_branch }}
           ssh: true
@@ -112,6 +112,7 @@ jobs:
     name: Publish to NPM
     permissions:
       contents: read
+      id-token: write
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -122,85 +123,27 @@ jobs:
         uses: pnpm/action-setup@v4
 
       - name: Install Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
           cache: 'pnpm'
           registry-url: https://registry.npmjs.org/
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      # https://github.com/pnpm/pnpm/issues/4937
-      - name: Set up special NPM voodoo
-        run: |
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-          echo "@garudalinux:registry=https://registry.npmjs.org/" >> ~/.npmrc
-
       - name: Publish to NPM
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_PROVENANCE: true
         run: |
-          pnpx nx run core:publish
-          pnpx nx run themes:publish
+          npm install -g npm
 
-  publish-docs:
-    runs-on: ubuntu-24.04
-    name: Deploy docs to Cloudflare Pages
-    permissions:
-      contents: read
-    needs: publish
-    steps:
-      - name: Checkout tag
-        uses: actions/checkout@v5
-        with:
-          fetch-depth: 0
-          persist-credentials: true
-          ref: ${{ github.ref_name }}
-          ssh-key: ${{ secrets.DEPLOY_KEY }}
+          NPM_ARGS=()
+          echo "${{ github.ref_name }}" | grep -q 'rc' && NPM_ARGS+=(--tag rc)
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
+          # We can't use OCID via pnpm (todo: check again later)
+          pnpx nx run core:build
+          npm publish ./dist/core "${NPM_ARGS[@]}"
 
-      - name: Install Node.js
-        uses: actions/setup-node@v5
-        with:
-          node-version: 22
-          cache: 'pnpm'
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Build the documentation
-        run: pnpx nx build docs
-
-      - name: Determine source branch
-        id: determine_branch
-        run: |
-          # Get the commit hash of the tag
-          TAG_COMMIT=$(git rev-list -n 1 ${{ github.ref_name }})
-          echo "Tag commit: $TAG_COMMIT"
-
-          # Check if this commit exists in main
-          if git merge-base --is-ancestor "$TAG_COMMIT" origin/main; then
-            echo "Commit is in main branch"
-            echo "target_branch=main" >> "$GITHUB_OUTPUT"
-          else
-            # Find which branch contains this commit
-            BRANCH=$(git branch -r --contains "$TAG_COMMIT" | grep -v '/HEAD' | head -1 | sed 's/.*origin\///')
-            if [ -z "$BRANCH" ]; then
-              echo "Could not determine source branch, defaulting to main"
-              echo "target_branch=main" >> "$GITHUB_OUTPUT"
-            else
-              echo "Found source branch: $BRANCH"
-              echo "target_branch=$BRANCH" >> "$GITHUB_OUTPUT"
-            fi
-          fi
-
-      - name: Deploy Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
-        with:
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: pages deploy --branch ${{ steps.determine_branch.outputs.target_branch }}
-          packageManager: pnpm
+          pnpx nx run themes:build
+          npm publish ./dist/themes "${NPM_ARGS[@]}"

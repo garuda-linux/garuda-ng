@@ -22,9 +22,9 @@ jobs:
         uses: pnpm/action-setup@v4
 
       - name: Install Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
           cache: 'pnpm'
 
       - name: Install dependencies
@@ -58,9 +58,9 @@ jobs:
         uses: pnpm/action-setup@v4
 
       - name: Install Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
           cache: 'pnpm'
 
       - name: Install dependencies
@@ -84,9 +84,9 @@ jobs:
         uses: pnpm/action-setup@v4
 
       - name: Install Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
           cache: 'pnpm'
 
       - name: Install dependencies
@@ -100,7 +100,7 @@ jobs:
     name: Scan for vulnerabilities
     steps:
       - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@0.32.0
+        uses: aquasecurity/trivy-action@0.33.1
         with:
           exit-code: '1'
           format: 'table'
@@ -128,6 +128,7 @@ jobs:
   publish-docs:
     runs-on: ubuntu-24.04
     name: Deploy to Cloudflare Pages
+    environment: ${{ github.event_name == 'pull_request' && 'prod' }}
     permissions:
       contents: read
       pull-requests: write
@@ -139,9 +140,9 @@ jobs:
         uses: pnpm/action-setup@v4
 
       - name: Install Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
           cache: 'pnpm'
 
       - name: Install dependencies
@@ -150,8 +151,17 @@ jobs:
       - name: Build the documentation
         run: pnpx nx build docs
 
-      - name: Deploy to Cloudflare Pages
+      - name: Deploy to Cloudflare Pages to main
         if: (github.event_name == 'push') && (github.ref == 'refs/heads/main')
+        uses: cloudflare/wrangler-action@v3
+        with:
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: pages deploy --branch main
+          packageManager: pnpm
+
+      - name: Deploy to Cloudflare Pages to dev
+        if: (github.event_name == 'push') && (github.ref == 'refs/heads/dev')
         uses: cloudflare/wrangler-action@v3
         with:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -159,7 +169,7 @@ jobs:
           command: pages deploy --branch dev
           packageManager: pnpm
 
-      - name: Deploy to Cloudflare Pages
+      - name: Deploy to Cloudflare Pages to PR
         if: ${{ github.event_name == 'pull_request' }}
         id: deploy
         uses: cloudflare/wrangler-action@v3

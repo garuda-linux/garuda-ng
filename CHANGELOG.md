@@ -1,4 +1,58 @@
-## [1.0.0](https://github.com/garuda-linux/garuda-ng/compare/1.0.0-rc.7..1.0.0) - 2025-10-02
+## [1.1.0-rc.2](https://github.com/garuda-linux/garuda-ng/compare/1.0.0..1.1.0-rc.2) - 2025-11-01
+
+### ⛰️  Features
+
+- *(docs)* Add theming route with preview, fixup many design issues ([#136](https://github.com/garuda-linux/garuda-ng/issues/136)) - ([db00b61](https://github.com/garuda-linux/garuda-ng/commit/db00b6192cbc2b836fe2f1fffce75f3de5185f11))
+- *(docs)* Made docs more mobile responsive - ([117c0d8](https://github.com/garuda-linux/garuda-ng/commit/117c0d817bab0b484677b10d6fee204a2bc92884))
+- *(docs)* Made cursor over theme be a pointer - ([1f2f37e](https://github.com/garuda-linux/garuda-ng/commit/1f2f37efa44fd331b5480dd309a9f6b0bfb13f68))
+- *(docs)* Hidden scrollbars - ([1d0963f](https://github.com/garuda-linux/garuda-ng/commit/1d0963f1d7c37a55acdcf3f862aa476b0a8c84f9))
+- *(docs)* Made code block background transparent - ([e64790b](https://github.com/garuda-linux/garuda-ng/commit/e64790b887de99e84029bb7a67875bbf4505853c))
+- *(docs)* Bring a more interesting background - ([510c9b0](https://github.com/garuda-linux/garuda-ng/commit/510c9b0fa0ceaa520b4d37f73de93fbcf176fccb))
+- *(docs)* Add route transitions - ([8092146](https://github.com/garuda-linux/garuda-ng/commit/809214615bab04c17b47a8f5b969e4b3cc8937fa))
+- *(docs)* Add theming route with preview, fixup many design issues - ([7329b34](https://github.com/garuda-linux/garuda-ng/commit/7329b34e7cda1b3670f7d5b9e65ccf356ef904e3))
+
+### 🐛 Bug Fixes
+
+- *(deps)* Update all minor dependencies ([#177](https://github.com/garuda-linux/garuda-ng/issues/177)) - ([b569a36](https://github.com/garuda-linux/garuda-ng/commit/b569a36cfb8fc23131555be38698f6a6c81f7545))
+- *(docs)* Dont override all span colors, add radius, default component, incorrect text - ([4116ffe](https://github.com/garuda-linux/garuda-ng/commit/4116ffeb5ca47a96627773b38ff92c4b14334066))
+- *(docs)* Fixed p-scrolltop z-index - ([bf4e005](https://github.com/garuda-linux/garuda-ng/commit/bf4e0051d461afde3e23831040bb122dd49f6561))
+- *(docs)* Fixed z-index problems - ([7a377dc](https://github.com/garuda-linux/garuda-ng/commit/7a377dc4c5449b9c3fd6f5b890972a0ff9749722))
+- *(docs)* Broken title css - ([4f4eb7c](https://github.com/garuda-linux/garuda-ng/commit/4f4eb7ca1a536c0e9ecbfa8612b9f78eaef1c78b))
+- *(menubar)* Added toggle close icon and reset mobile menu on resize ([#175](https://github.com/garuda-linux/garuda-ng/issues/175)) - ([72607dd](https://github.com/garuda-linux/garuda-ng/commit/72607ddd83c0e605451dd06c6f7b96daa00edc4c))
+- *(menubar)* Toggle close icon and reset mobile menu on resize - ([8ef1f46](https://github.com/garuda-linux/garuda-ng/commit/8ef1f46f7ac0ec7746f47c1d9de069073020a154))
+
+### 📚 Documentation
+
+- Made components menu sticky/fixed ([#134](https://github.com/garuda-linux/garuda-ng/issues/134)) - ([4a43f5f](https://github.com/garuda-linux/garuda-ng/commit/4a43f5fa85b951de8f18fe58e56b7371dc4bc787))
+- Made components menu sticky/fixed - ([6f50b7e](https://github.com/garuda-linux/garuda-ng/commit/6f50b7e3d6a78d34c7e0c85f393c51015beec7bb))
+
+### ⚙️ Miscellaneous Tasks
+
+- *(config)* Migrate renovate config ([#95](https://github.com/garuda-linux/garuda-ng/issues/95)) - ([da81c18](https://github.com/garuda-linux/garuda-ng/commit/da81c18fe757ea3f3578dee91c3412431a81a486))
+- *(config)* Migrate config renovate.json - ([8cc6bc6](https://github.com/garuda-linux/garuda-ng/commit/8cc6bc6af73d76f6d2a4ed5f119fa980e5e983a1))
+- *(core)* Bump version to 1.1.0-rc.2 - ([bab047a](https://github.com/garuda-linux/garuda-ng/commit/bab047aac5e8b14af78bac2d21a6a541eff9bbb4))
+- Do not setup special npm voodoo - ([fd49e7b](https://github.com/garuda-linux/garuda-ng/commit/fd49e7ba760f9822cec017ef4cb12068bf55bc31))
+- Update npm to latest before publishing - ([799038d](https://github.com/garuda-linux/garuda-ng/commit/799038d4c438b9752fa6837f411e1a67d5d173b4))
+- Simply and fix cf pages deployments - ([5573a6b](https://github.com/garuda-linux/garuda-ng/commit/5573a6b02c812d6c06c99569a53df4e6e1749ccf))
+- Use oicd instead of tokens, update node to 24 ([#179](https://github.com/garuda-linux/garuda-ng/issues/179)) - ([20a0c5a](https://github.com/garuda-linux/garuda-ng/commit/20a0c5a82d0299a263b218603cd52d665cd9d3c4))
+- Simply and fix cf pages deployments - ([582a515](https://github.com/garuda-linux/garuda-ng/commit/582a515b7f52f24251f88820cc28460684d3944a))
+- Use oicd instead of tokens, update node to 24 - ([9f9af3a](https://github.com/garuda-linux/garuda-ng/commit/9f9af3a5650a5bf69d47e29d459c8bc367cec82f))
+- Changed renovate base branch to dev ([#128](https://github.com/garuda-linux/garuda-ng/issues/128)) - ([22ee6f3](https://github.com/garuda-linux/garuda-ng/commit/22ee6f33a75be35e8eeb8d15086a43c8a3a0b384))
+- Changed renovate base branch to dev - ([d8f04d8](https://github.com/garuda-linux/garuda-ng/commit/d8f04d82578ac7a74ed796cc2f2239911e35d0bc))
+- CODEOWNERS: renamed FilipTLW to Vo1dSh4d0w ([#122](https://github.com/garuda-linux/garuda-ng/issues/122)) - ([6be1314](https://github.com/garuda-linux/garuda-ng/commit/6be1314bc253968ddfc32bd46b95f6188fb23496))
+- CODEOWNERS: renamed FilipTLW to Vo1dSh4d0w - ([e7981f2](https://github.com/garuda-linux/garuda-ng/commit/e7981f29c5619a0c2c4f7c08c990001a4fe95501))
+
+### Build
+
+- *(docs)* Increase budgets - ([5013f47](https://github.com/garuda-linux/garuda-ng/commit/5013f47f314a56816cd3de34ee955b0048fb7ba8))
+
+## New Contributors ❤️
+
+* @Vo1dSh4d0w made their first contribution in [#131](https://github.com/garuda-linux/garuda-ng/pull/131)
+* @dr460nf1r3 made their first contribution
+* @renovate[bot] made their first contribution
+
+## [1.0.0] - 2025-10-02
 
 ### ⛰️  Features
 
@@ -28,21 +82,21 @@
 - Removed core and themes from pnpm workspace - ([db43730](https://github.com/garuda-linux/garuda-ng/commit/db437307ac6711cef65a36fe82cc7b6218c08d2a))
 
 
-## [1.0.0-rc.7] - 2025-07-26
+## [1.0.0-rc.7](https://github.com/garuda-linux/garuda-ng/compare/1.0.0-rc.6..1.0.0-rc.7) - 2025-07-26
 
 ### 🐛 Bug Fixes
 
 - *(themes)* Fixed package.json - ([c66c23e](https://github.com/garuda-linux/garuda-ng/commit/c66c23e9bb42e45673044f18da2c9722c48249e3))
 
 
-## [1.0.0-rc.6](https://github.com/garuda-linux/garuda-ng/compare/1.0.0-rc.5..1.0.0-rc.6) - 2025-07-26
+## [1.0.0-rc.6] - 2025-07-26
 
 ### ⚙️ Miscellaneous Tasks
 
 - Fetch the entire git repo to be able to determine source branch - ([4644add](https://github.com/garuda-linux/garuda-ng/commit/4644add5c07fe878fdad7b05407035327a389008))
 
 
-## [1.0.0-rc.5] - 2025-07-26
+## [1.0.0-rc.5](https://github.com/garuda-linux/garuda-ng/compare/1.0.0-rc.4..1.0.0-rc.5) - 2025-07-26
 
 ### ⚙️ Miscellaneous Tasks
 
@@ -50,14 +104,14 @@
 - Use the current branch name for cf deployments - ([d6a4385](https://github.com/garuda-linux/garuda-ng/commit/d6a438599213b989763b4018b6d528d70a49d542))
 
 
-## [1.0.0-rc.4](https://github.com/garuda-linux/garuda-ng/compare/1.0.0-rc.3..1.0.0-rc.4) - 2025-07-26
+## [1.0.0-rc.4] - 2025-07-26
 
 ### ⚙️ Miscellaneous Tasks
 
 - Publish themes to npmjs - ([ef673b8](https://github.com/garuda-linux/garuda-ng/commit/ef673b8c88242bbc3396298f350f35f7e38edea7))
 
 
-## [1.0.0-rc.3] - 2025-07-26
+## [1.0.0-rc.3](https://github.com/garuda-linux/garuda-ng/compare/1.0.0-rc.2..1.0.0-rc.3) - 2025-07-26
 
 ### ⛰️  Features
 
@@ -68,12 +122,8 @@
 
 - Lint - ([c7e7292](https://github.com/garuda-linux/garuda-ng/commit/c7e729262546bebdb4f23cc6b4732eb4fbfeaf4b))
 
-## New Contributors ❤️
 
-* @dr460nf1r3 made their first contribution
-* @Vo1dSh4d0w made their first contribution
-
-## [1.0.0-rc.2](https://github.com/garuda-linux/garuda-ng/compare/1.0.0-rc.1..1.0.0-rc.2) - 2025-07-13
+## [1.0.0-rc.2] - 2025-07-13
 
 ### 🎨 Styling
 
@@ -88,7 +138,7 @@
 - Generate changes.md based on current tag, not release tag - ([2dadb38](https://github.com/garuda-linux/garuda-ng/commit/2dadb38fe2184c339111ea530596897729489c1e))
 
 
-## [1.0.0-rc.1] - 2025-07-13
+## [1.0.0-rc.1](https://github.com/garuda-linux/garuda-ng/compare/0.3.1..1.0.0-rc.1) - 2025-07-13
 
 ### ⛰️  Features
 

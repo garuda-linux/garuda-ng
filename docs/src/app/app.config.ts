@@ -5,6 +5,8 @@ import Aura from '@primeuix/themes/aura';
 import { FeatureDetailPopupService, provideGarudaNG } from '@garudalinux/core';
 import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
 import { provideHttpClient } from '@angular/common/http';
+import { CatppuccinAura } from '@garudalinux/themes/catppuccin';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideHighlightOptions } from 'ngx-highlightjs';
 import { DialogService } from 'primeng/dynamicdialog';
 
@@ -20,12 +22,12 @@ export const appConfig: ApplicationConfig = {
       },
       {
         theme: {
-          preset: Aura,
+          preset: CatppuccinAura,
         },
       },
     ),
     provideAnimations(),
-    provideHttpClient(),
+    provideHttpClient(withFetch()),
     provideHighlightOptions({
       coreLibraryLoader: () => import('highlight.js/lib/core'),
       languages: {
