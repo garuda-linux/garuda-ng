@@ -128,7 +128,7 @@ jobs:
   publish-docs:
     runs-on: ubuntu-24.04
     name: Deploy to Cloudflare Pages
-    environment: prod
+    environment: ${{ github.event_name == 'pull_request' && 'prod' }}
     permissions:
       contents: read
       pull-requests: write
