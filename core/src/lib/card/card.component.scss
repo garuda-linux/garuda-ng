@@ -30,3 +30,28 @@
     justify-content: space-evenly;
   }
 }
+
+.garuda-card-product-showcase-small {
+  border: 2px solid transparent;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 160px;
+  height: 160px;
+  margin: 10px;
+  padding: 1rem;
+}
+.garuda-card-thumbnail-container-small {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // margin-top: -25px;
+}
+
+.garuda-card-product-showcase-small:hover {
+  //border: 2px solid var(--p-text-color);
+  transform: scale(1.2);
+}
+
+

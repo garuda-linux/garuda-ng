@@ -1,0 +1,10 @@
+<form (ngSubmit)="onSubmit(searchForm)" #searchForm="ngForm">
+  <div class="input-wrapper">
+    <i class="icon pi pi-search"></i>
+    <input type="text" name="search" class="input" ngModel [placeholder]="searchConfig?.placeholder" required />
+    <button class="search-btn" type="submit">
+      <i class="search pi pi-search"></i>
+      {{ searchConfig?.searchTitle }}
+    </button>
+  </div>
+</form>

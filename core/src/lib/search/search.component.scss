@@ -1,0 +1,106 @@
+form {
+    margin-bottom: 3rem;
+}
+
+
+.input-wrapper {
+  width: fit-content;
+  height: 45px;
+  border-radius: 20px;
+  padding: 5px;
+  box-sizing: content-box;
+  display: flex;
+  align-items: center;
+  background-color: var(--p-slate-50);
+  border: 2px solid var(--p-gray-900);
+}
+
+.icon {
+  width: 30px;
+  fill: var(--p-gray-900);
+  color: var(--p-gray-900) !important;
+  margin-left: 8px;
+  transition: all 0.3s;
+}
+.input {
+  width: 400px;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding-left: 15px;
+  background-color: var(--p-slate-50);
+  color: var(--p-gray-900) !important;
+  font-size: 1em;
+}
+.input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px var(--p-primary-color) inset;
+  -webkit-text-fill-color: var(--p-gray-900);
+}
+.search-btn {
+  height: 100%;
+  width: 95px;
+  border: none;
+  border-radius: 15px;
+  color: var(--p-slate-50);
+  cursor: pointer;
+  background-color: var(--p-gray-900);
+  font-weight: 500;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s;
+  border: 2px solid var(--p-gray-900);
+}
+.search {
+  position: absolute;
+  margin-right: 150px;
+  transition: all 0.3s;
+}
+.input-wrapper:active .icon {
+  transform: scale(1.3);
+}
+.search-btn:hover {
+  color: var(--p-gray-900);
+//   background-color: var(--p-slate-50);
+}
+.search-btn:hover .search {
+  margin-right: 0;
+  animation: appear-horizontal 0.9s both;
+  transform-origin: right;
+  color: var(--p-slate-50);
+}
+
+@keyframes appear-horizontal {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  40% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  50% {
+    transform: scale3d(0.85, 1.15, 1);
+  }
+  65% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  75% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+.search-btn:active {
+  transform: scale(0.9);
+}
+
+@media screen and (max-width: 960px) {
+    .input {
+        width: 250px;
+    }
+}

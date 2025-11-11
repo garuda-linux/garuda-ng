@@ -1,5 +1,5 @@
 import { Directive, ElementRef, Input, OnInit, Renderer2, inject } from '@angular/core';
-import { FeatureCarouselSettings } from '../../models/feature-detail.model';
+import { FeatureCarouselSettings } from '../../models/feature-detail/feature-detail.model';
 import { Carousel } from 'primeng/carousel';
 
 @Directive({

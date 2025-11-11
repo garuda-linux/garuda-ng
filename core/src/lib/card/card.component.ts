@@ -1,6 +1,5 @@
 import {
   Component,
-  computed,
   EventEmitter,
   HostBinding,
   inject,
@@ -11,43 +10,54 @@ import {
   Renderer2,
   AfterViewInit,
   OnDestroy,
+  OnInit,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Card } from 'primeng/card';
-import { FeatureData } from '../models/feature-detail.model';
-import { FeatureDetailPopupService } from '../feature-detail/services/feature-detail-popup-service';
+import { FeatureData } from '../models/feature-detail/feature-detail.model';
+import { PopupService } from '../services/popup/popup.service';
+import { FeatureDetailComponent } from '../feature-detail/feature-detail.component';
 
-export type RoleType = 'product-showcase';
+export type RoleType = 'product-showcase' | 'product-showcase-small';
 
 @Component({
   selector: 'garuda-card',
+  standalone: true,
   imports: [CommonModule, Card],
   templateUrl: './card.component.html',
-  styleUrl: './card.component.scss',
+  styleUrls: ['./card.component.scss'],
   host: {
     class: 'garuda-card',
   },
 })
 export class CardComponent implements AfterViewInit, OnDestroy {
   cardRole = input.required<RoleType>();
+  @Input() link?: string = "";
   @Input() feature?: FeatureData;
-  @Input() actionFeatures?: Record<string, FeatureData> = {};
-  @Output() actionClicked: EventEmitter<string> = new EventEmitter<string>();
+  @Input() actionFeatures: Record<string, FeatureData> = {};
+  @Output() actionClicked = new EventEmitter<string>();
 
-  private featureDetailPopupService = inject(FeatureDetailPopupService);
+  private popupService = inject(PopupService);
   private el = inject(ElementRef<HTMLElement>);
   private renderer = inject(Renderer2);
   private removeClickListener?: () => void;
 
   @HostBinding('class.garuda-card__product-showcase')
-  private productShowcaseClass = computed(() => this.cardRole() === 'product-showcase');
+  get isProductShowcase(): boolean {
+    return this.cardRole() === 'product-showcase';
+  }
+
+  @HostBinding('class.garuda-card__product-showcase-small')
+  get isProductShowcaseSmall(): boolean {
+    return this.cardRole() === 'product-showcase-small';
+  }
 
   ngAfterViewInit(): void {
-    //data-action
     this.removeClickListener = this.renderer.listen(this.el.nativeElement, 'click', (event: Event) => {
       const target = event.target as HTMLElement;
       const actionElement = target.closest('[garudaCardAction], [data-action]') as HTMLElement | null;
       const action = actionElement?.dataset?.['action'];
+
       if (action) {
         event.stopPropagation();
         this.openDetail(action);
@@ -61,9 +71,18 @@ export class CardComponent implements AfterViewInit, OnDestroy {
 
   openDetail(action: string): void {
     this.actionClicked.emit(action);
+
     const featureData = this.actionFeatures?.[action] || this.feature;
-    if (featureData) {
-      this.featureDetailPopupService.open(featureData);
+    if (!featureData) return;
+
+    // 🔥 Open FeatureDetailComponent dynamically via PopupService
+    this.popupService.open(FeatureDetailComponent, { data: { feature: featureData }, title: featureData?.title, showHeader: false, });
+  }
+
+  navigate() {
+    if (this.link) {
+      window.location.href = this.link; // navigate in same tab
+      // OR window.open(this.link, '_blank'); // open in new tab
     }
   }
 }

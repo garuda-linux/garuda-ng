@@ -6,6 +6,8 @@
   --p-menubar-background: rgb(from var(--bg-color) r g b / 0.2);
   backdrop-filter: blur(5px);
   border-radius: var(--p-menubar-border-radius);
+  display: flex;
+  justify-content: space-between;
 }
 
 .garuda-shell-menubar:not(.garuda-shell-relative) {
@@ -36,4 +38,13 @@
   left: 8px;
   z-index: 2000;
   width: calc(100% - 16px);
+}
+
+::ng-deep .p-menubar-end {
+  align-self: unset !important;
+  margin-left:unset !important;
+}
+
+::ng-deep .p-menubar-root-list {
+  margin-left: -10%;
 }

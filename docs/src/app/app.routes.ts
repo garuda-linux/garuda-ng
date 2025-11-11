@@ -44,6 +44,10 @@ export const appRoutes: Route[] = [
     loadComponent: () => import('./theming/theming.component').then((m) => m.ThemingComponent),
     data: { animationState: '3' },
   },
+  {
+    path: 'startv2',
+    loadComponent: () => import('./startv2-website/startv2.component').then((m) => m.Startv2Component),
+  },
 ];
 
 /**

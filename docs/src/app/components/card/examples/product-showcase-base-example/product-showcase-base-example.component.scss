@@ -5,3 +5,15 @@
     width: 500px;
   }
 }
+
+.small-card {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.news-container {
+  width: 500px;
+  max-height: 500px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}

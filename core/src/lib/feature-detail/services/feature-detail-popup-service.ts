@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { FeatureDetailComponent } from '../feature-detail.component';
-import { FeatureData } from '../../models/feature-detail.model';
+import { FeatureData } from '../../models/feature-detail/feature-detail.model';
 
 @Injectable({
   providedIn: 'root',

@@ -1,0 +1,65 @@
+.v2-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.left-container {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.right-container {
+  width: 20%;
+}
+
+.news {
+    max-height: 800px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.product-small,
+.social-handles {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5rem 5rem 2rem 5rem;
+}
+
+.search, .jokes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 960px) {
+  .v2-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .left-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .right-container {
+    margin-top: 3rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .product-small,
+  .social-handles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

@@ -7,7 +7,7 @@ import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { AccordionModule } from 'primeng/accordion';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { FeatureData, FeatureCarouselSettings } from '../models/feature-detail.model';
+import { FeatureData, FeatureCarouselSettings } from '../models/feature-detail/feature-detail.model';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { FeatureDetailCarousel } from './directives/feature-detail-carousel';
 import { FeatureDetailPackages } from './directives/feature-detail-packages';
