@@ -22,6 +22,8 @@ export class PopupService {
     };
     const finalOptions: Required<PopupOptions<TData>> = {...defaults, ...options};
 
+    console.log(finalOptions.data)
+
     this.ref = this.dialogService.open(PopupWrapperComponent, {
       data: { innerComponent: component, innerData: finalOptions?.data, title: finalOptions?.title, noCloseIcon: finalOptions?.noCloseIcon, },
       showHeader: finalOptions?.showHeader,

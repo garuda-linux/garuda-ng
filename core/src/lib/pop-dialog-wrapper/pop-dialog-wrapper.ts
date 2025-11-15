@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ViewContainerRef, inject, Type } from '@angular/core';
+import { Component, AfterViewInit, Type, inject, viewChild, ViewContainerRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { CardModule } from 'primeng/card';
@@ -10,33 +10,42 @@ import { CardModule } from 'primeng/card';
   templateUrl: './pop-dialog-wrapper.html',
   styleUrls: ['./pop-dialog-wrapper.css'],
 })
-export class PopupWrapperComponent implements OnInit {
-  @ViewChild('container', { read: ViewContainerRef, static: true })
-  container!: ViewContainerRef;
+export class PopupWrapperComponent implements AfterViewInit {
+  container = viewChild('container', { read: ViewContainerRef });
 
   public config = inject(DynamicDialogConfig);
   private ref = inject(DynamicDialogRef);
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
+    const containerRef = this.container();
+    if (!containerRef) {
+      console.error('Container ViewChild not found!');
+      return;
+    }
+
     const innerComponent = this.config.data?.innerComponent as Type<any>;
     const innerData = this.config.data?.innerData;
 
     if (!innerComponent) return;
 
-    // 🔹 Standalone components: createComponent with Type<T>
-    const componentRef = this.container.createComponent(innerComponent, {
-      // provide injector if needed
-      injector: this.container.injector,
+    const componentRef = containerRef.createComponent(innerComponent, {
+      injector: containerRef.injector,
     });
 
-    // 🔹 Assign input values
+    
     if (innerData) {
       Object.entries(innerData).forEach(([key, value]) => {
-        (componentRef.instance as any)[key] = value;
+        const instance: any = componentRef.instance;
+        const target = instance[key];
+        if (target && typeof target === 'function' && 'set' in target) {
+          target.set(value);
+        }
+        else {
+          instance[key] = value;
+        }
       });
     }
 
-    // Optional: detect changes if inputs assigned manually
     componentRef.changeDetectorRef.detectChanges();
   }
 

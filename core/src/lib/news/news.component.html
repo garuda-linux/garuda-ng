@@ -1,5 +1,5 @@
 <div class="news-container">
-  <ng-container *ngFor="let snews of news?.newsData;">
+  <ng-container *ngFor="let snews of news()?.newsData;">
     <section>
     <div class="section-time">{{snews?.newsTime}}</div>
     <article>

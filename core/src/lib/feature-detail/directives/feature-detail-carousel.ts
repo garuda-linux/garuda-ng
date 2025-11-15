@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, OnInit, Renderer2, inject } from '@angular/core';
+import { Directive, ElementRef, Input, OnInit, Renderer2, inject, input } from '@angular/core';
 import { FeatureCarouselSettings } from '../../models/feature-detail/feature-detail.model';
 import { Carousel } from 'primeng/carousel';
 
@@ -9,19 +9,19 @@ import { Carousel } from 'primeng/carousel';
 export class FeatureDetailCarousel implements OnInit {
   private carousel = inject(Carousel);
 
-  @Input() featureScreenshots: string[] = [];
-  @Input() carouselSettings?: FeatureCarouselSettings;
+  featureScreenshots = input<string[]>([]);
+  carouselSettings = input<FeatureCarouselSettings>();
 
   ngOnInit(): void {
-    if (this.carouselSettings) {
+    if (this.carouselSettings()) {
       this.carousel.numVisible = 1;
       this.carousel.numScroll = 1;
-      this.carousel.circular = !!this.carouselSettings.circularSlide;
+      this.carousel.circular = !!this.carouselSettings()?.circularSlide;
       this.carousel.showIndicators = true;
       this.carousel.showNavigators = true;
-      this.carousel.autoplayInterval = this.carouselSettings.autoPlayCarousel ? (this.carouselSettings.autoPlayIntervalDuration ?? 0) : 0;
+      this.carousel.autoplayInterval = this.carouselSettings()?.autoPlayCarousel ? (this.carouselSettings()?.autoPlayIntervalDuration ?? 0) : 0;
     }
 
-    this.carousel.value = this.featureScreenshots || [];
+    this.carousel.value = this.featureScreenshots() || [];
   }
 }

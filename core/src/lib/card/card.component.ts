@@ -1,16 +1,13 @@
 import {
   Component,
-  EventEmitter,
   HostBinding,
   inject,
-  Input,
   input,
-  Output,
   ElementRef,
   Renderer2,
   AfterViewInit,
   OnDestroy,
-  OnInit,
+  output,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Card } from 'primeng/card';
@@ -32,10 +29,11 @@ export type RoleType = 'product-showcase' | 'product-showcase-small';
 })
 export class CardComponent implements AfterViewInit, OnDestroy {
   cardRole = input.required<RoleType>();
-  @Input() link?: string = "";
-  @Input() feature?: FeatureData;
-  @Input() actionFeatures: Record<string, FeatureData> = {};
-  @Output() actionClicked = new EventEmitter<string>();
+  link = input<string | undefined>("");
+  feature = input<FeatureData>();
+  actionFeatures = input<Record<string, FeatureData>>({});
+  actionClicked = output<string>();
+
 
   private popupService = inject(PopupService);
   private el = inject(ElementRef<HTMLElement>);
@@ -72,17 +70,15 @@ export class CardComponent implements AfterViewInit, OnDestroy {
   openDetail(action: string): void {
     this.actionClicked.emit(action);
 
-    const featureData = this.actionFeatures?.[action] || this.feature;
+    const featureData = this.actionFeatures()?.[action] || this.feature;
     if (!featureData) return;
 
-    // 🔥 Open FeatureDetailComponent dynamically via PopupService
     this.popupService.open(FeatureDetailComponent, { data: { feature: featureData }, title: featureData?.title, showHeader: false, });
   }
 
   navigate() {
     if (this.link) {
-      window.location.href = this.link; // navigate in same tab
-      // OR window.open(this.link, '_blank'); // open in new tab
+      window.location.href = this.link() ?? ""; 
     }
   }
 }

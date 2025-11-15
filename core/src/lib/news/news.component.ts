@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { NewsModel } from '../models';
 import { CommonModule } from '@angular/common';
 
@@ -9,10 +9,6 @@ import { CommonModule } from '@angular/common';
   styleUrl: './news.component.scss',
   standalone: true,
 })
-export class NewsComponent implements OnInit {
-  @Input() news?: NewsModel | undefined;
-
-  ngOnInit(): void {
-    console.log(this.news)
-  }
+export class NewsComponent {
+  news = input<NewsModel>();
 }

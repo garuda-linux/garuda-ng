@@ -11,14 +11,18 @@ form {
   box-sizing: content-box;
   display: flex;
   align-items: center;
-  background-color: var(--p-slate-50);
-  border: 2px solid var(--p-gray-900);
+  background-color: var(--p-inputtext-background);
+  border: 2px solid var(--p-inputtext-border-color);
+}
+
+.input-wrapper:has(input:focus) {
+    border: 1px solid var(--p-primary-color);
 }
 
 .icon {
   width: 30px;
-  fill: var(--p-gray-900);
-  color: var(--p-gray-900) !important;
+  fill: var(--p-inputtext-color);
+  color: var(--p-inputtext-color) !important;
   margin-left: 8px;
   transition: all 0.3s;
 }
@@ -28,8 +32,8 @@ form {
   border: none;
   outline: none;
   padding-left: 15px;
-  background-color: var(--p-slate-50);
-  color: var(--p-gray-900) !important;
+  background-color: var(--p-inputtext-background);
+  color: var(--p-inputtext-color) !important;
   font-size: 1em;
 }
 .input:-webkit-autofill {
@@ -41,9 +45,9 @@ form {
   width: 95px;
   border: none;
   border-radius: 15px;
-  color: var(--p-slate-50);
+  color: var(--p-button-secondary-color);
   cursor: pointer;
-  background-color: var(--p-gray-900);
+  background-color: var(--p-button-secondary-background);
   font-weight: 500;
   overflow: hidden;
   display: flex;
@@ -51,7 +55,7 @@ form {
   justify-content: center;
   position: relative;
   transition: all 0.3s;
-  border: 2px solid var(--p-gray-900);
+  border: 2px solid var(--p-button-secondary-border-color);
 }
 .search {
   position: absolute;
@@ -62,14 +66,14 @@ form {
   transform: scale(1.3);
 }
 .search-btn:hover {
-  color: var(--p-gray-900);
+  color: transparent;
 //   background-color: var(--p-slate-50);
 }
 .search-btn:hover .search {
   margin-right: 0;
   animation: appear-horizontal 0.9s both;
   transform-origin: right;
-  color: var(--p-slate-50);
+  color: var(--p-button-secondary-color);
 }
 
 @keyframes appear-horizontal {

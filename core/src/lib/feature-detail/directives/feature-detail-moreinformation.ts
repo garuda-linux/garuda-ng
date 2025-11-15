@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, OnChanges, SimpleChanges, inject } from '@angular/core';
+import { Directive, ElementRef, OnChanges, SimpleChanges, inject, input } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Directive({
@@ -9,14 +9,16 @@ export class FeatureDetailMoreinformation implements OnChanges {
   private el = inject(ElementRef<HTMLElement>);
   private sanitizer = inject(DomSanitizer);
 
-  @Input('garudaFeatureDetailMoreinformation') htmlContent?: string;
+  htmlContent = input<string|undefined>(undefined, {
+  alias: 'garudaFeatureDetailMoreinformation'
+});
   ngOnChanges(changes: SimpleChanges): void {
-    if (!this.htmlContent) return;
-    if ('htmlContent' in changes && this.htmlContent) {
-      // Sanitize HTML as string and assign
-      const temp = document.createElement('div');
-      temp.innerHTML = this.htmlContent;
-      this.el.nativeElement.innerHTML = temp.innerHTML;
+    const content = this.htmlContent();
+    if (!content) {
+      this.el.nativeElement.innerHTML = '';
+      return;
     }
+    const safeHtml: SafeHtml = this.sanitizer.bypassSecurityTrustHtml(content);
+    this.el.nativeElement.innerHTML = this.sanitizer.sanitize(1, safeHtml) ?? '';
   }
 }

@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, Input, NO_ERRORS_SCHEMA, OnInit, signal } from '@angular/core';
+import { Component, ElementRef, inject, input, model, NO_ERRORS_SCHEMA, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ListboxModule } from 'primeng/listbox';
@@ -8,7 +8,6 @@ import { ButtonModule } from 'primeng/button';
 import { AccordionModule } from 'primeng/accordion';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { FeatureData, FeatureCarouselSettings } from '../models/feature-detail/feature-detail.model';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { FeatureDetailCarousel } from './directives/feature-detail-carousel';
 import { FeatureDetailPackages } from './directives/feature-detail-packages';
 import { FeatureDetailMoreinformation } from './directives/feature-detail-moreinformation';
@@ -33,36 +32,36 @@ import { FeatureDetailMoreinformation } from './directives/feature-detail-morein
   ],
 })
 export class FeatureDetailComponent implements OnInit {
-  @Input() carouselSettings?: FeatureCarouselSettings = {
+  carouselSettings = input<FeatureCarouselSettings>({
     autoPlayCarousel: true,
     autoPlayIntervalDuration: 5000,
     circularSlide: true,
-  };
-  @Input() feature?: FeatureData = {
+  });
+  feature = model<FeatureData>({
     screenshots: [],
     packages: [],
     moreInfo: '',
     title: '',
     description: '',
     moreInfoText: '',
-  };
+  });
 
   selectedPackage = signal('');
   activePanel = signal('');
   private el = inject(ElementRef);
   public ref = inject(DynamicDialogRef);
   public config = inject<DynamicDialogConfig<{ feature: FeatureData }>>(DynamicDialogConfig);
-  private sanitizer = inject(DomSanitizer);
 
   ngOnInit() {
-    this.feature = this.config.data?.feature ?? this.feature;
-    const firstPackage = this.feature?.packages?.[0];
+    this.feature.set(this.config.data?.feature ?? this.feature());
+    //console.log(this.feature)
+    const firstPackage = this.feature()?.packages?.[0];
     if (firstPackage) {
       this.selectedPackage.set(firstPackage);
     }
 
-    if (this.carouselSettings?.autoPlayCarousel) {
-      this.carouselSettings.circularSlide = true;
+    if (this.carouselSettings()?.autoPlayCarousel) {
+      this.carouselSettings().circularSlide = true;
     }
 
     //this.activePanel.set('0');
