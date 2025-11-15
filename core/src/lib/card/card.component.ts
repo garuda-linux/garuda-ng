@@ -1,14 +1,4 @@
-import {
-  Component,
-  HostBinding,
-  inject,
-  input,
-  ElementRef,
-  Renderer2,
-  AfterViewInit,
-  OnDestroy,
-  output,
-} from '@angular/core';
+import { Component, HostBinding, inject, input, ElementRef, Renderer2, AfterViewInit, OnDestroy, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Card } from 'primeng/card';
 import { FeatureData } from '../models/feature-detail/feature-detail.model';
@@ -29,11 +19,10 @@ export type RoleType = 'product-showcase' | 'product-showcase-small';
 })
 export class CardComponent implements AfterViewInit, OnDestroy {
   cardRole = input.required<RoleType>();
-  link = input<string | undefined>("");
+  link = input<string | undefined>('');
   feature = input<FeatureData>();
   actionFeatures = input<Record<string, FeatureData>>({});
   actionClicked = output<string>();
-
 
   private popupService = inject(PopupService);
   private el = inject(ElementRef<HTMLElement>);
@@ -73,12 +62,12 @@ export class CardComponent implements AfterViewInit, OnDestroy {
     const featureData = this.actionFeatures()?.[action] || this.feature;
     if (!featureData) return;
 
-    this.popupService.open(FeatureDetailComponent, { data: { feature: featureData }, title: featureData?.title, showHeader: false, });
+    this.popupService.open(FeatureDetailComponent, { data: { feature: featureData }, title: featureData?.title, showHeader: false });
   }
 
   navigate() {
     if (this.link) {
-      window.location.href = this.link() ?? ""; 
+      window.location.href = this.link() ?? '';
     }
   }
 }

@@ -19,7 +19,9 @@ export class FeatureDetailCarousel implements OnInit {
       this.carousel.circular = !!this.carouselSettings()?.circularSlide;
       this.carousel.showIndicators = true;
       this.carousel.showNavigators = true;
-      this.carousel.autoplayInterval = this.carouselSettings()?.autoPlayCarousel ? (this.carouselSettings()?.autoPlayIntervalDuration ?? 0) : 0;
+      this.carousel.autoplayInterval = this.carouselSettings()?.autoPlayCarousel
+        ? (this.carouselSettings()?.autoPlayIntervalDuration ?? 0)
+        : 0;
     }
 
     this.carousel.value = this.featureScreenshots() || [];

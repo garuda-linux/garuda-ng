@@ -1,3 +1,3 @@
 export interface JokesModel {
-    jokes: string[],
+  jokes: string[];
 }

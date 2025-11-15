@@ -1,7 +1,6 @@
 form {
-    margin-bottom: 3rem;
+  margin-bottom: 3rem;
 }
-
 
 .input-wrapper {
   width: fit-content;
@@ -16,7 +15,7 @@ form {
 }
 
 .input-wrapper:has(input:focus) {
-    border: 1px solid var(--p-primary-color);
+  border: 1px solid var(--p-primary-color);
 }
 
 .icon {
@@ -67,7 +66,7 @@ form {
 }
 .search-btn:hover {
   color: transparent;
-//   background-color: var(--p-slate-50);
+  //   background-color: var(--p-slate-50);
 }
 .search-btn:hover .search {
   margin-right: 0;
@@ -104,7 +103,7 @@ form {
 }
 
 @media screen and (max-width: 960px) {
-    .input {
-        width: 250px;
-    }
+  .input {
+    width: 250px;
+  }
 }

@@ -1,4 +1,4 @@
-import { Type } from "@angular/core";
+import { Type } from '@angular/core';
 
 export interface PopupOptions<T = any> {
   /** Whether to show the header or not */
@@ -26,7 +26,7 @@ export interface PopupOptions<T = any> {
 }
 
 export interface PopupConfig<TComponent = any, TData = any> {
-    popupEnabled: boolean;
-    popupContainer: Type<TComponent>;
-    popupContent: PopupOptions<TData>;
+  popupEnabled: boolean;
+  popupContainer: Type<TComponent>;
+  popupContent: PopupOptions<TData>;
 }

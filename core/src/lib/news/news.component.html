@@ -1,18 +1,18 @@
 <div class="news-container">
-  <ng-container *ngFor="let snews of news()?.newsData;">
+  <ng-container *ngFor="let snews of news()?.newsData">
     <section>
-    <div class="section-time">{{snews?.newsTime}}</div>
-    <article>
-      <aside>
-        <div class="dot"></div>
-        <div class="line"></div>
-      </aside>
-      <main>
-        <a [href]="snews?.newsLink">
-            <p class="section-title">{{snews?.newsTitle}}</p>
-        </a>
-      </main>
-    </article>
-  </section>
+      <div class="section-time">{{ snews?.newsTime }}</div>
+      <article>
+        <aside>
+          <div class="dot"></div>
+          <div class="line"></div>
+        </aside>
+        <main>
+          <a [href]="snews?.newsLink">
+            <p class="section-title">{{ snews?.newsTitle }}</p>
+          </a>
+        </main>
+      </article>
+    </section>
   </ng-container>
 </div>

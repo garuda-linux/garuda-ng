@@ -44,13 +44,13 @@
 }
 
 @media screen and (max-width: 960px) {
-    .footer-content {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    }
-    .footer-links {
-        margin: 1rem 0;
-    }
+  .footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .footer-links {
+    margin: 1rem 0;
+  }
 }

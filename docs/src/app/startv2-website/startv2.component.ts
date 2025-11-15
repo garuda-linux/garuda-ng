@@ -1,6 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { CardComponent, SmallCardModel, NewsComponent, NewsData, NewsModel, SearchComponent, SearchModel, JokesComponent, JokesModel } from '@garudalinux/core';
+import {
+  CardComponent,
+  SmallCardModel,
+  NewsComponent,
+  NewsData,
+  NewsModel,
+  SearchComponent,
+  SearchModel,
+  JokesComponent,
+  JokesModel,
+} from '@garudalinux/core';
 
 @Component({
   selector: 'garuda-docs-startv2.component',
@@ -9,7 +19,6 @@ import { CardComponent, SmallCardModel, NewsComponent, NewsData, NewsModel, Sear
   styleUrl: './startv2.component.scss',
 })
 export class Startv2Component {
-
   searchConfig: SearchModel = {
     searchTitle: 'Search',
     searchEngineUrl: 'https://priv.au/search?q=',
@@ -17,12 +26,7 @@ export class Startv2Component {
   };
 
   jokes: JokesModel = {
-    jokes: [
-      'Hi, I am Garuda Linux',
-      'System got hanged',
-      'You will die now',
-      'Oh its dead',
-    ]
+    jokes: ['Hi, I am Garuda Linux', 'System got hanged', 'You will die now', 'Oh its dead'],
   };
 
   products: SmallCardModel[] = [
@@ -30,61 +34,61 @@ export class Startv2Component {
       cardRole: 'product-showcase-small',
       cardTitle: 'SearxNG',
       cardImageUrl: 'https://start.garudalinux.org/assets/pictures/searxng.svg',
-      link: ''
+      link: '',
     },
     {
       cardRole: 'product-showcase-small',
       cardTitle: 'Vaultwarden',
       cardImageUrl: 'https://start.garudalinux.org/assets/pictures/vaultwarden.svg',
-      link: ''
+      link: '',
     },
     {
       cardRole: 'product-showcase-small',
       cardTitle: 'Redlib',
       cardImageUrl: 'https://start.garudalinux.org/assets/pictures/redlib.svg',
-      link: ''
+      link: '',
     },
     {
       cardRole: 'product-showcase-small',
       cardTitle: 'Mastodon',
       cardImageUrl: 'https://start.garudalinux.org/assets/pictures/mastodon.svg',
-      link: ''
+      link: '',
     },
     {
       cardRole: 'product-showcase-small',
       cardTitle: 'PrivateBin',
       cardImageUrl: '/privatebin.png',
-      link: ''
+      link: '',
     },
     {
       cardRole: 'product-showcase-small',
       cardTitle: 'Whoogle',
       cardImageUrl: 'https://start.garudalinux.org/assets/pictures/whoogle.svg',
-      link: ''
+      link: '',
     },
     {
       cardRole: 'product-showcase-small',
       cardTitle: 'LibreY',
       cardImageUrl: '/librey.png',
-      link: ''
+      link: '',
     },
     {
       cardRole: 'product-showcase-small',
       cardTitle: 'Lingva',
       cardImageUrl: '/lingva.png',
-      link: ''
+      link: '',
     },
     {
       cardRole: 'product-showcase-small',
       cardTitle: 'Downloads',
       cardImageUrl: 'https://start.garudalinux.org/assets/pictures/iso.webp',
-      link: ''
+      link: '',
     },
     {
       cardRole: 'product-showcase-small',
       cardTitle: 'Statuspage',
       cardImageUrl: 'https://start.garudalinux.org/assets/pictures/uptime-kuma.svg',
-      link: ''
+      link: '',
     },
   ];
 
@@ -93,25 +97,25 @@ export class Startv2Component {
       cardRole: 'product-showcase-small',
       cardTitle: 'Forum',
       cardImageUrl: '/forum.png',
-      link: ''
+      link: '',
     },
     {
       cardRole: 'product-showcase-small',
       cardTitle: 'Telegram',
       cardImageUrl: 'https://start.garudalinux.org/assets/pictures/telegram.svg',
-      link: ''
+      link: '',
     },
     {
       cardRole: 'product-showcase-small',
       cardTitle: 'Discord',
       cardImageUrl: 'https://start.garudalinux.org/assets/pictures/discord.svg',
-      link: ''
+      link: '',
     },
     {
       cardRole: 'product-showcase-small',
       cardTitle: 'Blusky',
       cardImageUrl: 'https://start.garudalinux.org/assets/pictures/bluesky.svg',
-      link: ''
+      link: '',
     },
   ];
 

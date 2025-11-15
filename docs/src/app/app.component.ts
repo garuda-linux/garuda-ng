@@ -67,7 +67,7 @@ export class AppComponent {
         popupContent: {
           data: {
             title: 'Imprint',
-          },      
+          },
         },
       },
     },
@@ -92,8 +92,8 @@ export class AppComponent {
     {
       icon: 'pi pi-home',
       label: 'Start V2',
-      routerLink: '/startv2'
-    }
+      routerLink: '/startv2',
+    },
   ];
 
   /**

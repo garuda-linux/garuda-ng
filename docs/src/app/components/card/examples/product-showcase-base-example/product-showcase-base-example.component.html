@@ -20,32 +20,28 @@
 <div>
   <section>Small card</section>
   <div class="small-card">
+    <garuda-card cardRole="product-showcase-small" [link]="'/'">
+      <div garudaCardTitleWrapper>
+        <h4>Garuda Linux Small</h4>
+      </div>
+      <div garudaCardThumbnailWrapper>
+        <img ngSrc="garuda-blue.svg" width="140" height="140" alt="logo" />
+      </div>
+    </garuda-card>
     <garuda-card
-    cardRole="product-showcase-small"
-    [link]="'/'"
-  >
-    <div garudaCardTitleWrapper>
-      <h4>Garuda Linux Small</h4>
-    </div>
-    <div garudaCardThumbnailWrapper>
-      <img ngSrc="garuda-blue.svg" width="140" height="140" alt="logo" />
-    </div>
-  </garuda-card>
-  <garuda-card
-    cardRole="product-showcase-small"
-    [feature]="selectedFeature"
-    [actionFeatures]="actionfeatures"
-    (actionClicked)="onAction($event)"
-    data-action="garudaLinux"
-
-  >
-    <div garudaCardTitleWrapper>
-      <h4>Garuda Linux Click</h4>
-    </div>
-    <div garudaCardThumbnailWrapper>
-      <img ngSrc="garuda-blue.svg" width="140" height="140" alt="logo" />
-    </div>
-  </garuda-card>
+      cardRole="product-showcase-small"
+      [feature]="selectedFeature"
+      [actionFeatures]="actionfeatures"
+      (actionClicked)="onAction($event)"
+      data-action="garudaLinux"
+    >
+      <div garudaCardTitleWrapper>
+        <h4>Garuda Linux Click</h4>
+      </div>
+      <div garudaCardThumbnailWrapper>
+        <img ngSrc="garuda-blue.svg" width="140" height="140" alt="logo" />
+      </div>
+    </garuda-card>
   </div>
 </div>
 <div class="news-container">

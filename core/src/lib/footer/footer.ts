@@ -13,13 +13,13 @@ import { PopupService } from '../services/popup/popup.service';
 export class Footer implements OnInit {
   footerItems = input<FooterModel[]>([]);
   relativePosition = input<boolean>(false);
-  totalItems = signal<number>(0); 
+  totalItems = signal<number>(0);
   private popupService = inject(PopupService);
   dropdownOpen: any;
   ismobile = signal(window.innerWidth < 960);
 
   ngOnInit() {
-    this.totalItems.set(this.footerItems()?.length ?? 0)
+    this.totalItems.set(this.footerItems()?.length ?? 0);
   }
 
   @HostListener('window:resize', ['$event'])
@@ -32,14 +32,16 @@ export class Footer implements OnInit {
     this.ismobile.set(mobile);
   }
 
-
   trackByFn() {
     console.log('trackby');
   }
 
   openPopup(itemId: any) {
-    const footerItem: any = this.footerItems()?.filter(_ => _.itemId===itemId)?.[0];
+    const footerItem: any = this.footerItems()?.filter((_) => _.itemId === itemId)?.[0];
     //console.log(footerItem)
-    this.popupService.open(footerItem?.popupConfig?.popupContainer, { data: { feature: footerItem?.popupConfig?.popupContent?.data }, title: footerItem?.popupConfig?.popupContent?.data?.title });
+    this.popupService.open(footerItem?.popupConfig?.popupContainer, {
+      data: { feature: footerItem?.popupConfig?.popupContent?.data },
+      title: footerItem?.popupConfig?.popupContent?.data?.title,
+    });
   }
 }

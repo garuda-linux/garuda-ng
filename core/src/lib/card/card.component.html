@@ -25,7 +25,14 @@
   }
 
   @case ('product-showcase-small') {
-    <div class="garuda-card-product-showcase-small" (click)="navigate()" (keyup.enter)="navigate()" (keyup.space)="navigate()" role="button" tabindex="0">
+    <div
+      class="garuda-card-product-showcase-small"
+      (click)="navigate()"
+      (keyup.enter)="navigate()"
+      (keyup.space)="navigate()"
+      role="button"
+      tabindex="0"
+    >
       <div class="garuda-card-product-showcase-header-small">
         <div class="garuda-card-title-small">
           <ng-content select="[garudaCardTitleWrapper]"></ng-content>

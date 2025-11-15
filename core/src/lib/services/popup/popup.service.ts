@@ -11,21 +11,26 @@ export class PopupService {
   open<TComponent, TData = any>(component: Type<TComponent>, options?: PopupOptions<TData>): DynamicDialogRef<any> {
     //Default setup
     const defaults: Required<PopupOptions<TData>> = {
-        showHeader: false,
-        width: '70vw',
-        modal: true,
-        dismissableMask: true,
-        closable: true,
-        title: '',
-        noCloseIcon: false,
-        data: {} as TData,
+      showHeader: false,
+      width: '70vw',
+      modal: true,
+      dismissableMask: true,
+      closable: true,
+      title: '',
+      noCloseIcon: false,
+      data: {} as TData,
     };
-    const finalOptions: Required<PopupOptions<TData>> = {...defaults, ...options};
+    const finalOptions: Required<PopupOptions<TData>> = { ...defaults, ...options };
 
-    console.log(finalOptions.data)
+    console.log(finalOptions.data);
 
     this.ref = this.dialogService.open(PopupWrapperComponent, {
-      data: { innerComponent: component, innerData: finalOptions?.data, title: finalOptions?.title, noCloseIcon: finalOptions?.noCloseIcon, },
+      data: {
+        innerComponent: component,
+        innerData: finalOptions?.data,
+        title: finalOptions?.title,
+        noCloseIcon: finalOptions?.noCloseIcon,
+      },
       showHeader: finalOptions?.showHeader,
       width: finalOptions?.width,
       modal: finalOptions?.modal,

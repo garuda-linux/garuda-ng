@@ -9,9 +9,9 @@ export class FeatureDetailMoreinformation implements OnChanges {
   private el = inject(ElementRef<HTMLElement>);
   private sanitizer = inject(DomSanitizer);
 
-  htmlContent = input<string|undefined>(undefined, {
-  alias: 'garudaFeatureDetailMoreinformation'
-});
+  htmlContent = input<string | undefined>(undefined, {
+    alias: 'garudaFeatureDetailMoreinformation',
+  });
   ngOnChanges(changes: SimpleChanges): void {
     const content = this.htmlContent();
     if (!content) {

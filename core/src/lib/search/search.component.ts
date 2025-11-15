@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { Button } from 'primeng/button';
 import { InputText } from 'primeng/inputtext';
 
-
 @Component({
   selector: 'garuda-search',
   imports: [FormsModule, Button, InputText],

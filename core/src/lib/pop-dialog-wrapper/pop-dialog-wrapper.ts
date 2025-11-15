@@ -32,15 +32,13 @@ export class PopupWrapperComponent implements AfterViewInit {
       injector: containerRef.injector,
     });
 
-    
     if (innerData) {
       Object.entries(innerData).forEach(([key, value]) => {
         const instance: any = componentRef.instance;
         const target = instance[key];
         if (target && typeof target === 'function' && 'set' in target) {
           target.set(value);
-        }
-        else {
+        } else {
           instance[key] = value;
         }
       });
