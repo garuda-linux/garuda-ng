@@ -42,7 +42,7 @@ jobs:
 
       - name: Run linters via pre-commit
         id: linter
-        run: nix develop -c pre-commit run --all-files
+        run: pre-commit run --all-files
 
   test:
     runs-on: ubuntu-24.04
