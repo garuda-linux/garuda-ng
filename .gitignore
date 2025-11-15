@@ -31,7 +31,7 @@ node_modules/
 # Various other things
 .direnv
 .npmrc
-.pre-commit-config.yaml
+# .pre-commit-config.yaml
 .wrangler
 CHANGES.md
 

@@ -1,0 +1,6 @@
+repos:
+  - repo: https://github.com/pre-commit/mirrors-eslint
+    rev: v9.39.0   # your ESLint version
+    hooks:
+      - id: eslint
+        args: ["--ext", ".ts,.tsx,.js,.jsx"]
