@@ -7,15 +7,16 @@ form {
   height: 45px;
   border-radius: 20px;
   padding: 5px;
-  box-sizing: content-box;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   background-color: var(--p-inputtext-background);
   border: 2px solid var(--p-inputtext-border-color);
+  overflow: hidden;
 }
 
 .input-wrapper:has(input:focus) {
-  border: 1px solid var(--p-primary-color);
+  border: 2px solid var(--p-primary-color);
 }
 
 .icon {
