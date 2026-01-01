@@ -51,12 +51,12 @@ export class AppComponent {
     {
       itemId: 3,
       itemName: 'Privacy Policy',
-      routerLink: '/privacy-policy',
+      routerLink: 'https://garudalinux.org/privacy-policy',
     },
     {
       itemId: 4,
       itemName: 'Code of Conduct',
-      routerLink: '/code-of-conduct',
+      routerLink: 'https://garudalinux.org/code-of-conduct',
     },
     {
       itemId: 5,

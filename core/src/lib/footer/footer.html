@@ -1,4 +1,4 @@
-<footer [ngClass]="relativePosition() ? 'footer-relative' : 'footer-relative'">
+<footer [ngClass]="relativePosition() ? 'footer-relative' : 'footer'">
   <div class="footer-content">
     <div class="footer-links" *ngFor="let footerItem of footerItems(); index as i; trackBy: trackByFn">
       <a [href]="footerItem?.routerLink" *ngIf="!footerItem?.popupConfig?.popupEnabled; else clickable">{{ footerItem?.itemName }}</a>
