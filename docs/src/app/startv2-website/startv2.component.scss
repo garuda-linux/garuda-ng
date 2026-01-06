@@ -3,16 +3,6 @@
   flex-direction: row;
 }
 
-.left-container {
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-}
-
-.right-container {
-  width: 20%;
-}
-
 .news {
   max-height: 800px;
   overflow-x: hidden;
