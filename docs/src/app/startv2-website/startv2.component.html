@@ -1,0 +1,40 @@
+<div class="v2-container">
+  <div class="left-container">
+    <div class="intro">
+      <img src="/garuda-purple.svg" width="160" height="160" alt="logo" />
+    </div>
+    <div class="search">
+      <garuda-search [searchConfig]="searchConfig"></garuda-search>
+    </div>
+    <div class="jokes">
+      <garuda-jokes [jokes]="jokes"></garuda-jokes>
+    </div>
+    <div class="product-small">
+      <ng-container *ngFor="let product of products">
+        <garuda-card cardRole="product-showcase-small" [link]="product?.link">
+          <div garudaCardTitleWrapper>
+            <h4>{{ product?.cardTitle }}</h4>
+          </div>
+          <div garudaCardThumbnailWrapper>
+            <img [src]="product?.cardImageUrl" width="60" height="60" alt="logo" />
+          </div>
+        </garuda-card>
+      </ng-container>
+    </div>
+    <div class="social-handles">
+      <ng-container *ngFor="let social of socials">
+        <garuda-card cardRole="product-showcase-small" [link]="social?.link">
+          <div garudaCardTitleWrapper>
+            <h4>{{ social?.cardTitle }}</h4>
+          </div>
+          <div garudaCardThumbnailWrapper>
+            <img [src]="social?.cardImageUrl" width="60" height="60" alt="logo" />
+          </div>
+        </garuda-card>
+      </ng-container>
+    </div>
+  </div>
+  <div class="right-container">
+    <garuda-news class="news" [news]="news"></garuda-news>
+  </div>
+</div>

@@ -21,6 +21,9 @@ export const appConfig: ApplicationConfig = {
       },
       {
         theme: {
+          options: {
+            darkModeSelector: '.p-dark',
+          },
           preset: CatppuccinAura,
         },
       },

@@ -1,4 +1,4 @@
-import { Directive, Input, TemplateRef, ViewContainerRef, inject, OnChanges, SimpleChanges } from '@angular/core';
+import { Directive, input, TemplateRef, ViewContainerRef, inject, OnChanges, SimpleChanges } from '@angular/core';
 
 @Directive({
   selector: '[garudaFeatureDetailPackages]',
@@ -8,11 +8,15 @@ export class FeatureDetailPackages implements OnChanges {
   private templateRef = inject(TemplateRef<any>);
   private viewContainer = inject(ViewContainerRef);
 
-  @Input('garudaFeatureDetailPackages') packages: string[] | null = [];
+  packages = input<string[] | null>([], {
+    alias: 'garudaFeatureDetailPackages',
+  });
+
   ngOnChanges(changes: SimpleChanges): void {
     this.viewContainer.clear();
-    if (this.packages && this.packages.length > 0) {
-      for (const pkg of this.packages) {
+    const packages = this.packages() ?? [];
+    if (packages && packages?.length > 0) {
+      for (const pkg of packages) {
         this.viewContainer.createEmbeddedView(this.templateRef, { $implicit: pkg });
       }
     }

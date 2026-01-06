@@ -3,6 +3,7 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Highlight } from 'ngx-highlightjs';
 import { requestExampleSource } from '../../util/request-example';
 import { CodeExampleComponent } from '../../util/code-example/code-example.component';
+import { Footer, FooterModel } from '@garudalinux/core';
 
 @Component({
   selector: 'garuda-docs-getting-started',

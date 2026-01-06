@@ -8,6 +8,7 @@
     class="sidebar-toggle"
   ></p-button>
   <img garudaShellBarStart ngSrc="/garuda-purple.svg" width="28" height="28" alt="logo" routerLink="/" style="cursor: pointer" />
+  <div class="header-title" garudaShellBarStart>Welcome Friend!</div>
   <a garudaShellBarEnd garudaShellBarLink href="https://github.com/garuda-linux/garuda-ng">
     <i class="pi pi-github"></i>
   </a>
@@ -15,3 +16,4 @@
     <router-outlet #routerOutlet="outlet"></router-outlet>
   </div>
 </garuda-shell>
+<garuda-footer [footerItems]="footerItems" [relativePosition]="true"></garuda-footer>

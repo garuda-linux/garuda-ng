@@ -44,13 +44,18 @@ export const appRoutes: Route[] = [
     loadComponent: () => import('./theming/theming.component').then((m) => m.ThemingComponent),
     data: { animationState: '3' },
   },
+  {
+    path: 'startv2',
+    loadComponent: () => import('./startv2-website/startv2.component').then((m) => m.Startv2Component),
+    data: { animationState: '4' },
+  },
 ];
 
 /**
  * A generic fade animation, for use in the router link animations.
  */
 const fade: (AnimationQueryMetadata | AnimationGroupMetadata)[] = [
-  query(':enter, :leave', style({ position: 'fixed', width: '100%' }), { optional: true }),
+  query(':enter, :leave', style({ position: 'absolute', width: '100%', top: 0, left: 0 }), { optional: true }),
   query(':enter', [style({ opacity: 0 })], { optional: true }),
   group([
     query(':leave', [animate('0.4s ease-out', style({ opacity: 0 }))], { optional: true }),
@@ -64,7 +69,7 @@ const fade: (AnimationQueryMetadata | AnimationGroupMetadata)[] = [
  * @param direction the direction the animation should go into.
  */
 const fadeInFromDirection = (direction: string): (AnimationQueryMetadata | AnimationGroupMetadata)[] => [
-  query(':enter, :leave', style({ position: 'fixed', width: '100%' }), { optional: true }),
+  query(':enter, :leave', style({ position: 'absolute', width: '100%', top: 0, left: 0 }), { optional: true }),
   group([
     query(
       ':enter',
