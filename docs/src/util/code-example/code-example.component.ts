@@ -1,11 +1,11 @@
 import { Component, input, model } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from 'primeng/tabs';
 import { Highlight } from 'ngx-highlightjs';
 
 @Component({
   selector: 'garuda-docs-code-example',
-  imports: [CommonModule, Tabs, TabList, Tab, TabPanels, TabPanel, Highlight],
+  imports: [Tabs, TabList, Tab, TabPanels, TabPanel, Highlight],
   templateUrl: './code-example.component.html',
   styleUrl: './code-example.component.scss',
 })

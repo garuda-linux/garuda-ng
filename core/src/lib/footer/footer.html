@@ -1,21 +1,24 @@
 <footer [ngClass]="relativePosition() ? 'footer-relative' : 'footer'">
   <div class="footer-content">
-    <div class="footer-links" *ngFor="let footerItem of footerItems(); index as i; trackBy: trackByFn">
-      <a [href]="footerItem?.routerLink" *ngIf="!footerItem?.popupConfig?.popupEnabled; else clickable">{{ footerItem?.itemName }}</a>
-      <ng-template #clickable>
-        <a
-          (click)="openPopup(footerItem?.itemId)"
-          (keyup.enter)="openPopup(footerItem?.itemId)"
-          (keyup.space)="openPopup(footerItem?.itemId)"
-          role="button"
-          tabindex="footerItem?.itemId"
-          >{{ footerItem?.itemName }}</a
-        >
-      </ng-template>
-      <span *ngIf="ismobile(); else desktop"><span></span></span>
-      <ng-template #desktop>
-        <span *ngIf="i!==totalItems()-1">&nbsp;|&nbsp;</span>
-      </ng-template>
+    @for (footerItem of footerItems(); track footerItem; let i = $index) {
+    <div class="footer-links">
+      @if (!footerItem?.popupConfig?.popupEnabled) {
+      <a [href]="footerItem?.routerLink">{{ footerItem?.itemName }}</a>
+      } @else {
+      <a
+        (click)="openPopup(footerItem?.itemId)"
+        (keyup.enter)="openPopup(footerItem?.itemId)"
+        (keyup.space)="openPopup(footerItem?.itemId)"
+        role="button"
+        tabindex="footerItem?.itemId"
+        >{{ footerItem?.itemName }}</a
+      >
+      } @if (ismobile()) {
+      <span><span></span></span>
+      } @else { @if (i!==totalItems()-1) {
+      <span>&nbsp;|&nbsp;</span>
+      } }
     </div>
+    }
   </div>
 </footer>

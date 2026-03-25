@@ -1,12 +1,12 @@
 import { Component, AfterViewInit, Type, inject, viewChild, ViewContainerRef } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { CardModule } from 'primeng/card';
 
 @Component({
   selector: 'garuda-popup-wrapper',
   standalone: true,
-  imports: [CommonModule, CardModule],
+  imports: [CardModule],
   templateUrl: './pop-dialog-wrapper.html',
   styleUrls: ['./pop-dialog-wrapper.css'],
 })

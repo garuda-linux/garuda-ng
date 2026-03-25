@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { ShellComponent } from '@garudalinux/core';
 import { MenuItem } from 'primeng/api';
 
 @Component({
   selector: 'garuda-docs-shell-bar-always-dropdown-example',
-  imports: [CommonModule, ShellComponent],
+  imports: [ShellComponent],
   templateUrl: './shell-bar-always-dropdown-example.component.html',
   styleUrl: './shell-bar-always-dropdown-example.component.scss',
 })

@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import {
   CardComponent,
@@ -14,7 +13,7 @@ import {
 
 @Component({
   selector: 'garuda-docs-startv2.component',
-  imports: [CommonModule, NewsComponent, CardComponent, SearchComponent, JokesComponent],
+  imports: [NewsComponent, CardComponent, SearchComponent, JokesComponent],
   templateUrl: './startv2.component.html',
   styleUrl: './startv2.component.scss',
 })

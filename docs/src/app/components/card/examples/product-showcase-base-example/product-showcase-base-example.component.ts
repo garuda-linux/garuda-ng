@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { NgOptimizedImage } from '@angular/common';
 import {
   CardComponent,
   CardFeatureListConComponent,
@@ -21,7 +21,6 @@ import { PopupService } from 'core/src/lib/services/popup/popup.service';
 @Component({
   selector: 'garuda-docs-product-showcase-base-example',
   imports: [
-    CommonModule,
     CardComponent,
     NgOptimizedImage,
     CardThumbnailDirective,

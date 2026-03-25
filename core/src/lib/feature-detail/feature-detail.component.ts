@@ -1,5 +1,5 @@
 import { Component, ElementRef, inject, input, model, NO_ERRORS_SCHEMA, OnInit, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { FormsModule } from '@angular/forms';
 import { ListboxModule } from 'primeng/listbox';
 import { CarouselModule } from 'primeng/carousel';
@@ -19,7 +19,6 @@ import { FeatureDetailMoreinformation } from './directives/feature-detail-morein
   standalone: true,
   schemas: [NO_ERRORS_SCHEMA],
   imports: [
-    CommonModule,
     CarouselModule,
     CardModule,
     ListboxModule,
