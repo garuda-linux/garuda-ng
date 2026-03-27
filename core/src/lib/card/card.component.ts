@@ -1,5 +1,5 @@
 import { Component, HostBinding, inject, input, ElementRef, Renderer2, AfterViewInit, OnDestroy, output } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { Card } from 'primeng/card';
 import { FeatureData } from '../models/feature-detail/feature-detail.model';
 import { PopupService } from '../services/popup/popup.service';
@@ -10,7 +10,7 @@ export type RoleType = 'product-showcase' | 'product-showcase-small';
 @Component({
   selector: 'garuda-card',
   standalone: true,
-  imports: [CommonModule, Card],
+  imports: [Card],
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
   host: {

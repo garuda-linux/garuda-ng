@@ -1,12 +1,10 @@
 import { Component, input } from '@angular/core';
 import { SearchModel } from '../models';
 import { FormsModule } from '@angular/forms';
-import { Button } from 'primeng/button';
-import { InputText } from 'primeng/inputtext';
 
 @Component({
   selector: 'garuda-search',
-  imports: [FormsModule, Button, InputText],
+  imports: [FormsModule],
   templateUrl: './search.component.html',
   styleUrl: './search.component.scss',
 })

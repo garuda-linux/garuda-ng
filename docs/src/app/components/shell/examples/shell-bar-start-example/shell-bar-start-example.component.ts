@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { NgOptimizedImage } from '@angular/common';
 import { ShellBarStartDirective, ShellComponent } from '@garudalinux/core';
 import { MenuItem } from 'primeng/api';
 
 @Component({
   selector: 'garuda-docs-shell-bar-start-example',
-  imports: [CommonModule, ShellComponent, NgOptimizedImage, ShellBarStartDirective],
+  imports: [ShellComponent, NgOptimizedImage, ShellBarStartDirective],
   templateUrl: './shell-bar-start-example.component.html',
   styleUrl: './shell-bar-start-example.component.scss',
 })

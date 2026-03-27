@@ -20,7 +20,7 @@
   <div class="garuda-feature-packages">
     <label for="packages">Packages:</label>
     <ul>
-      <ng-container *garudaFeatureDetailPackages="feature()?.packages || []; let pkg">
+      <ng-container *garudaFeatureDetailPackages="feature().packages || []; let pkg">
         <li>{{ pkg }}</li>
       </ng-container>
     </ul>

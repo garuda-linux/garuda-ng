@@ -10,7 +10,7 @@
       <garuda-jokes [jokes]="jokes"></garuda-jokes>
     </div>
     <div class="product-small">
-      <ng-container *ngFor="let product of products">
+      @for (product of products; track product) {
         <garuda-card cardRole="product-showcase-small" [link]="product?.link">
           <div garudaCardTitleWrapper>
             <h4>{{ product?.cardTitle }}</h4>
@@ -19,10 +19,10 @@
             <img [src]="product?.cardImageUrl" width="60" height="60" alt="logo" />
           </div>
         </garuda-card>
-      </ng-container>
+      }
     </div>
     <div class="social-handles">
-      <ng-container *ngFor="let social of socials">
+      @for (social of socials; track social) {
         <garuda-card cardRole="product-showcase-small" [link]="social?.link">
           <div garudaCardTitleWrapper>
             <h4>{{ social?.cardTitle }}</h4>
@@ -31,7 +31,7 @@
             <img [src]="social?.cardImageUrl" width="60" height="60" alt="logo" />
           </div>
         </garuda-card>
-      </ng-container>
+      }
     </div>
   </div>
   <div class="right-container">

@@ -1,11 +1,11 @@
 import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { Button } from 'primeng/button';
 import { MessageToastService } from '@garudalinux/core';
 
 @Component({
   selector: 'garuda-docs-toast-severity-example',
-  imports: [CommonModule, Button],
+  imports: [Button],
   providers: [MessageToastService],
   templateUrl: './toast-severity-example.component.html',
   styleUrl: './toast-severity-example.component.scss',

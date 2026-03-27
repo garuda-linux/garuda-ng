@@ -32,10 +32,6 @@ export class Footer implements OnInit {
     this.ismobile.set(mobile);
   }
 
-  trackByFn() {
-    console.log('trackby');
-  }
-
   openPopup(itemId: any) {
     const footerItem: any = this.footerItems()?.filter((_) => _.itemId === itemId)?.[0];
     //console.log(footerItem)
