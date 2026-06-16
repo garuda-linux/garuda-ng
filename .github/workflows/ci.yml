@@ -43,7 +43,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11' # match your local python
+          python-version: '3.14' # match your local python
 
       - name: Install dependencies
         run: |
@@ -110,7 +110,7 @@ jobs:
     name: Scan for vulnerabilities
     steps:
       - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@0.35.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           exit-code: '1'
           format: 'table'

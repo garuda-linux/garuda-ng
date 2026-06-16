@@ -45,7 +45,7 @@
     "highlight.js": "^11.11.1",
     "ngx-highlightjs": "^14.0.1",
     "primeicons": "^7.0.0",
-    "primeng": "20.3.0",
+    "primeng": "20.4.0",
     "rxjs": "~7.8.2"
   },
   "devDependencies": {
@@ -67,14 +67,14 @@
     "@nx/web": "22.6.1",
     "@nx/workspace": "22.6.1",
     "@playwright/test": "^1.55.1",
-    "@schematics/angular": "21.1.5",
+    "@schematics/angular": "21.2.15",
     "@swc-node/register": "1.11.1",
     "@swc/core": "1.15.8",
     "@swc/helpers": "0.5.19",
     "@types/jest": "30.0.0",
-    "@types/node": "24.9.2",
+    "@types/node": "24.13.2",
     "@typescript-eslint/utils": "^8.45.0",
-    "angular-eslint": "21.3.1",
+    "angular-eslint": "21.4.0",
     "autoprefixer": "^10.4.21",
     "commitizen": "^4.3.1",
     "cz-conventional-changelog": "^3.3.0",
@@ -82,13 +82,13 @@
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-playwright": "^2.2.2",
     "git-cliff": "^2.10.1",
-    "jest": "30.2.0",
-    "jest-environment-jsdom": "30.2.0",
-    "jest-preset-angular": "16.0.0",
-    "jest-util": "30.2.0",
+    "jest": "30.4.2",
+    "jest-environment-jsdom": "30.4.1",
+    "jest-preset-angular": "16.2.0",
+    "jest-util": "30.4.1",
     "jsonc-eslint-parser": "^2.4.1",
-    "ng-packagr": "21.1.0",
-    "nx": "22.6.1",
+    "ng-packagr": "21.2.5",
+    "nx": "22.7.5",
     "postcss": "^8.5.6",
     "postcss-url": "~10.1.3",
     "prettier": "^3.6.2",
@@ -99,5 +99,5 @@
     "typescript-eslint": "^8.45.0",
     "wrangler": "^4.45.3"
   },
-  "packageManager": "pnpm@10.20.0+sha512.cf9998222162dd85864d0a8102e7892e7ba4ceadebbf5a31f9c2fce48dfce317a9c53b9f6464d1ef9042cba2e02ae02a9f7c143a2b438cd93c91840f0192b9dd"
+  "packageManager": "pnpm@10.34.3+sha512.f2c531b08829d7be7f03c90addc266615f9c5477463e4bf1d275cb263ce9ea57cf0d5599110d94649a9bb3fed9f0b5efcea74a7016b61532a24cb9ad87860c1d"
 }
