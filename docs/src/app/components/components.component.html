@@ -2,5 +2,7 @@
   <div class="inline-container">
     <p-menu [model]="components" [style.display]="sidebarToggleService.displayStyle()" class="components-menu"></p-menu>
   </div>
-  <router-outlet [style.display]="'none'"></router-outlet>
+  <div class="sub-content">
+    <router-outlet [style.display]="'none'"></router-outlet>
+  </div>
 </div>

@@ -2,6 +2,40 @@
 @import '@openng/icons/openng-icons.css';
 @import 'highlight.js/styles/github-dark.css';
 
+body.is-transitioning .route-container {
+  view-transition-name: main-content;
+}
+
+@supports (view-transition-name: main-content) {
+  ::view-transition-old(main-content) {
+    animation: 150ms cubic-bezier(0.4, 0, 1, 1) both fade-out;
+  }
+
+  ::view-transition-new(main-content) {
+    animation: 250ms cubic-bezier(0, 0, 0.2, 1) both fade-in;
+  }
+
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
 code.hljs {
   background: #00000000;
 }

@@ -3,7 +3,6 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { provideGarudaNG } from '@garudalinux/core';
 import Aura from '@openng/optimus-ui-themes/aura';
-import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHighlightOptions } from 'ngx-highlightjs';
 
@@ -24,7 +23,6 @@ describe('AppComponent', () => {
             },
           },
         ),
-        provideAnimations(),
         provideHttpClient(),
         provideHighlightOptions({
           coreLibraryLoader: () => import('highlight.js/lib/core'),

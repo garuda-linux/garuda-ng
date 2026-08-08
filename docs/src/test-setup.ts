@@ -2,7 +2,6 @@ import '@angular/compiler';
 import { vi } from 'vitest';
 import '@analogjs/vitest-angular/setup-snapshots';
 import { setupTestBed } from '@analogjs/vitest-angular/setup-testbed';
-import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideHighlightOptions } from 'ngx-highlightjs';
 import { HttpClient } from '@angular/common/http';
 import { provideGarudaNG } from '@garudalinux/core';
@@ -48,7 +47,6 @@ if (!('matchMedia' in window)) {
 setupTestBed({
   providers: [
     provideGarudaNG({}),
-    provideAnimations(),
     provideHighlightOptions({
       coreLibraryLoader: () => import('highlight.js/lib/core'),
       languages: {

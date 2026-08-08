@@ -1,19 +1,17 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import {
+  Footer,
+  FooterModel,
   ShellBarEndDirective,
   ShellBarLinkDirective,
-  ShellComponent,
   ShellBarStartDirective,
-  FooterModel,
-  Footer,
-  FeatureDetailComponent,
+  ShellComponent,
 } from '@garudalinux/core';
 import { MenuItem } from '@openng/optimus-ui/api';
 import { NgOptimizedImage } from '@angular/common';
 import { Button } from '@openng/optimus-ui/button';
 import { SidebarToggleService } from '../util/sidebar-toggle/sidebar-toggle.service';
-import { routeAnimations } from './app.routes';
 import { Imprint } from './components/imprint/imprint';
 
 @Component({
@@ -29,7 +27,6 @@ import { Imprint } from './components/imprint/imprint';
   ],
   providers: [SidebarToggleService],
   selector: 'garuda-docs-root',
-  animations: [routeAnimations],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -82,7 +79,7 @@ export class AppComponent {
     {
       icon: 'pi pi-sparkles',
       label: 'Components',
-      routerLink: '/components',
+      routerLink: '/components/card',
     },
     {
       icon: 'pi pi-palette',
@@ -95,13 +92,4 @@ export class AppComponent {
       routerLink: '/startv2',
     },
   ];
-
-  /**
-   * Returns the animation state of the next page for page transitions
-   * @param outlet Router outlet element
-   * @returns The animation state of the target route
-   */
-  prepareRoute(outlet: RouterOutlet): string {
-    return outlet.activatedRouteData['animationState'];
-  }
 }
