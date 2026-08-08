@@ -20,12 +20,11 @@ jobs:
 
       - uses: pnpm/setup@v1
         with:
-          version: 11
           runtime: node@26
           cache: true
 
       - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@v21
+        uses: DeterminateSystems/nix-installer-action@main
         with:
           extra-conf: |
             accept-flake-config = true
@@ -50,7 +49,6 @@ jobs:
 
       - uses: pnpm/setup@v1
         with:
-          version: 11
           runtime: node@26
           cache: true
 
@@ -73,7 +71,6 @@ jobs:
 
       - uses: pnpm/setup@v1
         with:
-          version: 11
           runtime: node@26
           cache: true
 
@@ -126,7 +123,6 @@ jobs:
 
       - uses: pnpm/setup@v1
         with:
-          version: 11
           runtime: node@26
           cache: true
 
@@ -135,7 +131,7 @@ jobs:
 
       - name: Deploy to Cloudflare Pages to main
         if: (github.event_name == 'push') && (github.ref == 'refs/heads/main')
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@v4
         with:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -144,7 +140,7 @@ jobs:
 
       - name: Deploy to Cloudflare Pages to dev
         if: (github.event_name == 'push') && (github.ref == 'refs/heads/dev')
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@v4
         with:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -154,7 +150,7 @@ jobs:
       - name: Deploy to Cloudflare Pages to PR
         if: ${{ github.event_name == 'pull_request' }}
         id: deploy
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@v4
         with:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}

@@ -121,7 +121,6 @@ jobs:
 
       - uses: pnpm/setup@v1
         with:
-          version: 11
           runtime: node@26
           cache: true
 
