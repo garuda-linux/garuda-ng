@@ -18,17 +18,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Install Node.js
-        uses: actions/setup-node@v6
+      - uses: pnpm/setup@v1
         with:
-          node-version: 26
-          cache: 'pnpm'
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+          version: 11
+          runtime: node@26
+          cache: true
 
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@v21
@@ -54,17 +48,11 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Install Node.js
-        uses: actions/setup-node@v6
+      - uses: pnpm/setup@v1
         with:
-          node-version: 26
-          cache: 'pnpm'
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+          version: 11
+          runtime: node@26
+          cache: true
 
       - name: Nx stuff
         uses: nrwl/nx-set-shas@v5
@@ -83,14 +71,11 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v4
 
-      - name: Install Node.js
-        uses: actions/setup-node@v6
+      - uses: pnpm/setup@v1
         with:
-          node-version: 26
-          cache: 'pnpm'
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+          version: 11
+          runtime: node@26
+          cache: true
 
       - name: Build the project
         run: pnpm exec nx run-many --target=build --all
@@ -139,17 +124,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Install Node.js
-        uses: actions/setup-node@v6
+      - uses: pnpm/setup@v1
         with:
-          node-version: 26
-          cache: 'pnpm'
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+          version: 11
+          runtime: node@26
+          cache: true
 
       - name: Build the documentation
         run: pnpx nx build docs
