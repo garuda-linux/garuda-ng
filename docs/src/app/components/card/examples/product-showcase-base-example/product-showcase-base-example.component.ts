@@ -1,22 +1,21 @@
 import { Component, inject } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import {
+  CardActionDirective,
   CardComponent,
   CardFeatureListConComponent,
   CardFeatureListDirective,
   CardFeatureListProComponent,
   CardThumbnailDirective,
   CardTitleDirective,
-  CardActionDirective,
   FeatureData,
   FeatureDetailPopupService,
-  FeatureDetailComponent,
   NewsComponent,
   NewsData,
   NewsModel,
+  PopupService,
 } from '@garudalinux/core';
-import { Button } from 'primeng/button';
-import { PopupService } from 'core/src/lib/services/popup/popup.service';
+import { Button } from '@openng/optimus-ui/button';
 
 @Component({
   selector: 'garuda-docs-product-showcase-base-example',
@@ -124,7 +123,7 @@ export class ProductShowcaseBaseExampleComponent {
     download: this.selectedFeature,
     garudaLinux: this.selectedGarudaLinux,
   };
-  popupService: any;
+
   onAction(action: string) {
     console.log('Action clicked:', action);
   }

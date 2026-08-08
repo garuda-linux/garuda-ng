@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { MessageService, ToastMessageOptions } from 'primeng/api';
+import { MessageService, ToastMessageOptions } from '@openng/optimus-ui/api';
 
 export type MessageToastPosition = 'top-left' | 'top-center' | 'top-right' | 'bottom-left' | 'bottom-center' | 'bottom-right' | 'center';
 

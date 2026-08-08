@@ -1,22 +1,8 @@
-const nx = require('@nx/eslint-plugin');
-const baseConfig = require('../eslint.config.cjs');
+import nx from '@nx/eslint-plugin';
+import baseConfig from '../eslint.config.mjs';
 
-module.exports = [
+export default [
   ...baseConfig,
-  {
-    files: ['**/*.json'],
-    rules: {
-      '@nx/dependency-checks': [
-        'error',
-        {
-          ignoredFiles: ['{projectRoot}/eslint.config.{js,cjs,mjs}'],
-        },
-      ],
-    },
-    languageOptions: {
-      parser: require('jsonc-eslint-parser'),
-    },
-  },
   ...nx.configs['flat/angular'],
   ...nx.configs['flat/angular-template'],
   {
@@ -26,7 +12,7 @@ module.exports = [
         'error',
         {
           type: 'attribute',
-          prefix: 'garuda',
+          prefix: 'garudaDocs',
           style: 'camelCase',
         },
       ],
@@ -34,7 +20,7 @@ module.exports = [
         'error',
         {
           type: 'element',
-          prefix: 'garuda',
+          prefix: 'garuda-docs',
           style: 'kebab-case',
         },
       ],

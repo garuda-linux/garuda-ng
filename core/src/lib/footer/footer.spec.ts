@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Footer } from './footer';
+import { DialogService } from '@openng/optimus-ui/dynamicdialog';
 
 describe('Footer', () => {
   let component: Footer;
@@ -8,6 +9,7 @@ describe('Footer', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [Footer],
+      providers: [{ provide: DialogService, useValue: { open: () => undefined } }],
     }).compileComponents();
 
     fixture = TestBed.createComponent(Footer);

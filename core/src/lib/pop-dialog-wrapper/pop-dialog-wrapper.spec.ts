@@ -1,16 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { PopDialogWrapper } from './pop-dialog-wrapper';
+import { PopupWrapperComponent } from './pop-dialog-wrapper';
+import { DynamicDialogConfig, DynamicDialogRef } from '@openng/optimus-ui/dynamicdialog';
 
 describe('PopDialogWrapper', () => {
-  let component: PopDialogWrapper;
-  let fixture: ComponentFixture<PopDialogWrapper>;
+  let component: PopupWrapperComponent;
+  let fixture: ComponentFixture<PopupWrapperComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PopDialogWrapper],
+      imports: [PopupWrapperComponent],
+      providers: [
+        { provide: DynamicDialogConfig, useValue: {} },
+        { provide: DynamicDialogRef, useValue: { close: () => undefined } },
+      ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(PopDialogWrapper);
+    fixture = TestBed.createComponent(PopupWrapperComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

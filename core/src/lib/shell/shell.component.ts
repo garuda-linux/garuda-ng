@@ -12,14 +12,15 @@ import {
   signal,
   viewChild,
 } from '@angular/core';
-import { Menubar } from 'primeng/menubar';
-import { MenuItem } from 'primeng/api';
+import { Menubar } from '@openng/optimus-ui/menubar';
+import { MenuItem } from '@openng/optimus-ui/api';
 import { GARUDA_NG_CONFIG } from '../config';
-import { Toast } from 'primeng/toast';
-import { Button } from 'primeng/button';
+import { Toast } from '@openng/optimus-ui/toast';
+import { Button } from '@openng/optimus-ui/button';
 import { ShellBarDropdownToggleDirective } from './directives/shell-bar-dropdown-toggle.directive';
-import { Menu } from 'primeng/menu';
-import { ScrollTop } from 'primeng/scrolltop';
+import { Menu } from '@openng/optimus-ui/menu';
+import { ScrollTop } from '@openng/optimus-ui/scrolltop';
+import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
 
 const MENU_TOGGLE_GLOBAL_STYLE_ID = 'garuda-ng__menu-toggle-style';
 
@@ -35,6 +36,7 @@ const MENU_TOGGLE_GLOBAL_STYLE_ID = 'garuda-ng__menu-toggle-style';
 })
 export class ShellComponent implements OnInit, OnDestroy {
   private renderer = inject(Renderer2);
+  private router = inject(Router);
 
   menuItems = input<MenuItem[]>([]);
   relativePosition = input<boolean>(false);
@@ -56,6 +58,8 @@ export class ShellComponent implements OnInit, OnDestroy {
   @HostBinding('style.font-family') font_family = this.config.font;
 
   closeMenuUnregister?: () => void;
+
+  private navigationSubscription?: { unsubscribe: () => void };
 
   ngOnInit() {
     // hide prime-ng menu button
@@ -98,11 +102,28 @@ export class ShellComponent implements OnInit, OnDestroy {
         this.closeMenu();
       }
     });
+
+    let firstNavigationComplete = false;
+
+    this.navigationSubscription = this.router.events.subscribe((event) => {
+      if (event instanceof NavigationStart) {
+        if (firstNavigationComplete) {
+          document.body.classList.add('is-transitioning');
+        }
+      } else if (event instanceof NavigationCancel || event instanceof NavigationError) {
+        document.body.classList.remove('is-transitioning');
+      } else if (event instanceof NavigationEnd) {
+        firstNavigationComplete = true;
+      }
+    });
   }
 
   ngOnDestroy() {
     this.closeMenuUnregister?.();
     this.closeMenuUnregister = undefined;
+    this.navigationSubscription?.unsubscribe();
+    this.navigationSubscription = undefined;
+    document.body.classList.remove('is-transitioning');
   }
 
   @HostListener('window:resize', ['$event'])

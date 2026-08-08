@@ -1,10 +1,25 @@
 ---
-onlyBuiltDependencies:
-  - '@parcel/watcher'
-  - '@swc/core'
-  - esbuild
-  - lmdb
-  - msgpackr-extract
-  - nx
-  - sharp
-  - workerd
+allowBuilds:
+  '@parcel/watcher': true
+  '@swc/core': true
+  esbuild: true
+  less: true
+  lmdb: true
+  msgpackr-extract: true
+  nx: true
+  workerd: true
+minimumReleaseAgeExclude:
+  - '@angular/animations@22.1.1'
+  - '@angular/common@22.1.1'
+  - '@angular/compiler-cli@22.1.1'
+  - '@angular/compiler@22.1.1'
+  - '@angular/core@22.1.1'
+  - '@angular/forms@22.1.1'
+  - '@angular/language-service@22.1.1'
+  - '@angular/platform-browser-dynamic@22.1.1'
+  - '@angular/platform-browser@22.1.1'
+  - '@angular/router@22.1.1'
+  - '@types/node@26.2.0'
+  - eslint@10.8.1
+  - jsonc-eslint-parser@3.3.0
+  - wrangler@4.120.0

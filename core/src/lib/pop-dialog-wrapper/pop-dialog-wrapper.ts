@@ -1,7 +1,7 @@
 import { Component, AfterViewInit, Type, inject, viewChild, ViewContainerRef } from '@angular/core';
 
-import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { CardModule } from 'primeng/card';
+import { DynamicDialogConfig, DynamicDialogRef } from '@openng/optimus-ui/dynamicdialog';
+import { CardModule } from '@openng/optimus-ui/card';
 
 @Component({
   selector: 'garuda-popup-wrapper',

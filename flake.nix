@@ -29,6 +29,7 @@
     }: {
       apps.default = self.outputs.devShells.${system}.default.flakeApp;
       checks.pre-commit-check = pre-commit-hooks.lib.${system}.run {
+        package = pkgs.prek;
         hooks = {
           actionlint.enable = true;
           alejandra-quiet = {
@@ -61,9 +62,7 @@
         src = ./.;
       };
 
-      # Handy devshell for working with this flake
       devShells = let
-        # Import the devshell module as module rather than a flake input
         makeDevshell = import "${inp.devshell}/modules" pkgs;
         mkShell = config:
           (makeDevshell {

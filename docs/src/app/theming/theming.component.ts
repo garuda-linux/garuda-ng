@@ -2,8 +2,8 @@ import { Component, DOCUMENT, inject } from '@angular/core';
 import { Highlight } from 'ngx-highlightjs';
 import { themes } from './themes';
 import { FormsModule } from '@angular/forms';
-import { usePreset } from '@primeuix/themes';
-import type { Preset } from '@primeuix/themes/types';
+import { usePreset } from '@openng/optimus-ui-themes';
+import type { Preset } from '@openng/optimus-ui-themes/types';
 import { CodeExampleComponent } from '../../util/code-example/code-example.component';
 
 @Component({

@@ -1,6 +1,5 @@
 import { Component, HostBinding, inject, input, ElementRef, Renderer2, AfterViewInit, OnDestroy, output } from '@angular/core';
-
-import { Card } from 'primeng/card';
+import { Card } from '@openng/optimus-ui/card';
 import { FeatureData } from '../models/feature-detail/feature-detail.model';
 import { PopupService } from '../services/popup/popup.service';
 import { FeatureDetailComponent } from '../feature-detail/feature-detail.component';
@@ -14,7 +13,8 @@ export type RoleType = 'product-showcase' | 'product-showcase-small';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
   host: {
-    class: 'garuda-card',
+    'class': 'garuda-card',
+    '[class.garuda-card__product-showcase]': 'cardRole() === "product-showcase"',
   },
 })
 export class CardComponent implements AfterViewInit, OnDestroy {

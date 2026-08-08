@@ -31,7 +31,7 @@ node_modules/
 # Various other things
 .direnv
 .npmrc
-# .pre-commit-config.yaml
+.pre-commit-config.yaml
 .wrangler
 CHANGES.md
 
@@ -49,3 +49,4 @@ coverage/
 
 .claude/worktrees
 .claude/settings.local.json
+vitest.config.*.timestamp*

@@ -1,9 +1,9 @@
-import type { Preset } from '@primeuix/themes/types';
-import { definePreset } from '@primeuix/themes';
-import Aura from '@primeuix/themes/aura';
-import Material from '@primeuix/themes/material';
-import Nora from '@primeuix/themes/nora';
-import Lara from '@primeuix/themes/lara';
+import type { Preset } from '@openng/optimus-ui-themes/types';
+import { definePreset } from '@openng/optimus-ui-themes';
+import Aura from '@openng/optimus-ui-themes/aura';
+import Material from '@openng/optimus-ui-themes/material';
+import Nora from '@openng/optimus-ui-themes/nora';
+import Lara from '@openng/optimus-ui-themes/lara';
 
 const tokensDr460nized: Preset = {
   semantic: {

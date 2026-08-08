@@ -1,4 +1,4 @@
-import type { Preset } from '@primeuix/themes/types';
+import type { Preset } from '@openng/optimus-ui-themes/types';
 import { Dr460nizedAura, Dr460nizedLara, Dr460nizedMaterial, Dr460nizedNora } from '@garudalinux/themes/dr460nized';
 import {
   CatppuccinAura,

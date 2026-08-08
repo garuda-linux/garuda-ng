@@ -1,6 +1,5 @@
 import { Component, input, model } from '@angular/core';
-
-import { Tab, TabList, TabPanel, TabPanels, Tabs } from 'primeng/tabs';
+import { Tab, TabList, TabPanel, TabPanels, Tabs } from '@openng/optimus-ui/tabs';
 import { Highlight } from 'ngx-highlightjs';
 
 @Component({

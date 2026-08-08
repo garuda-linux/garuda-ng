@@ -12,8 +12,8 @@
   <a garudaShellBarEnd garudaShellBarLink href="https://github.com/garuda-linux/garuda-ng">
     <i class="pi pi-github"></i>
   </a>
-  <div [@routerTransition]="prepareRoute(routerOutlet)" class="app-container">
-    <router-outlet #routerOutlet="outlet"></router-outlet>
+  <div class="route-container">
+    <router-outlet></router-outlet>
   </div>
 </garuda-shell>
 <garuda-footer [footerItems]="footerItems" [relativePosition]="true"></garuda-footer>
