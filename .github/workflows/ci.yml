@@ -66,9 +66,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-
       - uses: pnpm/setup@v1
         with:
           runtime: node@26
@@ -159,7 +156,7 @@ jobs:
 
       - name: Comment on pull request
         if: ${{ github.event_name == 'pull_request' }}
-        uses: thollander/actions-comment-pull-request@v3
+        uses: andyghc/actions-comment-pull-request@v3
         with:
           message: |
             The documentation has been deployed to Cloudflare Pages :rocket:
