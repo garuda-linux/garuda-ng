@@ -78,6 +78,9 @@ importers:
       '@angular/language-service':
         specifier: 22.1.1
         version: 22.1.1
+      '@catppuccin/highlightjs':
+        specifier: ^1.0.1
+        version: 1.0.1
       '@eslint/js':
         specifier: ^10.0.1
         version: 10.0.1(eslint@10.8.1(jiti@2.7.0)(supports-color@7.2.0))
@@ -1065,6 +1068,9 @@ packages:
 
   '@bufbuild/protobuf@2.13.0':
     resolution: {integrity: sha512-acq7c49vxfm1ggJ95P70TX7ABDM0vxr1SYD3BB0o0jnBLB4OAqeHyKuN+cD3w80gXEDQ2zxHpR6CUeA+O/aU9g==}
+
+  '@catppuccin/highlightjs@1.0.1':
+    resolution: {integrity: sha512-wnagsNQbJroHQMalkprwRoapfGV1hHRx46d7GXp4kf6rlShImBlgpqPCt9OD471Gq4qpHdfFH/GJFIvY1CLqHA==}
 
   '@catppuccin/palette@2.0.0-beta.1':
     resolution: {integrity: sha512-FhTfw1xtM/rOW+COq20J66Ik+YHiRg240A38e2bYOwh8MDh2yZ/8I3S0+dU1brvytEN4tWtZwe340WrsJb9I8g==}
@@ -8800,6 +8806,8 @@ snapshots:
   '@bcoe/v8-coverage@1.0.2': {}
 
   '@bufbuild/protobuf@2.13.0': {}
+
+  '@catppuccin/highlightjs@1.0.1': {}
 
   '@catppuccin/palette@2.0.0-beta.1': {}
 
