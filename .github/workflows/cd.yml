@@ -119,18 +119,10 @@ jobs:
         with:
           ref: ${{ github.ref_name }}
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Install Node.js
-        uses: actions/setup-node@v6
+      - uses: pnpm/setup@v1
         with:
-          node-version: 26
-          cache: 'pnpm'
-          registry-url: https://registry.npmjs.org/
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+          runtime: node@26
+          cache: true
 
       - name: Publish to NPM
         env:

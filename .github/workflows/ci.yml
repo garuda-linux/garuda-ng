@@ -18,20 +18,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Install Node.js
-        uses: actions/setup-node@v6
+      - uses: pnpm/setup@v1
         with:
-          node-version: 26
-          cache: 'pnpm'
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+          runtime: node@26
+          cache: true
 
       - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@v21
+        uses: DeterminateSystems/nix-installer-action@main
         with:
           extra-conf: |
             accept-flake-config = true
@@ -54,17 +47,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Install Node.js
-        uses: actions/setup-node@v6
+      - uses: pnpm/setup@v1
         with:
-          node-version: 26
-          cache: 'pnpm'
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+          runtime: node@26
+          cache: true
 
       - name: Nx stuff
         uses: nrwl/nx-set-shas@v5
@@ -80,17 +66,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Install Node.js
-        uses: actions/setup-node@v6
+      - uses: pnpm/setup@v1
         with:
-          node-version: 26
-          cache: 'pnpm'
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+          runtime: node@26
+          cache: true
 
       - name: Build the project
         run: pnpm exec nx run-many --target=build --all
@@ -139,24 +118,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Install Node.js
-        uses: actions/setup-node@v6
+      - uses: pnpm/setup@v1
         with:
-          node-version: 26
-          cache: 'pnpm'
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+          runtime: node@26
+          cache: true
 
       - name: Build the documentation
         run: pnpx nx build docs
 
       - name: Deploy to Cloudflare Pages to main
         if: (github.event_name == 'push') && (github.ref == 'refs/heads/main')
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@v4
         with:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -165,7 +137,7 @@ jobs:
 
       - name: Deploy to Cloudflare Pages to dev
         if: (github.event_name == 'push') && (github.ref == 'refs/heads/dev')
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@v4
         with:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -175,7 +147,7 @@ jobs:
       - name: Deploy to Cloudflare Pages to PR
         if: ${{ github.event_name == 'pull_request' }}
         id: deploy
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@v4
         with:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -184,7 +156,7 @@ jobs:
 
       - name: Comment on pull request
         if: ${{ github.event_name == 'pull_request' }}
-        uses: thollander/actions-comment-pull-request@v3
+        uses: andyghc/actions-comment-pull-request@v3
         with:
           message: |
             The documentation has been deployed to Cloudflare Pages :rocket:
