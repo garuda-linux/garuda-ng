@@ -12,8 +12,8 @@ export type GarudaNGConfig = {
   font?: string;
 };
 
-export function provideGarudaNG(config?: GarudaNGConfig, ...primeNGFeatures: OptimusConfigType[]): EnvironmentProviders {
-  const primeNGProviders = provideOptimus(...primeNGFeatures);
+export function provideGarudaNG(config?: GarudaNGConfig, ...optimusNgFeatures: OptimusConfigType[]): EnvironmentProviders {
+  const primeNGProviders = provideOptimus(...optimusNgFeatures);
 
   const garudaProvider: Provider = {
     provide: GARUDA_NG_CONFIG,

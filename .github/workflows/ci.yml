@@ -67,7 +67,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Nx stuff
-        uses: nrwl/nx-set-shas@v4
+        uses: nrwl/nx-set-shas@v5
 
       - name: Run test
         run: pnpm exec nx run-many --target=build --all
@@ -100,7 +100,7 @@ jobs:
     name: Scan for vulnerabilities
     steps:
       - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@0.36.0
+        uses: aquasecurity/trivy-action@0.35.0
         with:
           exit-code: '1'
           format: 'table'
@@ -128,7 +128,10 @@ jobs:
   publish-docs:
     runs-on: ubuntu-24.04
     name: Deploy to Cloudflare Pages
-    environment: ${{ github.event_name == 'pull_request' && 'prod' }}
+    if: >
+      github.event_name == 'push' ||
+      (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository)
+    environment: ${{ (github.event_name == 'push' && github.ref == 'refs/heads/main') && 'prod' || 'preview' }}
     permissions:
       contents: read
       pull-requests: write

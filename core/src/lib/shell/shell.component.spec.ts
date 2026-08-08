@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterModule } from '@angular/router';
 import { ShellComponent } from './shell.component';
 import { provideGarudaNG } from '../config/garuda-ng';
 
@@ -25,7 +26,7 @@ describe('ShellComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ShellComponent],
+      imports: [ShellComponent, RouterModule.forRoot([])],
       providers: [provideGarudaNG({})],
     }).compileComponents();
     fixture = TestBed.createComponent(ShellComponent);
