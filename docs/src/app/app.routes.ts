@@ -1,18 +1,16 @@
 import { Route } from '@angular/router';
-import { ComponentsComponent } from './components/components.component';
 import { ShellComponent } from './components/shell/shell.component';
 import { ToastServiceComponent } from './components/toast-service/toast-service.component';
 import { CardComponent } from './components/card/card.component';
-import { GettingStartedComponent } from './getting-started/getting-started.component';
 
 export const appRoutes: Route[] = [
   {
-    component: GettingStartedComponent,
     path: '',
+    loadComponent: () => import('./getting-started/getting-started.component').then((m) => m.GettingStartedComponent),
   },
   {
-    component: ComponentsComponent,
     path: 'components',
+    loadComponent: () => import('./components/components.component').then((m) => m.ComponentsComponent),
     children: [
       {
         component: CardComponent,
@@ -27,5 +25,13 @@ export const appRoutes: Route[] = [
         path: 'toast-service',
       },
     ],
+  },
+  {
+    path: 'theming',
+    loadComponent: () => import('./theming/theming.component').then((m) => m.ThemingComponent),
+  },
+  {
+    path: 'startv2',
+    loadComponent: () => import('./startv2-website/startv2.component').then((m) => m.Startv2Component),
   },
 ];

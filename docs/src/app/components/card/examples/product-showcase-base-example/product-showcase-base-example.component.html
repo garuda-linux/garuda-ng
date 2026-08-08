@@ -1,13 +1,50 @@
 <div class="card-container">
-  <garuda-card cardRole="product-showcase">
-    <img garudaCardThumbnail ngSrc="garuda-blue.svg" width="140" height="140" alt="logo" />
+  <garuda-card
+    cardRole="product-showcase"
+    [feature]="selectedFeature"
+    [actionFeatures]="actionfeatures"
+    (actionClicked)="onAction($event)"
+    data-action="garudaLinux"
+  >
+    <img garudaCardThumbnail ngSrc="/garuda-blue.svg" width="140" height="140" alt="logo" />
     <h1 garudaCardTitle>Garuda Linux</h1>
     <ul garudaCardFeatureList>
       <li garuda-card-feature-list-pro>Lorem ipsum dolor sit amet</li>
       <li garuda-card-feature-list-pro>Lorem ipsum dolor sit amet</li>
       <li garuda-card-feature-list-con>Lorem ipsum dolor sit amet</li>
     </ul>
-    <p-button garudaCardAction label="Learn More" severity="secondary"></p-button>
-    <p-button garudaCardAction label="Download"></p-button>
+    <p-button garudaCardAction label="Learn More" severity="secondary" data-action="learnMore"></p-button>
+    <p-button garudaCardAction label="Download" data-action="download"></p-button>
   </garuda-card>
+</div>
+<div>
+  <section>Small card</section>
+  <div class="small-card">
+    <garuda-card cardRole="product-showcase-small" [link]="'/'">
+      <div garudaCardTitleWrapper>
+        <h4>Garuda Linux Small</h4>
+      </div>
+      <div garudaCardThumbnailWrapper>
+        <img ngSrc="/garuda-blue.svg" width="140" height="140" alt="logo" />
+      </div>
+    </garuda-card>
+    <garuda-card
+      cardRole="product-showcase-small"
+      [feature]="selectedFeature"
+      [actionFeatures]="actionfeatures"
+      (actionClicked)="onAction($event)"
+      data-action="garudaLinux"
+    >
+      <div garudaCardTitleWrapper>
+        <h4>Garuda Linux Click</h4>
+      </div>
+      <div garudaCardThumbnailWrapper>
+        <img ngSrc="/garuda-blue.svg" width="140" height="140" alt="logo" />
+      </div>
+    </garuda-card>
+  </div>
+</div>
+<div class="news-container">
+  <section>News</section>
+  <garuda-news [news]="news"></garuda-news>
 </div>

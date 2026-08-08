@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Highlight } from 'ngx-highlightjs';
 import { requestExampleSource } from '../../util/request-example';
@@ -9,6 +9,7 @@ import { CodeExampleComponent } from '../../util/code-example/code-example.compo
   imports: [CommonModule, NgOptimizedImage, Highlight, CodeExampleComponent],
   templateUrl: './getting-started.component.html',
   styleUrl: './getting-started.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GettingStartedComponent {
   provideGarudaNGSample = requestExampleSource('examples/getting-started/provide-garuda-ng.ts');

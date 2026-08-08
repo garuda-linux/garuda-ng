@@ -1,6 +1,7 @@
-<p-card class="garuda-card-p-card">
-  @switch (cardRole()) {
-    @case ('product-showcase') {
+@switch (cardRole()) {
+  @case ('product-showcase') {
+    <!-- ✅ Big variant uses p-card fully -->
+    <p-card class="garuda-card-product-showcase">
       <ng-template #header>
         <div class="garuda-card-product-showcase-header">
           <div class="garuda-card-thumbnail-container">
@@ -12,12 +13,34 @@
           </div>
         </div>
       </ng-template>
+
       <ng-content></ng-content>
+
       <ng-template #footer>
         <div class="garuda-card-action-container">
           <ng-content select="[garudaCardAction]"></ng-content>
         </div>
       </ng-template>
-    }
+    </p-card>
   }
-</p-card>
+
+  @case ('product-showcase-small') {
+    <div
+      class="garuda-card-product-showcase-small"
+      (click)="navigate()"
+      (keyup.enter)="navigate()"
+      (keyup.space)="navigate()"
+      role="button"
+      tabindex="0"
+    >
+      <div class="garuda-card-product-showcase-header-small">
+        <div class="garuda-card-title-small">
+          <ng-content select="[garudaCardTitleWrapper]"></ng-content>
+        </div>
+        <div class="garuda-card-thumbnail-container-small">
+          <ng-content select="[garudaCardThumbnailWrapper]"></ng-content>
+        </div>
+      </div>
+    </div>
+  }
+}

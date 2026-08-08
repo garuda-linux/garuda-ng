@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { ShellComponent } from '@garudalinux/core';
-import { MenuItem } from 'primeng/api';
+import { MenuItem } from '@openng/optimus-ui/api';
 
 @Component({
   selector: 'garuda-docs-shell-base-example',
-  imports: [CommonModule, ShellComponent],
+  imports: [ShellComponent],
   templateUrl: './base-example.component.html',
   styleUrl: './base-example.component.scss',
 })

@@ -1,0 +1,24 @@
+<footer [ngClass]="relativePosition() ? 'footer-relative' : 'footer'">
+  <div class="footer-content">
+    @for (footerItem of footerItems(); track footerItem; let i = $index) {
+    <div class="footer-links">
+      @if (!footerItem?.popupConfig?.popupEnabled) {
+      <a [href]="footerItem?.routerLink">{{ footerItem?.itemName }}</a>
+      } @else {
+      <a
+        (click)="openPopup(footerItem?.itemId)"
+        (keyup.enter)="openPopup(footerItem?.itemId)"
+        (keyup.space)="openPopup(footerItem?.itemId)"
+        role="button"
+        tabindex="footerItem?.itemId"
+        >{{ footerItem?.itemName }}</a
+      >
+      } @if (ismobile()) {
+      <span><span></span></span>
+      } @else { @if (i!==totalItems()-1) {
+      <span>&nbsp;|&nbsp;</span>
+      } }
+    </div>
+    }
+  </div>
+</footer>

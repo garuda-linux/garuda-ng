@@ -16,22 +16,15 @@ jobs:
     if: ${{ github.event_name != 'schedule' }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Install Node.js
-        uses: actions/setup-node@v5
+      - uses: pnpm/setup@v1
         with:
-          node-version: 22
-          cache: 'pnpm'
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+          runtime: node@26
+          cache: true
 
       - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@v20
+        uses: DeterminateSystems/nix-installer-action@main
         with:
           extra-conf: |
             accept-flake-config = true
@@ -50,24 +43,17 @@ jobs:
     if: ${{ github.event_name != 'schedule' }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Install Node.js
-        uses: actions/setup-node@v5
+      - uses: pnpm/setup@v1
         with:
-          node-version: 22
-          cache: 'pnpm'
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+          runtime: node@26
+          cache: true
 
       - name: Nx stuff
-        uses: nrwl/nx-set-shas@v4
+        uses: nrwl/nx-set-shas@v5
 
       - name: Run test
         run: pnpm exec nx run-many --target=build --all
@@ -78,19 +64,12 @@ jobs:
     if: ${{ github.event_name != 'schedule' }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Install Node.js
-        uses: actions/setup-node@v5
+      - uses: pnpm/setup@v1
         with:
-          node-version: 22
-          cache: 'pnpm'
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+          runtime: node@26
+          cache: true
 
       - name: Build the project
         run: pnpm exec nx run-many --target=build --all
@@ -100,7 +79,7 @@ jobs:
     name: Scan for vulnerabilities
     steps:
       - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@0.32.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           exit-code: '1'
           format: 'table'
@@ -128,41 +107,47 @@ jobs:
   publish-docs:
     runs-on: ubuntu-24.04
     name: Deploy to Cloudflare Pages
+    if: >
+      github.event_name == 'push' ||
+      (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository)
+    environment: ${{ (github.event_name == 'push' && github.ref == 'refs/heads/main') && 'prod' || 'preview' }}
     permissions:
       contents: read
       pull-requests: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Install Node.js
-        uses: actions/setup-node@v5
+      - uses: pnpm/setup@v1
         with:
-          node-version: 22
-          cache: 'pnpm'
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+          runtime: node@26
+          cache: true
 
       - name: Build the documentation
         run: pnpx nx build docs
 
-      - name: Deploy to Cloudflare Pages
+      - name: Deploy to Cloudflare Pages to main
         if: (github.event_name == 'push') && (github.ref == 'refs/heads/main')
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@v4
+        with:
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: pages deploy --branch main
+          packageManager: pnpm
+
+      - name: Deploy to Cloudflare Pages to dev
+        if: (github.event_name == 'push') && (github.ref == 'refs/heads/dev')
+        uses: cloudflare/wrangler-action@v4
         with:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           command: pages deploy --branch dev
           packageManager: pnpm
 
-      - name: Deploy to Cloudflare Pages
+      - name: Deploy to Cloudflare Pages to PR
         if: ${{ github.event_name == 'pull_request' }}
         id: deploy
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@v4
         with:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -171,7 +156,7 @@ jobs:
 
       - name: Comment on pull request
         if: ${{ github.event_name == 'pull_request' }}
-        uses: thollander/actions-comment-pull-request@v3
+        uses: andyghc/actions-comment-pull-request@v3
         with:
           message: |
             The documentation has been deployed to Cloudflare Pages :rocket:
@@ -189,7 +174,7 @@ jobs:
     steps:
       - name: Add comment
         if: needs.lint.outputs.pre-commit == 'failure' && github.event_name == 'pull_request'
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             github.rest.issues.createComment({

@@ -4,7 +4,7 @@ import { Highlight } from 'ngx-highlightjs';
 import { BaseExampleComponent } from './examples/base-example/base-example.component';
 import { requestExampleSource } from '../../../util/request-example';
 import { CodeExampleComponent } from '../../../util/code-example/code-example.component';
-import { Message } from 'primeng/message';
+import { Message } from '@openng/optimus-ui/message';
 import { RouterLink } from '@angular/router';
 import { ToastSeverityExampleComponent } from './examples/toast-severity-example/toast-severity-example.component';
 import { ToastPositioningExampleComponent } from './examples/toast-positioning-example/toast-positioning-example.component';

@@ -1,0 +1,15 @@
+<p-card styleClass="m-3">
+  <ng-template pTemplate="header">
+    <div class="card-header">
+      <span class="card-title">{{ this.config.data?.innerData?.feature?.title || '' }}</span>
+      @if (!this.config.data?.noCloseIcon) {
+      <button pButton type="button" class="p-button-text close-btn" (click)="close()">
+        <i class="pi pi-times"></i>
+      </button>
+      }
+    </div>
+  </ng-template>
+
+  <!-- CDK Portal outlet -->
+  <ng-template #container></ng-template>
+</p-card>

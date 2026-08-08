@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Highlight } from 'ngx-highlightjs';
-import { Tree } from 'primeng/tree';
-import { TreeNode } from 'primeng/api';
+import { Tree } from '@openng/optimus-ui/tree';
+import { TreeNode } from '@openng/optimus-ui/api';
 import { ProductShowcaseBaseExampleComponent } from './examples/product-showcase-base-example/product-showcase-base-example.component';
 import { requestExampleSource } from '../../../util/request-example';
 import { CodeExampleComponent } from '../../../util/code-example/code-example.component';

@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { NgOptimizedImage } from '@angular/common';
 import { ShellBarEndDirective, ShellComponent } from '@garudalinux/core';
-import { MenuItem } from 'primeng/api';
+import { MenuItem } from '@openng/optimus-ui/api';
 
 @Component({
   selector: 'garuda-docs-shell-bar-end-example',
-  imports: [CommonModule, ShellComponent, NgOptimizedImage, ShellBarEndDirective],
+  imports: [ShellComponent, NgOptimizedImage, ShellBarEndDirective],
   templateUrl: './shell-bar-end-example.component.html',
   styleUrl: './shell-bar-end-example.component.scss',
 })
