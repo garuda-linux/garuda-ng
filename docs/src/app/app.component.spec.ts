@@ -1,13 +1,15 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { provideGarudaNG } from '@garudalinux/core';
-import Aura from '@primeng/themes/aura';
+import Aura from '@openng/optimus-ui-themes/aura';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHighlightOptions } from 'ngx-highlightjs';
 
 describe('AppComponent', () => {
+  let fixture: ComponentFixture<AppComponent>;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent, RouterModule.forRoot([])],
@@ -17,7 +19,9 @@ describe('AppComponent', () => {
             font: 'monospace',
           },
           {
-            theme: Aura,
+            theme: {
+              preset: Aura,
+            },
           },
         ),
         provideAnimations(),
@@ -32,5 +36,11 @@ describe('AppComponent', () => {
         }),
       ],
     }).compileComponents();
+
+    fixture = TestBed.createComponent(AppComponent);
+  });
+
+  it('should create the app', () => {
+    expect(fixture.componentInstance).toBeTruthy();
   });
 });

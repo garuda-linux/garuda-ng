@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { DialogService, DynamicDialogRef } from '@openng/optimus-ui/dynamicdialog';
 import { FeatureDetailComponent } from '../feature-detail.component';
 import { FeatureData } from '../../models/feature-detail/feature-detail.model';
 

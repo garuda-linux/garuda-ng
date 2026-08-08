@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit } from '@angular/core';
-
-import { Menu } from 'primeng/menu';
-import { MenuItem } from 'primeng/api';
+import { Menu } from '@openng/optimus-ui/menu';
+import { MenuItem } from '@openng/optimus-ui/api';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { SidebarToggleService } from '../../util/sidebar-toggle/sidebar-toggle.service';
 

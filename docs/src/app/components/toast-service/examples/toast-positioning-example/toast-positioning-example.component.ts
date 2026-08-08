@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
-
-import { Button } from 'primeng/button';
+import { Button } from '@openng/optimus-ui/button';
 import { MessageToastPosition, MessageToastService } from '@garudalinux/core';
 
 @Component({

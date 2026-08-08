@@ -15,8 +15,8 @@ import {
   NewsData,
   NewsModel,
 } from '@garudalinux/core';
-import { Button } from 'primeng/button';
-import { PopupService } from 'core/src/lib/services/popup/popup.service';
+import { Button } from '@openng/optimus-ui/button';
+import { PopupService } from '@garudalinux/core';
 
 @Component({
   selector: 'garuda-docs-product-showcase-base-example',

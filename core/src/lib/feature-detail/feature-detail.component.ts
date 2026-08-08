@@ -1,12 +1,12 @@
 import { Component, ElementRef, inject, input, model, NO_ERRORS_SCHEMA, OnInit, signal } from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
-import { ListboxModule } from 'primeng/listbox';
-import { CarouselModule } from 'primeng/carousel';
-import { CardModule } from 'primeng/card';
-import { ButtonModule } from 'primeng/button';
-import { AccordionModule } from 'primeng/accordion';
-import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { ListboxModule } from '@openng/optimus-ui/listbox';
+import { CarouselModule } from '@openng/optimus-ui/carousel';
+import { CardModule } from '@openng/optimus-ui/card';
+import { ButtonModule } from '@openng/optimus-ui/button';
+import { AccordionModule } from '@openng/optimus-ui/accordion';
+import { DynamicDialogConfig, DynamicDialogRef } from '@openng/optimus-ui/dynamicdialog';
 import { FeatureData, FeatureCarouselSettings } from '../models/feature-detail/feature-detail.model';
 import { FeatureDetailCarousel } from './directives/feature-detail-carousel';
 import { FeatureDetailPackages } from './directives/feature-detail-packages';

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 import { ShellBarDropdownToggleDirective, ShellBarStartDirective, ShellComponent } from '@garudalinux/core';
-import { MenuItem } from 'primeng/api';
-import { Button } from 'primeng/button';
+import { MenuItem } from '@openng/optimus-ui/api';
+import { Button } from '@openng/optimus-ui/button';
 
 @Component({
   selector: 'garuda-docs-shell-bar-dropdown-toggle-example',

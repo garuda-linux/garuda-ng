@@ -5,6 +5,7 @@ export * from './lib/config';
 export * from './lib/feature-detail';
 export * from './lib/news';
 export * from './lib/models';
+export * from './lib/services';
 export * from './lib/footer';
 export * from './lib/search';
 export * from './lib/jokes';

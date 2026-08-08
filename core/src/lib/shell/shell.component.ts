@@ -12,14 +12,14 @@ import {
   signal,
   viewChild,
 } from '@angular/core';
-import { Menubar } from 'primeng/menubar';
-import { MenuItem } from 'primeng/api';
+import { Menubar } from '@openng/optimus-ui/menubar';
+import { MenuItem } from '@openng/optimus-ui/api';
 import { GARUDA_NG_CONFIG } from '../config';
-import { Toast } from 'primeng/toast';
-import { Button } from 'primeng/button';
+import { Toast } from '@openng/optimus-ui/toast';
+import { Button } from '@openng/optimus-ui/button';
 import { ShellBarDropdownToggleDirective } from './directives/shell-bar-dropdown-toggle.directive';
-import { Menu } from 'primeng/menu';
-import { ScrollTop } from 'primeng/scrolltop';
+import { Menu } from '@openng/optimus-ui/menu';
+import { ScrollTop } from '@openng/optimus-ui/scrolltop';
 
 const MENU_TOGGLE_GLOBAL_STYLE_ID = 'garuda-ng__menu-toggle-style';
 

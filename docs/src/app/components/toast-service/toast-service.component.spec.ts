@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ToastServiceComponent } from './toast-service.component';
+import { RouterModule } from '@angular/router';
 
 describe('ToastServiceComponent', () => {
   let component: ToastServiceComponent;
@@ -7,7 +8,7 @@ describe('ToastServiceComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ToastServiceComponent],
+      imports: [ToastServiceComponent, RouterModule.forRoot([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ToastServiceComponent);

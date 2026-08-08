@@ -1,5 +1,5 @@
 import { Injectable, Type, inject } from '@angular/core';
-import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { DialogService, DynamicDialogRef } from '@openng/optimus-ui/dynamicdialog';
 import { PopupWrapperComponent } from '../../pop-dialog-wrapper/pop-dialog-wrapper';
 import { PopupOptions } from '../../models/popup/popup-config.model';
 

@@ -1,6 +1,6 @@
-import { Directive, ElementRef, Input, OnInit, Renderer2, inject, input } from '@angular/core';
+import { Directive, OnInit, inject, input } from '@angular/core';
 import { FeatureCarouselSettings } from '../../models/feature-detail/feature-detail.model';
-import { Carousel } from 'primeng/carousel';
+import { Carousel } from '@openng/optimus-ui/carousel';
 
 @Directive({
   selector: '[garudaFeatureDetailCarousel]',

@@ -1,5 +1,5 @@
 import { ApplicationConfig } from '@angular/core';
-import Aura from '@primeuix/themes/aura';
+import Aura from '@openng/optimus-ui-themes/aura';
 import { provideGarudaNG } from '@garudalinux/core';
 
 export const appConfig: ApplicationConfig = {
@@ -9,7 +9,7 @@ export const appConfig: ApplicationConfig = {
       {
         font: 'monospace',
       },
-      /* PrimeNG configuration */
+      /* Optimus UI configuration */
       {
         theme: {
           preset: Aura,

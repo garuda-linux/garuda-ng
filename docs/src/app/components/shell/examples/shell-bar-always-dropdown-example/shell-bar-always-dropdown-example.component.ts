@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { ShellComponent } from '@garudalinux/core';
-import { MenuItem } from 'primeng/api';
+import { MenuItem } from '@openng/optimus-ui/api';
 
 @Component({
   selector: 'garuda-docs-shell-bar-always-dropdown-example',

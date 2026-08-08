@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ShellComponent } from './shell.component';
-import { expect } from '@playwright/test';
 import { provideGarudaNG } from '../config/garuda-ng';
 import { provideAnimations } from '@angular/platform-browser/animations';
 
@@ -10,18 +9,18 @@ describe('ShellComponent', () => {
   let fixture: ComponentFixture<ShellComponent>;
 
   beforeAll(() => {
-    // set up special Jest voodoo
+    // set up special vitest voodoo
     Object.defineProperty(window, 'matchMedia', {
       writable: true,
-      value: jest.fn().mockImplementation((query) => ({
+      value: vi.fn().mockImplementation((query) => ({
         matches: false,
         media: query,
         onchange: null,
-        addListener: jest.fn(), // Deprecated
-        removeListener: jest.fn(), // Deprecated
-        addEventListener: jest.fn(),
-        removeEventListener: jest.fn(),
-        dispatchEvent: jest.fn(),
+        addListener: vi.fn(), // Deprecated
+        removeListener: vi.fn(), // Deprecated
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
+        dispatchEvent: vi.fn(),
       })),
     });
   });

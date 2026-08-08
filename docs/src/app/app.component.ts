@@ -9,9 +9,9 @@ import {
   Footer,
   FeatureDetailComponent,
 } from '@garudalinux/core';
-import { MenuItem } from 'primeng/api';
+import { MenuItem } from '@openng/optimus-ui/api';
 import { NgOptimizedImage } from '@angular/common';
-import { Button } from 'primeng/button';
+import { Button } from '@openng/optimus-ui/button';
 import { SidebarToggleService } from '../util/sidebar-toggle/sidebar-toggle.service';
 import { routeAnimations } from './app.routes';
 import { Imprint } from './components/imprint/imprint';

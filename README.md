@@ -11,7 +11,7 @@ This is the component library for the website-based projects of Garuda Linux.
 
 ## Introduction
 
-GarudaNG is a set of components to use in any kind of Angular project. It is built on [PrimeNG](https://primeng.org/).
+GarudaNG is a set of components to use in any kind of Angular project. It is built on [Optimus UI](https://optimus.openng.org/).
 
 ## Documentation
 
