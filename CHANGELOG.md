@@ -2,6 +2,9 @@
 
 ### ⚙️ Miscellaneous Tasks
 
+- *(core)* Bump version to 2.0.0 - ([81ed33c](https://github.com/garuda-linux/garuda-ng/commit/81ed33c6432db4ee845c3a80231f860d99c1c65c))
+- Explicitly use latest npm for publishing to have OIDC support ([#222](https://github.com/garuda-linux/garuda-ng/issues/222)) - ([593a0c6](https://github.com/garuda-linux/garuda-ng/commit/593a0c6336e09265d8ffe44d0c704bb79e172a3d))
+- Explicitly use latest npm for publishing to have OIDC support - ([800c2e0](https://github.com/garuda-linux/garuda-ng/commit/800c2e0a21b0c57215e93f645dd90294e193a15a))
 - Release version 2 ([#221](https://github.com/garuda-linux/garuda-ng/issues/221)) - ([6da9bee](https://github.com/garuda-linux/garuda-ng/commit/6da9bee884e6b75d841fd118fec8420a609db948))
 - Fixed CODEOWNERS file ([#176](https://github.com/garuda-linux/garuda-ng/issues/176)) - ([6c81fc8](https://github.com/garuda-linux/garuda-ng/commit/6c81fc8097c9329bfc2f18747044dda9e51e9f6c))
 - Fixed CODEOWNERS file - ([5c2b6bf](https://github.com/garuda-linux/garuda-ng/commit/5c2b6bfe02f1fe728b8e3a9491300c11c341c179))
