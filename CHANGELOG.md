@@ -1,4 +1,14 @@
-## [2.0.0-rc.1](https://github.com/garuda-linux/garuda-ng/compare/1.1.0-rc.2..2.0.0-rc.1) - 2026-08-08
+## [2.0.0-rc.2](https://github.com/garuda-linux/garuda-ng/compare/2.0.0-rc.1..2.0.0-rc.2) - 2026-08-08
+
+### ⚙️ Miscellaneous Tasks
+
+- Migrate to pnpm-setup ([#218](https://github.com/garuda-linux/garuda-ng/issues/218)) - ([8ac6adb](https://github.com/garuda-linux/garuda-ng/commit/8ac6adb69eb7e340c4b30d5a674c35a6409e7f36))
+- Resolve deprecations of vitest import; more actions - ([da38716](https://github.com/garuda-linux/garuda-ng/commit/da3871660e6cac3762bb545c072c000ede54420b))
+- Resolve more deprecation warnings in actions - ([eda59ec](https://github.com/garuda-linux/garuda-ng/commit/eda59ecfb3909c1430ec1176cf01c88cc0f1483a))
+- Migrate to pnpm-setup - ([3484224](https://github.com/garuda-linux/garuda-ng/commit/3484224154bbaf027374ab7c878b5a93c1f257e1))
+
+
+## [2.0.0-rc.1] - 2026-08-08
 
 ### ⛰️  Features
 
@@ -46,7 +56,7 @@
 - Set environment of ci/publish-docs to prod - ([a4f582a](https://github.com/garuda-linux/garuda-ng/commit/a4f582a29fa34e7cc93e5b36eeceb1311ca8500b))
 
 
-## [1.1.0-rc.2] - 2025-11-01
+## [1.1.0-rc.2](https://github.com/garuda-linux/garuda-ng/compare/1.0.0..1.1.0-rc.2) - 2025-11-01
 
 ### ⛰️  Features
 
@@ -96,7 +106,7 @@
 - *(docs)* Increase budgets - ([5013f47](https://github.com/garuda-linux/garuda-ng/commit/5013f47f314a56816cd3de34ee955b0048fb7ba8))
 
 
-## [1.0.0](https://github.com/garuda-linux/garuda-ng/compare/1.0.0-rc.7..1.0.0) - 2025-10-02
+## [1.0.0] - 2025-10-02
 
 ### ⛰️  Features
 
@@ -126,21 +136,21 @@
 - Removed core and themes from pnpm workspace - ([db43730](https://github.com/garuda-linux/garuda-ng/commit/db437307ac6711cef65a36fe82cc7b6218c08d2a))
 
 
-## [1.0.0-rc.7] - 2025-07-26
+## [1.0.0-rc.7](https://github.com/garuda-linux/garuda-ng/compare/1.0.0-rc.6..1.0.0-rc.7) - 2025-07-26
 
 ### 🐛 Bug Fixes
 
 - *(themes)* Fixed package.json - ([c66c23e](https://github.com/garuda-linux/garuda-ng/commit/c66c23e9bb42e45673044f18da2c9722c48249e3))
 
 
-## [1.0.0-rc.6](https://github.com/garuda-linux/garuda-ng/compare/1.0.0-rc.5..1.0.0-rc.6) - 2025-07-26
+## [1.0.0-rc.6] - 2025-07-26
 
 ### ⚙️ Miscellaneous Tasks
 
 - Fetch the entire git repo to be able to determine source branch - ([4644add](https://github.com/garuda-linux/garuda-ng/commit/4644add5c07fe878fdad7b05407035327a389008))
 
 
-## [1.0.0-rc.5] - 2025-07-26
+## [1.0.0-rc.5](https://github.com/garuda-linux/garuda-ng/compare/1.0.0-rc.4..1.0.0-rc.5) - 2025-07-26
 
 ### ⚙️ Miscellaneous Tasks
 
@@ -148,14 +158,14 @@
 - Use the current branch name for cf deployments - ([d6a4385](https://github.com/garuda-linux/garuda-ng/commit/d6a438599213b989763b4018b6d528d70a49d542))
 
 
-## [1.0.0-rc.4](https://github.com/garuda-linux/garuda-ng/compare/1.0.0-rc.3..1.0.0-rc.4) - 2025-07-26
+## [1.0.0-rc.4] - 2025-07-26
 
 ### ⚙️ Miscellaneous Tasks
 
 - Publish themes to npmjs - ([ef673b8](https://github.com/garuda-linux/garuda-ng/commit/ef673b8c88242bbc3396298f350f35f7e38edea7))
 
 
-## [1.0.0-rc.3] - 2025-07-26
+## [1.0.0-rc.3](https://github.com/garuda-linux/garuda-ng/compare/1.0.0-rc.2..1.0.0-rc.3) - 2025-07-26
 
 ### ⛰️  Features
 
@@ -167,7 +177,7 @@
 - Lint - ([c7e7292](https://github.com/garuda-linux/garuda-ng/commit/c7e729262546bebdb4f23cc6b4732eb4fbfeaf4b))
 
 
-## [1.0.0-rc.2](https://github.com/garuda-linux/garuda-ng/compare/1.0.0-rc.1..1.0.0-rc.2) - 2025-07-13
+## [1.0.0-rc.2] - 2025-07-13
 
 ### 🎨 Styling
 
@@ -182,7 +192,7 @@
 - Generate changes.md based on current tag, not release tag - ([2dadb38](https://github.com/garuda-linux/garuda-ng/commit/2dadb38fe2184c339111ea530596897729489c1e))
 
 
-## [1.0.0-rc.1] - 2025-07-13
+## [1.0.0-rc.1](https://github.com/garuda-linux/garuda-ng/compare/0.3.1..1.0.0-rc.1) - 2025-07-13
 
 ### ⛰️  Features
 
