@@ -1,4 +1,52 @@
-## [1.1.0-rc.2](https://github.com/garuda-linux/garuda-ng/compare/1.0.0..1.1.0-rc.2) - 2025-11-01
+## [2.0.0-rc.1](https://github.com/garuda-linux/garuda-ng/compare/1.1.0-rc.2..2.0.0-rc.1) - 2026-08-08
+
+### ⛰️  Features
+
+- *(docs)* Animationstate + jumping fix for startv2 - ([5fedfbf](https://github.com/garuda-linux/garuda-ng/commit/5fedfbf6136c458641185234e293c8e1ef2e7488))
+- *(ui)* Core components created/updated for startv2 page auto creation from core | Issue #63 ([#197](https://github.com/garuda-linux/garuda-ng/issues/197)) - ([cb3e58b](https://github.com/garuda-linux/garuda-ng/commit/cb3e58b916206ac884b989bd26a5ad2819f67a0d))
+- *(ui)* Updated - ([c6f2615](https://github.com/garuda-linux/garuda-ng/commit/c6f26153bbf430e77c6df1f4212fc466ba3a7c53))
+- *(ui)* Issue #60 CardComponent pop for feature details ([#185](https://github.com/garuda-linux/garuda-ng/issues/185)) - ([2760025](https://github.com/garuda-linux/garuda-ng/commit/2760025e4977a961834cb05087e7f16e92a2f349))
+- *(ui)* Ci-test - ([be37cec](https://github.com/garuda-linux/garuda-ng/commit/be37cecdbf9151c74df7f3454c51cf063949cf4a))
+- *(ui)* Ci-lint-test - ([212144f](https://github.com/garuda-linux/garuda-ng/commit/212144ff7f9b58f77f1f9730b81bfa8faf106593))
+- *(ui)* Ci-test - ([c1327c2](https://github.com/garuda-linux/garuda-ng/commit/c1327c2ea8de9fcc0fdb0ebeabfe98315d5c6230))
+- *(ui)* Pnpm-yaml back - ([135c704](https://github.com/garuda-linux/garuda-ng/commit/135c704d832c6a0d9710e07094a3fa3891d67896))
+- *(ui)* Reverted - ([0c7d489](https://github.com/garuda-linux/garuda-ng/commit/0c7d489c7cf5a85a2ee9b3614c8d74803a04d435))
+- *(ui)* Revert - ([208c6fc](https://github.com/garuda-linux/garuda-ng/commit/208c6fcac5b2af10cf69633cb046b647ef220858))
+- *(ui)* Reverted eslint - ([9d5794f](https://github.com/garuda-linux/garuda-ng/commit/9d5794ff463964aff8a26b3388cd85f00f50175b))
+- *(ui)* Updated eslint and lint fixed ci - ([7b8cb1d](https://github.com/garuda-linux/garuda-ng/commit/7b8cb1d1c9de5f3bc461e13ca4c7d0623bca56c2))
+- *(ui)* Updated eslint and lint fixed ci - ([8b3ea70](https://github.com/garuda-linux/garuda-ng/commit/8b3ea70a12647e8416566188f39385a4b08d7aed))
+- *(ui)* Core components created/updated for startv2 page auto creation from core | Issue #63 | lint fixed - ([c171c38](https://github.com/garuda-linux/garuda-ng/commit/c171c3805572fe28c37853e0e45d60e7d7985e65))
+- *(ui)* Core components created/updated for startv2 page auto creation from core | Issue #63 - ([afcb58e](https://github.com/garuda-linux/garuda-ng/commit/afcb58e5ef89594f8d589f763630fcaa86e6896c))
+- *(ui)* Core components created/updated for startv2 page auto creation from core - ([d58260f](https://github.com/garuda-linux/garuda-ng/commit/d58260f3119063761017053ca637b50095e7588c))
+- *(ui)* Issue #60 CardComponent pop for feature details - ([9bf96ac](https://github.com/garuda-linux/garuda-ng/commit/9bf96ac19f119835603794e05cc6d5f26bf4afa4))
+- *(ui)* Issue #60 CardComponent pop for feature details - ([2728b2a](https://github.com/garuda-linux/garuda-ng/commit/2728b2aa2095af275025b91f51392f49dccbbdbc))
+
+### 🐛 Bug Fixes
+
+- *(ui)* Updated cases of footer - ([b2738a8](https://github.com/garuda-linux/garuda-ng/commit/b2738a815aaa4b794f15546bdab3b80efe69f4fd))
+
+### 🚜 Refactor
+
+- Angular 22; Typescript 6; OptimusUI; ES modules and Vitest ([#217](https://github.com/garuda-linux/garuda-ng/issues/217)) - ([f0ff18c](https://github.com/garuda-linux/garuda-ng/commit/f0ff18cf33c8d5989414077d3de195631e4c004e))
+- Pnpm 11; migrate to non-deprecated animations and builders - ([4fff498](https://github.com/garuda-linux/garuda-ng/commit/4fff498d1c8095a8e2c7beb89d8d042aa9d5e8c5))
+- Angular 22; Typescript 6; OptimusUI; ES modules and Vitest - ([eb14dbf](https://github.com/garuda-linux/garuda-ng/commit/eb14dbff16f15397862f3697adea96a40ecfc100))
+
+### ⚙️ Miscellaneous Tasks
+
+- *(docs)* Drop unused e2e folder; use catppuccin highlightjs theme - ([cdb076a](https://github.com/garuda-linux/garuda-ng/commit/cdb076aedc7f81ddc92f798d8e806b73d58682bd))
+- Never try to deploy on forks - ([0525634](https://github.com/garuda-linux/garuda-ng/commit/0525634186a5b45754a6f241eed4793ec2d878b4))
+- Drop the outdated pnpm lock - ([dc1ef84](https://github.com/garuda-linux/garuda-ng/commit/dc1ef84d226f4d654ff394465f379f4c03a5e744))
+- Update versions, run check flake for linting - ([2972bb5](https://github.com/garuda-linux/garuda-ng/commit/2972bb5ea1859d8942787c6fb722ff0a3af4dfc3))
+- Updated deps and ran nx migrations ([#204](https://github.com/garuda-linux/garuda-ng/issues/204)) - ([cc782d5](https://github.com/garuda-linux/garuda-ng/commit/cc782d5449b880865a2be3c6a55c2f6edc95832f))
+- Allowed any angular 21 version in peer deps - ([cd7e636](https://github.com/garuda-linux/garuda-ng/commit/cd7e636c41ba4cb1e39999b4a88edfc73e13ad8e))
+- Updated deps and ran nx migrations - ([e88e37e](https://github.com/garuda-linux/garuda-ng/commit/e88e37ef773e433d4943c2576e33eab15aaed18b))
+- Made ci/publish-docs only run in prod on PR ([#184](https://github.com/garuda-linux/garuda-ng/issues/184)) - ([24dd71b](https://github.com/garuda-linux/garuda-ng/commit/24dd71b905cdbf1a476f38c5c2851f0c036dfa19))
+- Made ci/publish-docs only run in prod on PR - ([2582715](https://github.com/garuda-linux/garuda-ng/commit/2582715bfce6b710b58676600e6e708a0e37983c))
+- Set environment of ci/publish-docs to prod ([#183](https://github.com/garuda-linux/garuda-ng/issues/183)) - ([413ea36](https://github.com/garuda-linux/garuda-ng/commit/413ea3609d8ecc4b744753d64c1030b50419f8e4))
+- Set environment of ci/publish-docs to prod - ([a4f582a](https://github.com/garuda-linux/garuda-ng/commit/a4f582a29fa34e7cc93e5b36eeceb1311ca8500b))
+
+
+## [1.1.0-rc.2] - 2025-11-01
 
 ### ⛰️  Features
 
@@ -10,6 +58,7 @@
 - *(docs)* Bring a more interesting background - ([510c9b0](https://github.com/garuda-linux/garuda-ng/commit/510c9b0fa0ceaa520b4d37f73de93fbcf176fccb))
 - *(docs)* Add route transitions - ([8092146](https://github.com/garuda-linux/garuda-ng/commit/809214615bab04c17b47a8f5b969e4b3cc8937fa))
 - *(docs)* Add theming route with preview, fixup many design issues - ([7329b34](https://github.com/garuda-linux/garuda-ng/commit/7329b34e7cda1b3670f7d5b9e65ccf356ef904e3))
+- *(ui)* Issue#60: CardComponent pop for feature details - ([a1f3b28](https://github.com/garuda-linux/garuda-ng/commit/a1f3b28f981e513f15f6f583a66d0bb67df18c65))
 
 ### 🐛 Bug Fixes
 
@@ -46,13 +95,8 @@
 
 - *(docs)* Increase budgets - ([5013f47](https://github.com/garuda-linux/garuda-ng/commit/5013f47f314a56816cd3de34ee955b0048fb7ba8))
 
-## New Contributors ❤️
 
-* @Vo1dSh4d0w made their first contribution in [#131](https://github.com/garuda-linux/garuda-ng/pull/131)
-* @dr460nf1r3 made their first contribution
-* @renovate[bot] made their first contribution
-
-## [1.0.0] - 2025-10-02
+## [1.0.0](https://github.com/garuda-linux/garuda-ng/compare/1.0.0-rc.7..1.0.0) - 2025-10-02
 
 ### ⛰️  Features
 
@@ -82,21 +126,21 @@
 - Removed core and themes from pnpm workspace - ([db43730](https://github.com/garuda-linux/garuda-ng/commit/db437307ac6711cef65a36fe82cc7b6218c08d2a))
 
 
-## [1.0.0-rc.7](https://github.com/garuda-linux/garuda-ng/compare/1.0.0-rc.6..1.0.0-rc.7) - 2025-07-26
+## [1.0.0-rc.7] - 2025-07-26
 
 ### 🐛 Bug Fixes
 
 - *(themes)* Fixed package.json - ([c66c23e](https://github.com/garuda-linux/garuda-ng/commit/c66c23e9bb42e45673044f18da2c9722c48249e3))
 
 
-## [1.0.0-rc.6] - 2025-07-26
+## [1.0.0-rc.6](https://github.com/garuda-linux/garuda-ng/compare/1.0.0-rc.5..1.0.0-rc.6) - 2025-07-26
 
 ### ⚙️ Miscellaneous Tasks
 
 - Fetch the entire git repo to be able to determine source branch - ([4644add](https://github.com/garuda-linux/garuda-ng/commit/4644add5c07fe878fdad7b05407035327a389008))
 
 
-## [1.0.0-rc.5](https://github.com/garuda-linux/garuda-ng/compare/1.0.0-rc.4..1.0.0-rc.5) - 2025-07-26
+## [1.0.0-rc.5] - 2025-07-26
 
 ### ⚙️ Miscellaneous Tasks
 
@@ -104,14 +148,14 @@
 - Use the current branch name for cf deployments - ([d6a4385](https://github.com/garuda-linux/garuda-ng/commit/d6a438599213b989763b4018b6d528d70a49d542))
 
 
-## [1.0.0-rc.4] - 2025-07-26
+## [1.0.0-rc.4](https://github.com/garuda-linux/garuda-ng/compare/1.0.0-rc.3..1.0.0-rc.4) - 2025-07-26
 
 ### ⚙️ Miscellaneous Tasks
 
 - Publish themes to npmjs - ([ef673b8](https://github.com/garuda-linux/garuda-ng/commit/ef673b8c88242bbc3396298f350f35f7e38edea7))
 
 
-## [1.0.0-rc.3](https://github.com/garuda-linux/garuda-ng/compare/1.0.0-rc.2..1.0.0-rc.3) - 2025-07-26
+## [1.0.0-rc.3] - 2025-07-26
 
 ### ⛰️  Features
 
@@ -123,7 +167,7 @@
 - Lint - ([c7e7292](https://github.com/garuda-linux/garuda-ng/commit/c7e729262546bebdb4f23cc6b4732eb4fbfeaf4b))
 
 
-## [1.0.0-rc.2] - 2025-07-13
+## [1.0.0-rc.2](https://github.com/garuda-linux/garuda-ng/compare/1.0.0-rc.1..1.0.0-rc.2) - 2025-07-13
 
 ### 🎨 Styling
 
@@ -138,7 +182,7 @@
 - Generate changes.md based on current tag, not release tag - ([2dadb38](https://github.com/garuda-linux/garuda-ng/commit/2dadb38fe2184c339111ea530596897729489c1e))
 
 
-## [1.0.0-rc.1](https://github.com/garuda-linux/garuda-ng/compare/0.3.1..1.0.0-rc.1) - 2025-07-13
+## [1.0.0-rc.1] - 2025-07-13
 
 ### ⛰️  Features
 
