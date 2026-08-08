@@ -128,14 +128,20 @@ jobs:
         env:
           NPM_CONFIG_PROVENANCE: true
         run: |
-          npm install -g npm
-
           NPM_ARGS=()
           echo "${{ github.ref_name }}" | grep -q 'rc' && NPM_ARGS+=(--tag rc)
 
-          # We can't use OCID via pnpm (todo: check again later)
+          # pnpm/setup's node doesn't ship npm; the runner's system npm (10.x)
+          # has no OIDC auto-auth, so run publish via the latest npm directly.
           pnpx nx run core:build
-          npm publish ./dist/core "${NPM_ARGS[@]}"
+          pnpx --yes npm@latest publish ./dist/core "${NPM_ARGS[@]}" --loglevel verbose
 
           pnpx nx run themes:build
-          npm publish ./dist/themes "${NPM_ARGS[@]}"
+          pnpx --yes npm@latest publish ./dist/themes "${NPM_ARGS[@]}" --loglevel verbose
+
+      - name: Upload npm debug log
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: npm-debug-log
+          path: ~/.npm/_logs/*.log
