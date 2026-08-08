@@ -1,6 +1,6 @@
 {
   "name": "@garudalinux/core",
-  "version": "2.0.0-rc.2",
+  "version": "2.0.0-rc.3",
   "description": "Component library for webpages of Garuda Linux for Angular based on Optimus UI",
   "keywords": [
     "garuda",
