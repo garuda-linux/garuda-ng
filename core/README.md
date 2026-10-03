@@ -18,6 +18,35 @@ GarudaNG is a set of components to use in any kind of Angular project. It is bui
 The latest tagged version of the documentation can be found [here](https://garuda-ng.pages.dev/),
 for the latest changes instead have a look at the [development version](https://dev.garuda-ng.pages.dev).
 
+## Modules
+
+The library is organised into self-contained modules. Each one is published as its own secondary entry point
+(`@garudalinux/core/<module>`), so an app only ships the modules it imports and can lazy load heavy ones such as
+`charts` or `log-viewer` (for example behind a lazy route or `@defer`). The package root re-exports everything for
+backwards compatibility, but importing from the entry points is preferred.
+
+| Module                                                                                                 | Contents                                                                                                                                                                                 |
+| ------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `card`                                                                                                 | `garuda-card` product showcase card with its directives                                                                                                                                  |
+| `charts`                                                                                               | `GarudaChart` component, Catppuccin chart theme helpers, `garudaLineChartOptions()`, crosshair / external-tooltip / gradient-fill plugins, `groupOverTimeChart()`                        |
+| `document-section`                                                                                     | `garuda-document-section` anchored sections for long documents                                                                                                                           |
+| `formatting`                                                                                           | `garudaBytes`, `garudaCpuTime`, `garudaDuration`, `garudaLocaleDate`, `garudaRelativeTime`, `garudaStripPrefix` pipes and the `formatBytes` / `formatDuration` / `formatCpuTime` helpers |
+| `loading`                                                                                              | `LoadingService` and the `loadingInterceptor` HTTP interceptor                                                                                                                           |
+| `not-found`                                                                                            | `garuda-not-found` 404 page                                                                                                                                                              |
+| `shell`                                                                                                | `garuda-shell` application shell                                                                                                                                                         |
+| `table-pagination`                                                                                     | `createLazyTablePagination()` state helper for lazy PrimeNG tables                                                                                                                       |
+| `title`                                                                                                | `garuda-title` page heading block                                                                                                                                                        |
+| `utils`                                                                                                | `backendErrorMessage()`                                                                                                                                                                  |
+| `message-toast`, `news`, `footer`, `search`, `jokes`, `config`, `models`, `services`, `feature-detail` | existing components and services                                                                                                                                                         |
+
+`GarudaChart` downloads chart.js on its first render, and `garuda-log-viewer` fetches the xterm WebGL renderer on
+demand, so those dependencies stay out of the bundle until they are actually needed.
+
+The `@garudalinux/themes` package ships the PrimeNG presets (Catppuccin, Dr460nized, ...), each in its own entry
+point (e.g. `@garudalinux/themes/catppuccin/aura`) plus lazy loaders in `garudaThemes` for runtime switching, and the
+`styles/glass-surfaces.css` stylesheet for the shared translucent surface treatment of `p-card`, `p-panel`, `p-tabs`,
+`p-datatable` and `.garuda-surface` elements. See the [documentation](https://garuda-ng.pages.dev/) for details.
+
 ## Usage
 
 The library can be installed using your favourite node package manager.
@@ -32,6 +61,13 @@ yarn add @garudalinux/core
 # npm
 npm install @garudalinux/core
 ```
+
+```ts
+import { provideGarudaNG } from '@garudalinux/core/config';
+import { CatppuccinAura } from '@garudalinux/themes/catppuccin/aura';
+```
+
+Requires Node.js 24 or newer and pnpm 12 or newer for development.
 
 ## Changelog
 
