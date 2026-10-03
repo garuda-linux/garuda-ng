@@ -29,25 +29,27 @@ jobs:
       - name: Determine source branch
         id: determine_branch
         run: |
-          # Get the commit hash of the tag
           TAG_COMMIT=$(git rev-list -n 1 ${{ github.ref_name }})
           echo "Tag commit: $TAG_COMMIT"
 
-          # Check if this commit exists in main
-          if git merge-base --is-ancestor "$TAG_COMMIT" origin/main; then
-            echo "Commit is in main branch"
-            echo "target_branch=main" >> "$GITHUB_OUTPUT"
-          else
-            # Find which branch contains this commit
-            BRANCH=$(git branch -r --contains "$TAG_COMMIT" | grep -v '/HEAD' | head -1 | sed 's/.*origin\///')
-            if [ -z "$BRANCH" ]; then
-              echo "Could not determine source branch, defaulting to main"
-              echo "target_branch=main" >> "$GITHUB_OUTPUT"
-            else
-              echo "Found source branch: $BRANCH"
-              echo "target_branch=$BRANCH" >> "$GITHUB_OUTPUT"
-            fi
+          # Release exactly the tagged commit: it must be the tip of a pushed branch, so the
+          # version bump lands on top of it and nothing else gets released. Never guess.
+          BRANCHES=$(git branch -r --points-at "$TAG_COMMIT" | grep -v '/HEAD' | sed 's/^ *origin\///')
+          if [ -z "$BRANCHES" ]; then
+            echo "::error::Tag ${{ github.ref_name }} ($TAG_COMMIT) is not the tip of any pushed branch. Push the branch first, then tag its latest commit."
+            exit 1
           fi
+          if echo "$BRANCHES" | grep -qx main; then
+            BRANCH=main
+          elif [ "$(echo "$BRANCHES" | wc -l)" -eq 1 ]; then
+            BRANCH=$BRANCHES
+          else
+            echo "::error::Tag ${{ github.ref_name }} is the tip of several branches:"
+            echo "$BRANCHES"
+            exit 1
+          fi
+          echo "Releasing from branch: $BRANCH"
+          echo "target_branch=$BRANCH" >> "$GITHUB_OUTPUT"
       - name: Checkout target branch
         run: |
           git checkout ${{ steps.determine_branch.outputs.target_branch }}
@@ -133,11 +135,13 @@ jobs:
 
           # pnpm/setup's node doesn't ship npm; the runner's system npm (10.x)
           # has no OIDC auto-auth, so run publish via the latest npm directly.
+          # Publish from inside each package: npm rejects the root package.json's
+          # devEngines.packageManager (pnpm) with EBADDEVENGINES.
           pnpx nx run core:build
-          pnpx --yes npm@latest publish ./dist/core "${NPM_ARGS[@]}" --loglevel verbose
+          (cd dist/core && pnpx --yes npm@latest publish "${NPM_ARGS[@]}" --loglevel verbose)
 
           pnpx nx run themes:build
-          pnpx --yes npm@latest publish ./dist/themes "${NPM_ARGS[@]}" --loglevel verbose
+          (cd dist/themes && pnpx --yes npm@latest publish "${NPM_ARGS[@]}" --loglevel verbose)
 
       - name: Upload npm debug log
         if: failure()
