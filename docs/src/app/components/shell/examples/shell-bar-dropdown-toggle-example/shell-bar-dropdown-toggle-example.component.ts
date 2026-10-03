@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ShellBarDropdownToggleDirective, ShellBarStartDirective, ShellComponent } from '@garudalinux/core';
+import { ShellBarDropdownToggleDirective, ShellBarStartDirective, ShellComponent } from '@garudalinux/core/shell';
 import { MenuItem } from '@openng/optimus-ui/api';
 import { Button } from '@openng/optimus-ui/button';
 

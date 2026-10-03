@@ -1,0 +1,65 @@
+<div class="component-docs">
+  <h1>Logs</h1>
+  <p>
+    The logs module renders log output in an
+    <a href="https://xtermjs.org/" rel="noopener" target="_blank">xterm.js</a> terminal: ANSI colours, a clickable line-number gutter,
+    buffer search, optional interactive input and a retrying SSE stream wrapper. It builds on the <code>@xterm/xterm</code> peer
+    dependencies; all xterm styling ships with the component.
+  </p>
+  <garuda-docs-code-example [ts]="importLine" />
+
+  <h2>GarudaLogViewerComponent</h2>
+  <p>
+    <code>&lt;garuda-log-viewer&gt;</code> receives accumulated text chunks through the <code>chunk</code> input and batches terminal
+    writes, so streamed output stays smooth. Set <code>scrollToLine</code> to scroll to and highlight a logical line once output arrived;
+    clicking a gutter number emits <code>lineClick</code>. Toggle <code>clearSignal</code> to reset the terminal. The host element needs a
+    height, for example via CSS.
+  </p>
+  <garuda-docs-code-example [html]="viewerHtml" [ts]="viewerTs" />
+
+  <h2>Live demo</h2>
+  <p>
+    Start the stream to see coloured lines append in real time. The viewer keeps the scroll position at the bottom while new output arrives;
+    on narrow screens the gutter hides and touch scrolling takes over.
+  </p>
+  <garuda-docs-log-stream-example />
+
+  <h2>Interactive terminal</h2>
+  <p>
+    Set <code>stdin</code> to enable keyboard input; keystrokes arrive through the <code>data</code> output, and the
+    <code>resize</code> output reports the new grid size after every re-fit. Together they drive a remote shell: forward
+    <code>data</code> to the PTY, feed its replies into <code>chunk</code>, and apply <code>resize</code> on the other side. Without
+    <code>stdin</code> the terminal stays read-only.
+  </p>
+  <garuda-docs-code-example [ts]="interactiveTs" />
+
+  <h2>Methods</h2>
+  <p>
+    The component exposes <code>findNext()</code> and <code>findPrevious()</code> for buffer search, <code>getText()</code> for the raw
+    buffer content, <code>downloadLog()</code> for a plain-text download, plus <code>focus()</code> and <code>clear()</code>.
+  </p>
+  <garuda-docs-code-example [ts]="methodsTs" />
+
+  <h2>Theming and options</h2>
+  <p>
+    The <code>theme</code> input takes a partial xterm theme layered over the Catppuccin Mocha default and applies changes live. The
+    <code>options</code> input passes extra xterm options such as <code>scrollback</code> or <code>fontSize</code>; it is read once when the
+    terminal is created.
+  </p>
+  <garuda-docs-code-example [ts]="themeTs" />
+
+  <h2>ResilientSseStream</h2>
+  <p>
+    <code>ResilientSseStream</code> wraps <code>EventSource</code> for live log endpoints. It reconnects with bounded backoff, re-opens
+    dropped streams when a backgrounded tab becomes visible again, and forwards named SSE events. The URL is rebuilt per attempt, so
+    consumers resume from their own byte offset.
+  </p>
+  <garuda-docs-code-example [ts]="streamTs" />
+
+  <h2>Customisation</h2>
+  <p>
+    The viewer reads <code>--garuda-log-*</code> custom properties and falls back to Catppuccin Mocha colours. Override them once per
+    application to match your theme.
+  </p>
+  <garuda-docs-code-example [scss]="customisationCss" />
+</div>

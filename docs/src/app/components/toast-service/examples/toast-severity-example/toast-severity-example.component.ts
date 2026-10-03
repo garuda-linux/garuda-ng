@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Button } from '@openng/optimus-ui/button';
-import { MessageToastService } from '@garudalinux/core';
+import { MessageToastService } from '@garudalinux/core/message-toast';
 
 @Component({
   selector: 'garuda-docs-toast-severity-example',
