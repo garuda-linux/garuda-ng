@@ -42,6 +42,7 @@
 - *(ui)* Core components created/updated for startv2 page auto creation from core - ([d58260f](https://github.com/garuda-linux/garuda-ng/commit/d58260f3119063761017053ca637b50095e7588c))
 - *(ui)* Issue #60 CardComponent pop for feature details - ([9bf96ac](https://github.com/garuda-linux/garuda-ng/commit/9bf96ac19f119835603794e05cc6d5f26bf4afa4))
 - *(ui)* Issue #60 CardComponent pop for feature details - ([2728b2a](https://github.com/garuda-linux/garuda-ng/commit/2728b2aa2095af275025b91f51392f49dccbbdbc))
+- *(ui)* Issue#60: CardComponent pop for feature details - ([a1f3b28](https://github.com/garuda-linux/garuda-ng/commit/a1f3b28f981e513f15f6f583a66d0bb67df18c65))
 
 ### 🐛 Bug Fixes
 
@@ -80,7 +81,6 @@
 - *(docs)* Bring a more interesting background - ([510c9b0](https://github.com/garuda-linux/garuda-ng/commit/510c9b0fa0ceaa520b4d37f73de93fbcf176fccb))
 - *(docs)* Add route transitions - ([8092146](https://github.com/garuda-linux/garuda-ng/commit/809214615bab04c17b47a8f5b969e4b3cc8937fa))
 - *(docs)* Add theming route with preview, fixup many design issues - ([7329b34](https://github.com/garuda-linux/garuda-ng/commit/7329b34e7cda1b3670f7d5b9e65ccf356ef904e3))
-- *(ui)* Issue#60: CardComponent pop for feature details - ([a1f3b28](https://github.com/garuda-linux/garuda-ng/commit/a1f3b28f981e513f15f6f583a66d0bb67df18c65))
 
 ### 🐛 Bug Fixes
 
