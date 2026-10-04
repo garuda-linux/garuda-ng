@@ -8,13 +8,11 @@ import {
   CardFeatureListProComponent,
   CardThumbnailDirective,
   CardTitleDirective,
-  FeatureData,
-  FeatureDetailPopupService,
-  NewsComponent,
-  NewsData,
-  NewsModel,
-  PopupService,
-} from '@garudalinux/core';
+} from '@garudalinux/core/card';
+import { FeatureData, NewsData, NewsModel } from '@garudalinux/core/models';
+import { FeatureDetailPopupService } from '@garudalinux/core/feature-detail';
+import { NewsComponent } from '@garudalinux/core/news';
+import { PopupService } from '@garudalinux/core/services';
 import { Button } from '@openng/optimus-ui/button';
 
 @Component({

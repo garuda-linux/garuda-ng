@@ -1,15 +1,9 @@
 import { Component } from '@angular/core';
-import {
-  CardComponent,
-  SmallCardModel,
-  NewsComponent,
-  NewsData,
-  NewsModel,
-  SearchComponent,
-  SearchModel,
-  JokesComponent,
-  JokesModel,
-} from '@garudalinux/core';
+import { CardComponent } from '@garudalinux/core/card';
+import { SmallCardModel, NewsData, NewsModel, SearchModel, JokesModel } from '@garudalinux/core/models';
+import { NewsComponent } from '@garudalinux/core/news';
+import { SearchComponent } from '@garudalinux/core/search';
+import { JokesComponent } from '@garudalinux/core/jokes';
 
 @Component({
   selector: 'garuda-docs-startv2.component',

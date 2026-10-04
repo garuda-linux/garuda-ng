@@ -29,6 +29,14 @@ export class ComponentsComponent implements OnInit, OnDestroy {
           label: 'Shell',
           routerLink: '/components/shell',
         },
+        {
+          label: 'Document Section',
+          routerLink: '/components/document-section',
+        },
+        {
+          label: 'Glass Surfaces',
+          routerLink: '/components/surfaces',
+        },
       ],
     },
     {
@@ -37,6 +45,23 @@ export class ComponentsComponent implements OnInit, OnDestroy {
         {
           label: 'Message Toast',
           routerLink: '/components/toast-service',
+        },
+      ],
+    },
+    {
+      label: 'Components',
+      items: [
+        {
+          label: 'Charts',
+          routerLink: '/components/charts',
+        },
+        {
+          label: 'Logs',
+          routerLink: '/components/logs',
+        },
+        {
+          label: 'Utilities',
+          routerLink: '/components/utilities',
         },
       ],
     },

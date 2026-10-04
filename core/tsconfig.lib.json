@@ -8,19 +8,19 @@
     "types": []
   },
   "exclude": [
-    "src/**/*.spec.ts",
+    "**/src/**/*.spec.ts",
     "src/test-setup.ts",
-    "src/**/*.test.ts",
+    "**/src/**/*.test.ts",
     "vite.config.ts",
     "vite.config.mts",
     "vitest.config.ts",
     "vitest.config.mts",
-    "src/**/*.test.tsx",
-    "src/**/*.spec.tsx",
-    "src/**/*.test.js",
-    "src/**/*.spec.js",
-    "src/**/*.test.jsx",
-    "src/**/*.spec.jsx"
+    "**/src/**/*.test.tsx",
+    "**/src/**/*.spec.tsx",
+    "**/src/**/*.test.js",
+    "**/src/**/*.spec.js",
+    "**/src/**/*.test.jsx",
+    "**/src/**/*.spec.jsx"
   ],
-  "include": ["src/**/*.ts"]
+  "include": ["**/src/**/*.ts"]
 }
