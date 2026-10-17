@@ -1,0 +1,22 @@
+:host {
+  display: block;
+  scroll-margin-top: 5rem;
+}
+
+.garuda-document-section__heading {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  padding: 0;
+  text-align: left;
+}
+
+.garuda-document-section__body {
+  hyphens: auto;
+  line-height: 1.6;
+  text-align: justify;
+  text-wrap: pretty;
+}

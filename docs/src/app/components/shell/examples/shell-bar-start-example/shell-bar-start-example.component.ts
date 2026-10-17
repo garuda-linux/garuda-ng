@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
-import { ShellBarStartDirective, ShellComponent } from '@garudalinux/core';
+import { ShellBarStartDirective, ShellComponent } from '@garudalinux/core/shell';
 import { MenuItem } from '@openng/optimus-ui/api';
 
 @Component({

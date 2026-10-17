@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
-import { provideGarudaNG } from '@garudalinux/core';
+import { provideGarudaNG } from '@garudalinux/core/config';
 import Aura from '@openng/optimus-ui-themes/aura';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHighlightOptions } from 'ngx-highlightjs';

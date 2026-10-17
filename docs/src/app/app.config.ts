@@ -1,8 +1,9 @@
 import { ApplicationConfig, inject, provideZonelessChangeDetection } from '@angular/core';
 import { provideRouter, Router, withViewTransitions } from '@angular/router';
 import { appRoutes } from './app.routes';
-import { FeatureDetailPopupService, provideGarudaNG } from '@garudalinux/core';
-import { CatppuccinAura } from '@garudalinux/themes/catppuccin';
+import { FeatureDetailPopupService } from '@garudalinux/core/feature-detail';
+import { provideGarudaNG } from '@garudalinux/core/config';
+import { CatppuccinAura } from '@garudalinux/themes/catppuccin/aura';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHighlightOptions } from 'ngx-highlightjs';
 import { DialogService } from '@openng/optimus-ui/dynamicdialog';

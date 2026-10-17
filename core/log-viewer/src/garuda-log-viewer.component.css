@@ -1,0 +1,88 @@
+/* Bundled so consumers need no global xterm styles; ng-packagr inlines it. */
+@import '@xterm/xterm/css/xterm.css';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+}
+
+.xterm-container {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid var(--garuda-log-border, #45475a);
+  border-radius: 0.75rem;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  overflow: hidden;
+  padding: 0.75rem;
+}
+
+:host ::ng-deep .xterm-viewport,
+:host ::ng-deep .xterm-scrollable-element,
+:host ::ng-deep .xterm-screen {
+  background: transparent !important;
+}
+
+:host ::ng-deep .xterm .xterm-viewport,
+:host ::ng-deep .xterm-scrollable-element {
+  -webkit-overflow-scrolling: touch !important;
+  pointer-events: auto !important;
+}
+
+:host ::ng-deep .xterm,
+:host ::ng-deep .xterm-screen,
+:host ::ng-deep .xterm .xterm-helper-textarea {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.terminal-gutter {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  width: auto;
+  min-width: 2.5rem;
+  margin-right: 1rem;
+  scrollbar-width: thin;
+}
+
+:host ::ng-deep .terminal-gutter .line-num {
+  border: none;
+  background: transparent;
+  color: var(--garuda-log-text, #cdd6f4);
+  font-family: inherit;
+  width: 100%;
+  text-align: center;
+  padding: 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+:host ::ng-deep .terminal-gutter .line-num:hover {
+  color: var(--garuda-log-accent, #cba6f7);
+}
+
+.terminal-host {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 640px) {
+  .xterm-container {
+    padding: 0.25rem !important;
+    touch-action: none !important;
+  }
+
+  .terminal-gutter {
+    display: none;
+  }
+}

@@ -1,0 +1,26 @@
+/*
+ * Glassmorphic surface treatment for PrimeNG containers and arbitrary cards.
+ * Import once from the app's global styles:
+ *   @import '@garudalinux/themes/styles/glass-surfaces.css';
+ * Tune per app through the --garuda-surface-* custom properties; they fall back
+ * to the active PrimeNG design tokens.
+ */
+
+.p-card,
+.p-panel,
+.p-tabs,
+.p-datatable,
+.garuda-surface {
+  border: 1px solid var(--garuda-surface-border-color, var(--p-panel-border-color, rgba(17, 17, 25, 0.9)));
+  border-radius: var(--garuda-surface-border-radius, var(--p-panel-border-radius, 12px));
+  backdrop-filter: blur(var(--garuda-surface-blur, 2px));
+  -webkit-backdrop-filter: blur(var(--garuda-surface-blur, 2px));
+  will-change: backdrop-filter;
+}
+
+/* Data tables hold more content and need the stronger frosted look. */
+.p-datatable {
+  background: var(--p-card-background);
+  backdrop-filter: blur(calc(var(--garuda-surface-blur, 2px) * 4));
+  -webkit-backdrop-filter: blur(calc(var(--garuda-surface-blur, 2px) * 4));
+}

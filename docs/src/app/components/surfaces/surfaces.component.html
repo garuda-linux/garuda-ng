@@ -1,0 +1,22 @@
+<div class="component-docs">
+  <h1>Glass Surfaces</h1>
+  <p>
+    The <code>glass-surfaces.css</code> stylesheet from <code>@garudalinux/themes</code> gives <code>p-card</code>, <code>p-panel</code>,
+    <code>p-tabs</code>, <code>p-datatable</code> and every <code>.garuda-surface</code> element the shared translucent border, radius and
+    backdrop-blur treatment. The examples below are live and use the stylesheet imported by this documentation app.
+  </p>
+
+  <garuda-docs-surfaces-example />
+
+  <h2>Installation</h2>
+  <p>Import the stylesheet once in the application's global styles.</p>
+  <garuda-docs-code-example [scss]="importScss" />
+
+  <h2>Usage</h2>
+  <p>PrimeNG containers are styled automatically; add the class for arbitrary boxes.</p>
+  <garuda-docs-code-example [html]="usageHtml" />
+
+  <h2>Customisation</h2>
+  <p>Every property is tunable through CSS custom properties with PrimeNG design token fallbacks.</p>
+  <garuda-docs-code-example [scss]="tuningScss" />
+</div>

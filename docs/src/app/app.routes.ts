@@ -1,7 +1,4 @@
 import { Route } from '@angular/router';
-import { ShellComponent } from './components/shell/shell.component';
-import { ToastServiceComponent } from './components/toast-service/toast-service.component';
-import { CardComponent } from './components/card/card.component';
 
 export const appRoutes: Route[] = [
   {
@@ -13,16 +10,36 @@ export const appRoutes: Route[] = [
     loadComponent: () => import('./components/components.component').then((m) => m.ComponentsComponent),
     children: [
       {
-        component: CardComponent,
+        loadComponent: () => import('./components/card/card.component').then((m) => m.CardComponent),
         path: 'card',
       },
       {
-        component: ShellComponent,
+        loadComponent: () => import('./components/shell/shell.component').then((m) => m.ShellComponent),
         path: 'shell',
       },
       {
-        component: ToastServiceComponent,
+        loadComponent: () => import('./components/toast-service/toast-service.component').then((m) => m.ToastServiceComponent),
         path: 'toast-service',
+      },
+      {
+        loadComponent: () => import('./components/document-section/document-section.component').then((m) => m.DocumentSectionComponentPage),
+        path: 'document-section',
+      },
+      {
+        loadComponent: () => import('./components/surfaces/surfaces.component').then((m) => m.SurfacesComponentPage),
+        path: 'surfaces',
+      },
+      {
+        loadComponent: () => import('./components/charts/charts.component').then((m) => m.ChartsComponent),
+        path: 'charts',
+      },
+      {
+        loadComponent: () => import('./components/utilities/utilities.component').then((m) => m.UtilitiesComponent),
+        path: 'utilities',
+      },
+      {
+        loadComponent: () => import('./components/log-viewer/logs.component').then((m) => m.LogsComponent),
+        path: 'logs',
       },
     ],
   },

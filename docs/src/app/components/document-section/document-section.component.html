@@ -1,0 +1,20 @@
+<div class="component-docs">
+  <h1>Document Section</h1>
+  <p>
+    <code>&lt;garuda-document-section&gt;</code> anchors a section of a long document such as docs or policies. The section id becomes the
+    DOM anchor for URL fragments, the heading is clickable and emits <code>sectionSelected</code>, and the projected body carries the shared
+    document typography.
+  </p>
+
+  <garuda-docs-document-section-example />
+
+  <h2>Usage</h2>
+  <garuda-docs-code-example [html]="html" [ts]="ts" />
+
+  <h2>Inputs and outputs</h2>
+  <ul>
+    <li><code>sectionId</code> (required) — becomes the host DOM id and the emitted value.</li>
+    <li><code>heading</code> (required) — rendered as the clickable section heading.</li>
+    <li><code>sectionSelected</code> — emitted with the section id when the heading is clicked.</li>
+  </ul>
+</div>

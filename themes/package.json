@@ -20,15 +20,17 @@
     "Nico Jensch <npm@dr460nf1r3.org>"
   ],
   "peerDependencies": {
-    "@analogjs/vite-plugin-angular": "~2.6.0",
-    "@analogjs/vitest-angular": "~2.6.0",
-    "@angular/compiler": "^22.0.0",
-    "@catppuccin/palette": "2.0.0-beta.1",
-    "@nx/vite": "^23.1.1",
-    "@openng/optimus-ui-themes": "^2.0.0-rc.0",
-    "vite": "^8.0.0"
+    "@analogjs/vite-plugin-angular": "^2.7.1",
+    "@analogjs/vitest-angular": "^2.7.1",
+    "@angular/compiler": "^22.1.4",
+    "@nx/vite": "^23.2.1",
+    "@openng/optimus-ui-themes": "^2.0.1",
+    "vite": "^8.2.2"
   },
   "main": "./src/index.ts",
   "dependencies": {},
-  "packageManager": "pnpm@11.20.0+sha512.9a6f330a95b66446ea088faf1521405a8a01f07fde7124cc9958dfed52d4bb436737e65b08f85f37b46fcba375092558ac51262b816844b22f63406ed166bfee"
+  "engines": {
+    "node": ">=24",
+    "pnpm": ">=12"
+  }
 }

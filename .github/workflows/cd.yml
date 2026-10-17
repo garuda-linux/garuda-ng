@@ -1,113 +1,65 @@
 ---
 name: 'CD'
+# Release by pushing a version tag (e.g. `2.1.0` or `2.1.0-rc.5`) on the commit to release.
+# The tagged commit is verified and published as-is: the version comes from the tag and is
+# only written into the package manifests inside CI, so nothing is committed back.
 on:
   push:
     tags:
-      - '**'
+      - '[0-9]+.[0-9]+.[0-9]+'
+      - '[0-9]+.[0-9]+.[0-9]+-*'
+concurrency:
+  group: cd-${{ github.ref }}
+  cancel-in-progress: false
 jobs:
-  changelog:
-    if: >-
-      !contains(github.ref, 'refs/tags/release/')
+  verify:
     runs-on: ubuntu-24.04
-    name: Generate and commit changelog
+    name: Verify release
     permissions:
-      contents: write
+      contents: read
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+      npm_tag: ${{ steps.version.outputs.npm_tag }}
     steps:
+      - name: Validate tag
+        id: version
+        run: |
+          VERSION='${{ github.ref_name }}'
+          if ! echo "$VERSION" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+(-(rc|beta|alpha)\.[0-9]+)?$'; then
+            echo "::error::Tag '$VERSION' is not a release version (X.Y.Z or X.Y.Z-rc|beta|alpha.N)."
+            exit 1
+          fi
+          # Prereleases go to their own dist-tag so `latest` only ever points at stable versions.
+          PRE=$(echo "$VERSION" | sed -nE 's/^[^-]+-([a-z]+)\..*$/\1/p')
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "npm_tag=${PRE:-latest}" >> "$GITHUB_OUTPUT"
+
       - name: Checkout
         uses: actions/checkout@v7
+
+      - uses: pnpm/setup@v1
         with:
-          fetch-depth: 0
-          persist-credentials: true
-          ref: ${{ github.ref_name }}
-          ssh-key: ${{ secrets.DEPLOY_KEY }}
+          runtime: node@26
+          cache: true
 
-      - name: Set git user info
-        run: |
-          git config user.name 'Temeraire'
-          git config user.email 'actions@chaotic.cx'
-
-      - name: Determine source branch
-        id: determine_branch
-        run: |
-          # Get the commit hash of the tag
-          TAG_COMMIT=$(git rev-list -n 1 ${{ github.ref_name }})
-          echo "Tag commit: $TAG_COMMIT"
-
-          # Check if this commit exists in main
-          if git merge-base --is-ancestor "$TAG_COMMIT" origin/main; then
-            echo "Commit is in main branch"
-            echo "target_branch=main" >> "$GITHUB_OUTPUT"
-          else
-            # Find which branch contains this commit
-            BRANCH=$(git branch -r --contains "$TAG_COMMIT" | grep -v '/HEAD' | head -1 | sed 's/.*origin\///')
-            if [ -z "$BRANCH" ]; then
-              echo "Could not determine source branch, defaulting to main"
-              echo "target_branch=main" >> "$GITHUB_OUTPUT"
-            else
-              echo "Found source branch: $BRANCH"
-              echo "target_branch=$BRANCH" >> "$GITHUB_OUTPUT"
-            fi
-          fi
-      - name: Checkout target branch
-        run: |
-          git checkout ${{ steps.determine_branch.outputs.target_branch }}
-
-      - name: Generate a changelog for the latest release
-        uses: orhun/git-cliff-action@v4
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
         with:
-          config: cliff.toml
-          args: -v --no-exec --github-repo ${{ github.repository }} --latest --strip header
-        env:
-          GITHUB_REPO: ${{ github.repository }}
-          OUTPUT: /tmp/CHANGES.md
+          extra-conf: |
+            accept-flake-config = true
+          diagnostic-endpoint: ''
 
-      - name: Generate a complete changelog
-        uses: orhun/git-cliff-action@v4
-        with:
-          config: cliff.toml
-          args: -v --no-exec --github-repo ${{ github.repository }}
-        env:
-          OUTPUT: CHANGELOG.md
+      - name: Nix cache
+        uses: DeterminateSystems/flakehub-cache-action@main
 
-      - name: Add changelog to commit
-        run: git add CHANGELOG.md
+      - name: Run linters via pre-commit
+        run: nix develop -c pre-commit run --all-files
 
-      - name: Install jq
-        run: |
-          sudo apt-get update
-          sudo apt-get -y install jq
-
-      - name: Update package.json's
-        run: |
-          JQ_VERSION=${{ github.ref_name }} jq '.version=env.JQ_VERSION' ./core/package.json > /tmp/package-core.json
-          JQ_VERSION=${{ github.ref_name }} jq '.version=env.JQ_VERSION' ./themes/package.json > /tmp/package-themes.json
-          mv /tmp/package-core.json ./core/package.json
-          mv /tmp/package-themes.json ./themes/package.json
-          git add ./core/package.json ./themes/package.json
-
-      - name: Commit changes
-        run: |
-          git commit -m "chore(core): bump version to ${{ github.ref_name }}"
-          git tag release/${{ github.ref_name }}
-
-      - name: Push changes
-        uses: ad-m/github-push-action@v1.3.0
-        with:
-          branch: ${{ steps.determine_branch.outputs.target_branch }}
-          ssh: true
-          tags: true
-
-      - name: Create release
-        uses: softprops/action-gh-release@v2
-        with:
-          body_path: /tmp/CHANGES.md
-          fail_on_unmatched_files: true
-          name: Release ${{ github.ref_name }}
-          tag_name: ${{ github.ref_name }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Lint, test and build
+        run: pnpm exec nx run-many --targets=lint,test,build --all
 
   publish:
-    if: contains(github.ref, 'refs/tags/release/')
+    needs: verify
     runs-on: ubuntu-24.04
     name: Publish to NPM
     permissions:
@@ -116,28 +68,35 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
-        with:
-          ref: ${{ github.ref_name }}
 
       - uses: pnpm/setup@v1
         with:
           runtime: node@26
           cache: true
 
+      - name: Set version from tag
+        env:
+          VERSION: ${{ needs.verify.outputs.version }}
+        run: |
+          for pkg in core themes; do
+            jq '.version = env.VERSION' "$pkg/package.json" > "$RUNNER_TEMP/package.json"
+            mv "$RUNNER_TEMP/package.json" "$pkg/package.json"
+          done
+
+      - name: Build
+        run: pnpm exec nx run-many --target=build --projects=core,themes
+
       - name: Publish to NPM
         env:
           NPM_CONFIG_PROVENANCE: true
+          NPM_TAG: ${{ needs.verify.outputs.npm_tag }}
         run: |
-          NPM_ARGS=()
-          echo "${{ github.ref_name }}" | grep -q 'rc' && NPM_ARGS+=(--tag rc)
-
-          # pnpm/setup's node doesn't ship npm; the runner's system npm (10.x)
-          # has no OIDC auto-auth, so run publish via the latest npm directly.
-          pnpx nx run core:build
-          pnpx --yes npm@latest publish ./dist/core "${NPM_ARGS[@]}" --loglevel verbose
-
-          pnpx nx run themes:build
-          pnpx --yes npm@latest publish ./dist/themes "${NPM_ARGS[@]}" --loglevel verbose
+          # pnpm/setup's node doesn't ship npm and the runner's npm has no OIDC auto-auth, so use
+          # the latest npm. Publish from inside each package: npm rejects the root package.json's
+          # devEngines.packageManager (pnpm) with EBADDEVENGINES.
+          for pkg in core themes; do
+            (cd "dist/$pkg" && pnpx --yes npm@latest publish --tag "$NPM_TAG" --loglevel verbose)
+          done
 
       - name: Upload npm debug log
         if: failure()
@@ -145,3 +104,32 @@ jobs:
         with:
           name: npm-debug-log
           path: ~/.npm/_logs/*.log
+
+  release:
+    needs: [verify, publish]
+    runs-on: ubuntu-24.04
+    name: Create GitHub release
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Generate release notes
+        uses: orhun/git-cliff-action@v4
+        with:
+          config: cliff.toml
+          args: -v --latest --strip header
+        env:
+          GITHUB_REPO: ${{ github.repository }}
+          OUTPUT: ${{ runner.temp }}/CHANGES.md
+
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          body_path: ${{ runner.temp }}/CHANGES.md
+          name: Release ${{ github.ref_name }}
+          tag_name: ${{ github.ref_name }}
+          prerelease: ${{ needs.verify.outputs.npm_tag != 'latest' }}

@@ -4,7 +4,7 @@ import '@analogjs/vitest-angular/setup-snapshots';
 import { setupTestBed } from '@analogjs/vitest-angular/setup-testbed';
 import { provideHighlightOptions } from 'ngx-highlightjs';
 import { HttpClient } from '@angular/common/http';
-import { provideGarudaNG } from '@garudalinux/core';
+import { provideGarudaNG } from '@garudalinux/core/config';
 import { of } from 'rxjs';
 import { DialogService } from '@openng/optimus-ui/dynamicdialog';
 

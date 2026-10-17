@@ -27,6 +27,12 @@
     </p>
     <p>Example:</p>
     <garuda-docs-code-example [ts]="themeSetup" tabId="1"> </garuda-docs-code-example>
+    <p>
+      Every preset lives in its own entry point (for example <code>&#64;garudalinux/themes/catppuccin/aura</code>), so an app only ships the
+      preset it imports. To switch themes at runtime, use the lazy loaders from <code>&#64;garudalinux/themes</code>. Each preset is fetched
+      in its own small chunk the first time it is requested:
+    </p>
+    <garuda-docs-code-example [ts]="lazyThemeSetup" tabId="1"> </garuda-docs-code-example>
   </section>
 
   <section class="docs-section">

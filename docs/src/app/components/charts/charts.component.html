@@ -1,0 +1,48 @@
+<div class="component-docs">
+  <h1>Charts</h1>
+  <p>
+    The charts module wraps <a href="https://www.chartjs.org/" rel="noopener" target="_blank">chart.js</a> with Catppuccin-themed helpers, a
+    standalone chart component and custom styling plugins. It builds on the <code>chart.js</code> peer dependency, so no extra setup is
+    needed.
+  </p>
+
+  <h2>GarudaChart</h2>
+  <p>
+    <code>&lt;garuda-chart&gt;</code> renders any chart.js configuration and re-renders whenever the <code>config</code> signal changes. All
+    chart.js controllers are registered, so every chart type works out of the box. Extra plugins are passed through the
+    <code>plugins</code> input; the canvas height is controlled with the <code>--garuda-chart-height</code> custom property.
+  </p>
+  <garuda-docs-code-example [html]="chartHtml" [ts]="chartTs" />
+
+  <h2>Styled line charts</h2>
+  <p>
+    <code>garudaLineChartOptions()</code> returns ready-made line chart options: index-mode hover, a floating card tooltip instead of the
+    default one (prefix values with <code>tooltipPrefix</code>), smooth lines with invisible points, borderless axes and K-formatted y
+    ticks. Combine it with <code>hoverCrosshairPlugin()</code> for the dashed hover line and <code>lineGradientFill()</code> for gradient
+    series backgrounds. Hover the chart to see the crosshair and the custom tooltip.
+  </p>
+  <garuda-docs-downloads-chart-example />
+
+  <h2>Theme helpers</h2>
+  <p>
+    For charts styled by hand, the theme helpers provide the Catppuccin Mocha look:
+    <code>mochaAxisChartOptions()</code>, <code>mochaPieChartOptions()</code>, <code>mochaLegendLabels()</code>,
+    <code>mochaScales()</code> and the <code>CATPPUCCIN_FLAVOURS</code> series palette.
+  </p>
+  <garuda-docs-builds-per-day-example />
+  <garuda-docs-code-example [ts]="themeTs" />
+
+  <h2>Grouped time series</h2>
+  <p>
+    <code>groupOverTimeChart()</code> turns <code>&#123; day, group, count &#125;</code> rows into a multi-series line dataset. It keeps the
+    top 10 groups by total count and zero-fills missing days so every series spans the full axis.
+  </p>
+  <garuda-docs-code-example [ts]="groupTs" />
+
+  <h2>Customisation</h2>
+  <p>
+    All styled helpers read <code>--garuda-chart-*</code> custom properties and fall back to Catppuccin Mocha colours. Override them once
+    per application to match your theme.
+  </p>
+  <garuda-docs-code-example [scss]="customisationCss" />
+</div>

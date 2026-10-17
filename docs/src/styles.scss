@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import '@openng/icons/openng-icons.css';
 @import '@catppuccin/highlightjs/css/catppuccin-mocha.css';
+/* The log-viewer example compiles @garudalinux/core from source; dev serve does not
+   process the library's component-level @import, so load the xterm base styles here too. */
+@import '@xterm/xterm/css/xterm.css';
 
 body.is-transitioning .route-container {
   view-transition-name: main-content;
@@ -129,3 +132,7 @@ garuda-docs-code-example {
     font-family: InterVariable, sans-serif;
   }
 }
+
+/* Live example support: the shared glass surface treatment from @garudalinux/themes.
+   Consumer apps import it as '@garudalinux/themes/styles/glass-surfaces.css'. */
+@import '../../themes/src/styles/glass-surfaces.css';

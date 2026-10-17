@@ -1,13 +1,8 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import {
-  Footer,
-  FooterModel,
-  ShellBarEndDirective,
-  ShellBarLinkDirective,
-  ShellBarStartDirective,
-  ShellComponent,
-} from '@garudalinux/core';
+import { Footer } from '@garudalinux/core/footer';
+import { FooterModel } from '@garudalinux/core/models';
+import { ShellBarEndDirective, ShellBarLinkDirective, ShellBarStartDirective, ShellComponent } from '@garudalinux/core/shell';
 import { MenuItem } from '@openng/optimus-ui/api';
 import { NgOptimizedImage } from '@angular/common';
 import { Button } from '@openng/optimus-ui/button';

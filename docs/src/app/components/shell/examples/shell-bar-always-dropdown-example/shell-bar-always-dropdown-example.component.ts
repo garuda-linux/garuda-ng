@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ShellComponent } from '@garudalinux/core';
+import { ShellComponent } from '@garudalinux/core/shell';
 import { MenuItem } from '@openng/optimus-ui/api';
 
 @Component({

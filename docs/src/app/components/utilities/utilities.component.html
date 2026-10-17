@@ -1,0 +1,26 @@
+<div class="component-docs">
+  <h1>Utilities</h1>
+  <p>Formatting pipes, table pagination state, loading tracking and small helpers shared by the Garuda Linux web projects.</p>
+
+  <h2>Formatting pipes</h2>
+  <p>Standalone pipes for the usual byte, duration, CPU-time, date and URL formatting needs.</p>
+  <garuda-docs-code-example [ts]="pipesTs" />
+
+  <h2>Lazy table pagination</h2>
+  <p>
+    <code>createLazyTablePagination()</code> holds the page and page-size signals of a lazy PrimeNG table and derives the page from
+    paginator events. <code>resetPage()</code> guards against out-of-range pages after filter changes.
+  </p>
+  <garuda-docs-code-example [ts]="paginationTs" />
+
+  <h2>Loading tracking</h2>
+  <p>
+    The <code>loadingInterceptor</code> counts in-flight HTTP requests and exposes a single <code>isLoading</code> signal through
+    <code>LoadingService</code> for progress bars and skeletons.
+  </p>
+  <garuda-docs-code-example [ts]="loadingTs" />
+
+  <h2>API error messages</h2>
+  <p><code>backendErrorMessage()</code> extracts the message of an HTTP error response and falls back to a given default.</p>
+  <garuda-docs-code-example [ts]="errorsTs" />
+</div>
